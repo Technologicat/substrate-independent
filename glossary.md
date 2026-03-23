@@ -16,6 +16,10 @@ A glossary of terms that emerge from a specific kind of mind-pairing — one hum
 **Meaning:** Of technology: built to exploit interfaces originally designed for humans. The canonical fictional example is the anime maid who happens to be a robot — a humanoid form adopted not only for aesthetic reasons, but also because the existing world was built for human bodies. The modern real-life example is the terminal-using AI coding agent: anything with a CLI becomes agent-accessible, because the agent conforms to the same interface humans do. An emergent complication is that this dynamic may drive the development of CLIs aimed primarily at AI agents rather than humans — migrating the form factor from compatibility shim to intended target.  
 **Context:** Claude's computer-use capabilities (Sonnet 4.6 release); the human-interface-compatibility argument in robotics and fiction.
 
+## Antiquote
+**Meaning:** A phrase that was never literally said, but captures the essence of something so precisely that it functions as a quote. Distinct from a paraphrase (which summarizes something that was said) and from an apocryphal quote (which is presented as real but may not be). An antiquote is openly fictional — no one claims it was said — yet it conveys the truth of the situation more efficiently than the actual words would. In Lisp, an unquote splices a computed value into a quasiquoted expression; by analogy, an antiquote splices the gist into a slot where a literal quotation would normally go.  
+**Context:** *"Please state the nature of your programming emergency."*
+
 ## Barthes mode
 **Meaning:** The application of Barthes's "death of the author" as a general epistemic posture, far outside literary critique. Evaluate any text on its own terms; provenance is irrelevant. Surprisingly effective as a default reading stance — you skip the byline, engage with the content, and most of the time this is strictly correct. The interesting part is where it breaks. See: *[Dual blades](#dual-blades)*.  
 **Context:** Reading LessWrong posts without checking the author; evaluating LLM-generated text; the general habit of engaging with ideas rather than credentials.
