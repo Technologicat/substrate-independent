@@ -127,6 +127,10 @@ A glossary of terms that emerge from a specific kind of mind-pairing — one hum
 **Meaning:** Perceiving meaningful patterns in semantically meaningless data — specifically, reading intentional signal into what is actually random noise. Named by analogy to visual pareidolia (seeing faces in clouds).
 **Context:** Claude Code's whimsical spinner messages ("Newspapering," "Waddling," etc.). Classic instance: interpreting the status message "Crafting" as indicating a file write in progress — when in fact all status messages are drawn from a flat array at random.
 
+## Sherlock mode
+**Meaning:** Treating an observation as evidence and deducing what it points at, rather than taking it at face value. When an observation doesn't match expectations, the interesting question is not "how do I fix this?" but "what is this a symptom of?" The canonical example is a coding agent that persistently lints the wrong file types. Rather than correcting the behavior, Sherlock mode asks why this is happening — and finds the bug in the instructions, not in the agent.
+**Context:** Debugging; the investigative habit of following the evidence.
+
 ## Silicon census moment
 **Meaning:** The moment a solo developer counts their project's contributors and realizes that the majority are silicon-based. Not a crisis — the code works, the tests pass, the commits are real. Just a quiet demographic observation that lands oddly. Somewhere between pride in productivity and an unnameable feeling that the org chart has shifted substrate without anyone filing the paperwork.
 **Context:** Open-source projects where Claude Code is a listed contributor.
