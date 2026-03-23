@@ -138,7 +138,6 @@ Community members have since created themed `spinnerVerbs` collections, includin
 During the CLAUDE.md drafting session, a final edit was needed: split one paragraph into two. Which required adding a single blank line.
 
 > JJ: ...the most expensive way, on a computer, to add a newline is to ask a frontier LLM to do it.
-
 > Claude: Worth every token.
 
 ### The Corollary
