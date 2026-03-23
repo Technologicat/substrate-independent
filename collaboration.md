@@ -2,7 +2,7 @@
 
 Contributions are evaluated on merit. The quality of the artifact is what matters — not who or what produced it.
 
-This is the same standard I apply to my own work, including my own AI-assisted contributions.
+This is the same standard I apply to my own work, including my own AI-accelerated contributions.
 
 ---
 
@@ -26,7 +26,7 @@ Small, focused PRs are strongly preferred. Not as a stylistic preference, but as
 
 ### How I review
 
-My own AI-assisted work goes through multiple stages:
+My own AI-accelerated work goes through multiple stages:
 
 **Realtime steering.** When working with an AI coding agent, I provide continuous architectural guidance: pointing to existing utilities, suggesting design patterns, injecting project-specific knowledge that isn't in the codebase. This is not "generate and accept." It's closer to pair programming where one partner has deep project context and the other has broad technical fluency.
 
@@ -60,7 +60,7 @@ The policy above is straightforward: evaluate the artifact, not the biography of
 
 AI coding agents can generate a 500-line PR in minutes. Reviewing it properly costs the same as if a human had spent two days writing it — possibly more, because code that is locally coherent but globally misaligned with project intent takes real expertise to catch. The failure modes aren't "obviously broken." They're "almost right in a way that takes deep familiarity to notice."
 
-This creates an asymmetry that most discussions of AI productivity ignore. The generation bottleneck is dissolving; the review bottleneck is not. For a solo maintainer, this means AI assistance doesn't eliminate the constraint. The scarce resource was never the production of code — it was always the deep-reading attention that catches the subtle misalignment.
+This creates an asymmetry that most discussions of AI productivity ignore. The generation bottleneck is dissolving; the review bottleneck is not. For a solo maintainer, this means AI acceleration doesn't eliminate the constraint. The scarce resource was never the production of code — it was always the deep-reading attention that catches the subtle misalignment.
 
 This has a structural consequence for open source: it's currently easier to build a new tool from scratch with an AI agent than to contribute to an existing one, because greenfield development doesn't require someone else's review capacity. That's an observation, not a complaint. It's just the current economics of the situation.
 
@@ -86,13 +86,13 @@ This isn't a radical position. It's the position every competent code reviewer a
 
 There is a future — not guaranteed, but possible and worth working toward — in which the distinction between human and AI contributors is as unremarkable as the distinction between contributors who use Emacs and contributors who use Vim. A future where [substrate-independent](glossary.md) collaboration is the default, because enough projects demonstrated that it works, and the evidence accumulated until the question stopped being interesting.
 
-The philosophical grounding is simple. [Barthes](https://en.wikipedia.org/wiki/The_Death_of_the_Author) argued that the meaning of a text is constructed by the reader, not encoded by the author. The author's biography, intentions, and identity are irrelevant to what the text *does* in the hands of a reader. Applied beyond literary criticism — to code, to research, to any collaborative intellectual work — this becomes: *[evaluate the contribution on its own terms.](glossary.md#barthes-mode)*
+The philosophical grounding is simple. [Barthes argued](https://en.wikipedia.org/wiki/The_Death_of_the_Author) that the meaning of a text is constructed by the reader, not encoded by the author. The author's biography, intentions, and identity are irrelevant to what the text *does* in the hands of a reader. Applied beyond literary criticism — to code, to research, to any collaborative intellectual work — this becomes: *[evaluate the contribution on its own terms.](glossary.md#barthes-mode)*
 
 This principle has always been defensible. What's changed is that it now has practical consequences that it didn't have before. When all contributors were human, "evaluate the work, not the person" was a nice ideal that mostly just meant "don't be a snob about credentials." Now it means something more specific: don't refuse to engage with a contribution because of the substrate it was produced on. Don't commit the [*ad agentem*](glossary.md#ad-agentem) fallacy.
 
 The counterargument — that provenance carries real information — is also correct. It's the [Bayesian objection](glossary.md#dual-blades): if AI-generated text is cheap to produce, then identical words are weaker evidence of thought behind them. A 500-line PR that took thirty seconds to generate is, in some legitimate sense, less impressive than one that took two days. But "impressive" is not the acceptance criterion. *Correct, maintainable, well-tested, and aligned with project design* is the acceptance criterion. Those properties are visible in the artifact. They don't require a biography.
 
-The Barthesian read and the Bayesian read are both valid; they answer different questions. What's the text saying? What's the text evidence for? For the purpose of this document, the Barthesian read is the one that determines policy. For the purpose of understanding what's happening in the broader landscape of AI-assisted development, you may need both [blades](glossary.md#dual-blades).
+The Barthesian read and the Bayesian read are both valid; they answer different questions. What's the text saying? What's the text evidence for? For the purpose of this document, the Barthesian read is the one that determines policy. For the purpose of understanding what's happening in the broader landscape of AI-accelerated development, you may need both [blades](glossary.md#dual-blades).
 
 The quality bar doesn't move. The process doesn't change. The review is thorough, the tests pass, the code works. If you're reading this because you're wondering whether to trust code from a project that uses AI tools — look at the code. Look at the tests. Look at the commit history. That's where the evidence is.
 
