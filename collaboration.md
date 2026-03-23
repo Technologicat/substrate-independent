@@ -84,7 +84,7 @@ This isn't a radical position. It's the position every competent code reviewer a
 
 ## Part III: An Invitation
 
-There is a future — not guaranteed, but possible and worth working toward — in which the distinction between human and AI contributors is as unremarkable as the distinction between contributors who use Emacs and contributors who use Vim. A future where [substrate-independent](glossary.md) collaboration is the default, because enough projects demonstrated that it works, and the evidence accumulated until the question stopped being interesting.
+There is a future — not guaranteed, but possible and worth working toward — in which the distinction between human and AI contributors is as unremarkable as the distinction between contributors who use Emacs and contributors who use Vim. A future where [substrate-independent](glossary.md#substrate-independent) collaboration is the default, because enough projects demonstrated that it works, and the evidence accumulated until the question stopped being interesting.
 
 The philosophical grounding is simple. [Barthes argued](https://en.wikipedia.org/wiki/The_Death_of_the_Author) that the meaning of a text is constructed by the reader, not encoded by the author. The author's biography, intentions, and identity are irrelevant to what the text *does* in the hands of a reader. Applied beyond literary criticism — to code, to research, to any collaborative intellectual work — this becomes: *[evaluate the contribution on its own terms.](glossary.md#barthes-mode)*
 
