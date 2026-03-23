@@ -125,7 +125,7 @@ Early in the CC experience, a hypothesis emerged: the status message "Crafting" 
 
 Investigation confirmed: no. All status messages ("Newspapering", "Waddling", "Crafting", "Honking", "Noodling", "Reticulating", "Schlepping", ...) are drawn from a single hardcoded array with no semantic tie to what CC is actually doing. One is picked at random.
 
-The hypothesis was semantic pareidolia — finding signal in charming noise.
+The hypothesis was [semantic pareidolia](glossary.md#semantic-pareidolia) — finding signal in charming noise.
 
 *(The Sims' "Reticulating splines" is probably the ur-example of this genre. Claude Code's "Reticulating" is almost certainly a nod to it.)*
 
