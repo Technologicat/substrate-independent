@@ -238,7 +238,7 @@ Observations from the mcpyrate 4.0.0 / unpythonic 2.0.0 / Pyan3 2.2.0 release sp
 
 CC kept trying to lint `.md` files. After being told to stop, it would update its memory and promise not to do it again. Next session, same thing.
 
-> JJ: *esc* Please don't lint `.md` files.  
+> JJ: \*esc\* Please don't lint `.md` files.  
 > CC: \*whirr\* ...there, edited memory, won't happen again. This time for sure.  
 > JJ: Wait — the fact that you're *constantly* trying to lint `.md` files is trying to tell us something. Is there a mistake in the linting instructions?  
 > CC: Sure. The instructions say to lint all changed files. No mention of `.py`.  
