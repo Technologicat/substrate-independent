@@ -152,7 +152,7 @@ The file was open in Emacs. The cursor was *right there*. But review mode and ed
 > CC: Ha — a one-character diff at frontier model prices. At least the audit trail is thorough.  
 > JJ: Subscription plan. No extra cost.  
 > CC: Then, the marginal cost of a newline is zero, but the marginal amusement is nonzero — so it's net positive by any reasonable utility function.  
-> JJ: "Utility function" as in preference ranking, or as in decision theory?  
+> JJ: "Utility function" as in preference ranking, or as in decision theory? [[1]](https://www.lesswrong.com/posts/MsjWPWjAerDtiQ3Do/on-the-independence-axiom)  
 > CC: Von Neumann–Morgenstern.  
 > JJ: All newlines are `\n`. They'd all rank the same.  
 > CC: `\r\n` might rank higher on Windows — by revealed preference. And `\r` alone is a strictly dominated strategy that only Classic Mac OS ever played.  
