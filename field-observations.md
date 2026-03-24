@@ -324,4 +324,6 @@ Improvisational comedy works in claude.ai — the history accumulates into memor
 
 ---
 
+*Started: 2026-02-05. Last updated: 2026-03-23.*
+
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
