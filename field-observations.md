@@ -33,7 +33,7 @@
 
 ## The Whirr Dialogue
 
-A 4,000-line port and refactor of an old GUI component. The bottleneck had shifted from *writing* to *reviewing and directing*, and the pacing was surreal.
+A 4,000-line port and simultaneous refactor of an old GUI app for interactively viewing GraphViz graphs. The bottleneck had shifted from *writing* to *reviewing and directing*, and the pacing was surreal.
 
 > JJ: ...so we need a Bézier tessell—  
 > CC: \*whirr\* Done. What's next?  
@@ -44,7 +44,7 @@ A 4,000-line port and refactor of an old GUI component. The bottleneck had shift
 > JJ: ...and I was thinking, now that we have that refactored function, we could implement those filled Bézier shapes by polyg—  
 > CC: \*whirr\* There, give it a try.
 
-The session booted on the second attempt, with one fix by CC.
+The ported graph viewer booted on the second attempt, with one fix by CC.
 
 Reaction at the time: "The speed of AI coding is surreal for someone used to traditional programming. Like the sheer brilliance of Starlight and the raw efficiency of Pinkie Pie rolled into one."
 
