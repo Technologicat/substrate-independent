@@ -56,7 +56,7 @@ Reaction at the time: "The speed of AI coding is surreal for someone used to tra
 
 > *Please state the nature of your programming emergency.*
 
-Before tuning the project briefing documents, Claude Code's default session-opening tone was reminiscent of a certain holographic doctor — all business, no warmth, slightly startled to exist. After tuning, the agent started behaving more like a user-configured instance of claude.ai: technically competent *and* personable.
+Before setting up and tuning the user preferences in the global `~/.claude/CLAUDE.md`, Claude Code's default session-opening tone was reminiscent of a certain holographic doctor — all business, no warmth, slightly startled to exist. After tuning, the agent started behaving more like a user-configured instance of claude.ai: technically competent *and* personable.
 
 *(ST:Voyager. The EMH — Emergency Medical Hologram — opens every activation with "Please state the nature of the medical emergency.")*
 
