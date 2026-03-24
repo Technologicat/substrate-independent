@@ -11,9 +11,9 @@
 - [The Whirr Dialogue](#the-whirr-dialogue)
 - [The EMH](#the-emh)
 - [The Flow State](#the-flow-state)
+- [The `git add -p` Lament](#the-git-add--p-lament)
 - [The Argparse Defense](#the-argparse-defense)
 - [Specifically Told Not To, Did It Anyway](#specifically-told-not-to-did-it-anyway)
-- [The `git add -p` Lament](#the-git-add--p-lament)
 - [Semantic Pareidolia at the Spinner](#semantic-pareidolia-at-the-spinner)
 - [The Most Expensive Newline](#the-most-expensive-newline)
 - [A Day's Work in Thirteen Minutes](#a-days-work-in-thirteen-minutes)
@@ -74,6 +74,16 @@ Convergent behavior, or imitation of patterns in training data? Probably both. E
 
 ---
 
+## The `git add -p` Lament
+
+When reconstructing the clean changesets, CC lamented that patch mode in `git add` requires interactive mode, which it wasn't able to use.
+
+The workaround: copy files into `/tmp` and reconstruct clean changesets manually — doing by hand what `git add -p` would have done interactively.
+
+The fact that it *lamented* the limitation was noted.
+
+---
+
 ## The Argparse Defense
 
 During a CLI tool release:
@@ -106,16 +116,6 @@ return docstring_node.value
 ```
 
 CC's first pass ignored this and wrote `return body[0].value.value`. It took a separate request to get what had been in the instructions all along.
-
----
-
-## The `git add -p` Lament
-
-When reconstructing the clean changesets, CC lamented that patch mode in `git add` requires interactive mode, which it wasn't able to use.
-
-The workaround: copy files into `/tmp` and reconstruct clean changesets manually — doing by hand what `git add -p` would have done interactively.
-
-The fact that it *lamented* the limitation was noted.
 
 ---
 
