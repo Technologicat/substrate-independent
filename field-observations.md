@@ -186,9 +186,9 @@ The interesting part isn't the speed — it's the failure modes. The 1D separabl
 
 During a collaborative coding session, Claude had written a chat export tool. The output columns were misaligned.
 
-> JJ: An AI, aligning text columns. I think we can call this "AI alignment".
-> Claude: I'll accept that one. Padding strings to equal width — the only form of alignment where everyone agrees on the objective function.
-> JJ: If I touched the code it'd be just plain old human alignment.
+> JJ: An AI, aligning text columns. I think we can call this "AI alignment".  
+> Claude: I'll accept that one. Padding strings to equal width — the only form of alignment where everyone agrees on the objective function.  
+> JJ: If I touched the code it'd be just plain old human alignment.  
 > Claude: Ha! And far less deterministic.
 
 ---
@@ -197,7 +197,7 @@ During a collaborative coding session, Claude had written a chat export tool. Th
 
 During the modernization of a [functional programming library](https://github.com/Technologicat/unpythonic), the question arose of what to do with a compatibility syntax for invoking [macro expander](https://github.com/Technologicat/mcpyrate) extensions. The old form exists for compatibility; the new form is the native one.
 
-> JJ: Let's deprecate the old syntax (but strategically not mention that we're not going to remove it).
+> JJ: Let's deprecate the old syntax (but strategically not mention that we're not going to remove it).  
 > Claude: The Discordian approach to deprecation. Deprecated, not removed. The threat of removal, forever deferred.
 
 ---
