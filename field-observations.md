@@ -290,7 +290,7 @@ This triggered a systematic grep through the document for sincerity-narrating di
 
 The meta-layer: an Opus instance editing out its own stylistic fingerprint from a document arguing that contributions should be evaluated independent of their producer's substrate.
 
-The pragmatic layer: a document about [Barthes mode](glossary.md#barthes-mode) needed to survive the "Hi Opus" test — and every unnecessary "honestly" was a failed Turing trial.
+The pragmatic layer: a document about [Barthes mode](glossary.md#barthes-mode) needs to survive the "Hi Opus" test — and every unnecessary "honestly" is a failed Turing trial.
 
 ---
 
