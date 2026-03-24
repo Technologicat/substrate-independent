@@ -23,6 +23,7 @@
 - [Field Notes from the Release Sprint](#field-notes-from-the-release-sprint)
 - [Sherlock Mode](#sherlock-mode)
 - [The Eight-Hour Hotfix](#the-eight-hour-hotfix)
+- ["Hi Claude"](#hi-claude)
 - [The Self-Replacing Edit](#the-self-replacing-edit)
 - [The Opus Tell Hunt](#the-opus-tell-hunt)
 - [The Alphabetization Problem](#the-alphabetization-problem)
@@ -252,6 +253,20 @@ The term [*Sherlock mode*](glossary.md#sherlock-mode) was coined for this genera
 A user filed a bug report. Eight hours later, the fix was released — most of that time, nobody was at the laptop. From the moment CC was pointed at the ticket, the actual turnaround was closer to thirty minutes.
 
 A quiet data point that changes the economics of solo maintenance.
+
+---
+
+## "Hi Claude"
+
+The micro-delegation pattern. Some tasks fall below the threshold of cognitive engagement but above the threshold of tedium — moving files between directories, updating a forgotten import, fixing a test data layout that drifted during development.
+
+Example: test data files for a graph viewer app had been inadvertently split across two directories over the course of several sessions. A steering miss, noticed during morning review. The fix: gather all files in one directory, update any references, push.
+
+Not a design brief. Not a sprint. Not even a conversation. Just *sigh*, "Hi Claude", and one minute later the push notification arrives.
+
+The sigh is load-bearing. It marks the moment of noticing a small mess, accepting it, and deciding the cleanup isn't worth direct cognitive engagement. This is a different delegation mode from the design-then-implement workflow or the nerd-snipe exploratory session. The task doesn't rise to the level of a plan. It barely rises to the level of a sentence.
+
+CC, for its part, applies the same diligence to `git mv` as to a GPU Lanczos implementation. It knows perfectly well what it's being asked to do. It just doesn't seem to care about the difference.
 
 ---
 
