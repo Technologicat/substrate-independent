@@ -318,7 +318,7 @@ Whether that says more about the human or about the training data is left as an 
 
 ## The Ephemeral Stage
 
-> Regrettably, less chance for comedy theater in ephemeral CC sessions.
+> *Regrettably, less chance for comedy theater in ephemeral CC sessions.*
 
 Improvisational comedy works in claude.ai — the history accumulates into memory, callbacks land, running gags build momentum. In CC, the session is ephemeral. The context gets zapped, and the joke goes with it.
 
