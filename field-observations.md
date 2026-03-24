@@ -260,7 +260,7 @@ A quiet data point that changes the economics of solo maintenance.
 
 The micro-delegation pattern. Some tasks fall below the threshold of cognitive engagement but above the threshold of tedium — moving files between directories, updating a forgotten import, fixing a test data layout that drifted during development.
 
-Example: test data files for a graph viewer app had been inadvertently split across two directories over the course of several sessions. A steering miss, noticed during morning review. The fix: gather all files in one directory, update any references, push.
+Test data files for a graph viewer app had been inadvertently split across two directories over the course of several sessions. A steering miss, noticed during morning review. The fix: gather all files in one directory, update any references, push.
 
 Not a design brief. Not a sprint. Not even a conversation. Just *sigh*, "Hi Claude", and one minute later the push notification arrives.
 
