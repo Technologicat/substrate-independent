@@ -24,6 +24,11 @@
 - [Sherlock Mode](#sherlock-mode)
 - [The Eight-Hour Hotfix](#the-eight-hour-hotfix)
 - ["Hi Claude"](#hi-claude)
+- [The Lookup Cache](#the-lookup-cache)
+- [Three Halves of the Internet](#three-halves-of-the-internet)
+- [The TOML Table Split](#the-toml-table-split)
+- [The Sysadmin Pair](#the-sysadmin-pair)
+- [PEP 668 Surprise](#pep-668-surprise)
 - [The Self-Replacing Edit](#the-self-replacing-edit)
 - [The Opus Tell Hunt](#the-opus-tell-hunt)
 - [The Alphabetization Problem](#the-alphabetization-problem)
@@ -267,6 +272,103 @@ Not a design brief. Not a sprint. Not even a conversation. Just *sigh*, "Hi Clau
 The sigh is load-bearing. It marks the moment of noticing a small mess, accepting it, and deciding the cleanup isn't worth direct cognitive engagement. This is a different delegation mode from the design-then-implement workflow or the nerd-snipe exploratory session. The task doesn't rise to the level of a plan. It barely rises to the level of a sentence.
 
 CC, for its part, applies the same diligence to `git mv` as to a GPU Lanczos implementation. It knows perfectly well what it's being asked to do. It just doesn't seem to care about the difference.
+
+---
+
+## The Lookup Cache
+
+New work laptop, bare install. Three and a half hours from zero to fully operational dev environment.
+
+CC's role was different from the usual coding sessions. Not designing, not implementing, not refactoring. Instead: *remembering*.
+
+> JJ: Let's install gh. How was the install process again?  
+> CC: *whirr*
+
+> JJ: How to set up openssh-server and enable key-based login?  
+> CC: *whirr*
+
+> JJ: Spacemacs — who was the author? I need the repo name.  
+> CC: syl20bnr.
+
+> JJ: The mcpyrate IPython extension — I need to load it in the config. Yes, it's my own library, but it's another part of the config that hasn't been touched in years.  
+> CC: `c.InteractiveShellApp.extensions = ["mcpyrate.repl.iconsole"]`
+
+None of these required reasoning. They required *recall* — of commands, repo names, config incantations, the kind of procedural knowledge that accumulates over years and evaporates the moment you need it on a fresh machine.
+
+The human contribution was knowing *what* needed doing. CC's contribution was knowing *how* each thing was done last time. The bottleneck was neither: it was typing sudo passwords and waiting for downloads.
+
+---
+
+## Three Halves of the Internet
+
+> *336 packages from MELPA downloading...*  
+>
+> JJ: I suppose I can now let TeX Live install in the background. That one will pull the other half of the internet. And my Raven project will pull in the third half, with its ~30 GB of ML models and deps.  
+> CC: That's a lot of halves of the internet!  
+> JJ: Now, which `texlive` shall we install? "A decent selection of the TeX Live packages"... lol? *picks that one*  
+> CC: You can always `tlmgr install` later.
+
+Later:
+
+> JJ: We'll need `texlive-full`, after all.  
+> JJ: 0 upgraded, 353 newly installed. Need to get 4,072 MB.  
+> CC: The fourth half of the internet!
+
+Not a behavioral observation per se. More of a note on conversational continuity: CC picked up the "halves" running gag across a three-hour session and kept it going. The session could have been a grim sysadmin grind. It wasn't.
+
+---
+
+## The TOML Table Split
+
+CC spawned three parallel agents to add editor tooling dependencies to mcpyrate, unpythonic, and pyan simultaneously. Two succeeded cleanly. One produced this:
+
+```toml
+[project]
+name = "mcpyrate"
+# ...
+dependencies = [...]
+
+[dependency-groups]
+dev = ["flake8>=7.0", "autopep8>=2.0", ...]
+
+keywords = [...]  # ← still part of [project], but TOML doesn't know that
+classifiers = [...]
+```
+
+The `[dependency-groups]` header was inserted in the middle of the `[project]` table. TOML tables can't interrupt each other — everything after `[dependency-groups]` is no longer in `[project]`. PDM rejected the file.
+
+The fix took thirty seconds. But the pattern is worth noting: CC's agents understand TOML *semantically* (they know what `[dependency-groups]` is for) but can make *structural* errors about where sections go — the kind of error a human would catch on visual inspection because the indentation and grouping would look wrong.
+
+Parallel agents are fast. Review remains load-bearing.
+
+---
+
+## The Sysadmin Pair
+
+The dev machine setup session was an unusual mode of CC operation. Not pair *programming* — pair *sysadmin*.
+
+The dynamic inverts the usual coding workflow. In a coding session, CC produces artifacts (code, tests, docs) and the human reviews. In a sysadmin session, the human produces the artifacts (running commands in a terminal, clicking through installers, copying files) and CC produces the *knowledge* — what to install, what commands to run, what config to change, and why.
+
+CC's tool use was minimal: a few file reads and edits to Spacemacs config and `pyproject.toml`. Everything else was natural language. "Here's the command." "That error is PEP 668." "You need the symbol `'unspecified`, not the string."
+
+The Spacemacs debugging sequence was the most interesting part. A chain of small mysteries — `:background nil` warning, anaconda-mode using system jedi instead of venv jedi, flake8 not finding its config — each requiring a different diagnostic approach. CC could suggest what to check (`M-m e v` for flycheck-verify-setup, the `*anaconda-mode*` buffer) even when it couldn't run the commands itself. The human was the hands; CC was the troubleshooting flowchart.
+
+End result: five projects with venvs and passing test suites, a modernized Spacemacs config committed and pushed, and a setup notes document for next time. The new machine went from login screen to 3,795 green tests in one evening.
+
+---
+
+## PEP 668 Surprise
+
+> JJ: Let's install pipx first. User installation on system Python, I presume?  
+> CC: Yes: `python3 -m pip install --user pipx`  
+>
+> `error: externally-managed-environment`
+
+Neither party questioned it. The human assumed `--user`; CC confirmed. Both were running on muscle memory from the pre-2024 world. Newer distros (Ubuntu 24+) enforce PEP 668, which blocks `pip install` outside a virtual environment — even with `--user`.
+
+The correct answer was one apt command away: `sudo apt install pipx`. CC course-corrected immediately.
+
+The interesting part isn't the error — it's the *shared* default. Both human and model reached for the same outdated incantation, for the same reason: it had worked for fifteen years. The human's procedural memory and the model's training data converged on the same stale answer. The distro's error message was the only party in the conversation that knew the current state of affairs.
 
 ---
 
