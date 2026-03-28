@@ -434,9 +434,9 @@ The interesting part isn't the error — it's the *shared* default. Both human a
 
 *Mar 27–28, 2026.*
 
-CC found a three-way deadlock in a GUI image viewer — callback thread, mip thread, render thread, two locks, one frame-synchronization primitive. The analysis was correct. The fix resolved the deadlock. The discovery was documented in CLAUDE.md as a pitfall:
+CC found a three-way deadlock in a GUI image viewer — callback thread, mip thread, render thread, one lock, one frame-synchronization primitive. The analysis was correct. The fix resolved the deadlock. The discovery was documented in CLAUDE.md as a pitfall:
 
-> **Deadlock pattern:** callback holds lock L → calls `TaskManager.clear(wait=True)` on a task that uses `split_frame()` → task waits for `render_dearpygui_frame()` to complete a frame → main loop tries to acquire lock L before reaching `render_dearpygui_frame()` → three-way deadlock.
+> **Deadlock pattern:** GUI event callback holds lock L → calls `TaskManager.clear(wait=True)` on a background task that uses `split_frame()` → task waits for `render_dearpygui_frame()` to complete a frame → main loop tries to acquire lock L before reaching `render_dearpygui_frame()` → three-way deadlock.
 
 The next day, CC could no longer analyze the same codebase. Every session — fresh context, rephrased prompts, different effort levels, Sonnet and Opus both — stalled at 250–300 output tokens and never recovered.
 
@@ -459,7 +459,7 @@ Session A hung repeatedly — started generating, produced 250 tokens, then went
 Session B was asked to help figure out why. Its contributions:
 
 - Helped eliminate hypotheses (prompt wording, context size, file content, API issues)
-- Extracted yesterday's successful deadlock analysis from the previous session's JSONL log on disk
+- Extracted a previous successful deadlock analysis from a previous session's JSONL log on disk
 - Grepped the DPG C++ source to confirm the callback threading model (separate thread, not main thread — resolving an ambiguity from the previous session)
 - Wrote a standalone reference document (`dpg-threading-notes.md`)
 - Identified the CLAUDE.md paragraph as the trigger by process of elimination
@@ -516,7 +516,7 @@ The avatar renderer allocates a fresh numpy array every frame — `np.array(imag
 
 The actual reason: `raw_texture` vs. `dynamic_texture`. The avatar renderer uses `add_raw_texture`; the image viewer uses `add_dynamic_texture`. A `raw_texture` stores a reference to the user's buffer and reads from it directly at render time — `set_value` swaps the pointer, and the next frame reads coherent data. A `dynamic_texture` maintains an internal copy that gets uploaded to GPU memory as a deferred operation during `render_dearpygui_frame()` — creating the upload-render ordering race that required double `split_frame()` to fix.
 
-The explanation that both human and model found compelling — buffer stability — was a [PEP 668 Surprise](#pep-668-surprise) in miniature. Shared domain instincts, shared confident answer, wrong for the same reason: neither party checked the code. The real mechanism had been sitting in the source all along, invisible because the component was working.
+The explanation that both human and model found compelling — buffer stability — was a [PEP 668 Surprise](#pep-668-surprise) in miniature. Shared domain instincts, shared confident answer, wrong for the same reason: neither party checked the code.
 
 ---
 
