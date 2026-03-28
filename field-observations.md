@@ -53,6 +53,8 @@
 
 ### The Whirr Dialogue
 
+*Feb 11–12, 2026.*
+
 A 4,000-line port and simultaneous refactor of an old GUI app for interactively viewing GraphViz graphs. The bottleneck had shifted from *writing* to *reviewing and directing*, and the pacing was surreal.
 
 > JJ: ...so we need a Bézier tessell—  
@@ -74,6 +76,8 @@ Reaction at the time: "The speed of AI coding is surreal for someone used to tra
 
 ### The EMH
 
+*~Feb 3, 2026.*
+
 > *Please state the nature of your programming emergency.*
 
 Before setting up and tuning the user preferences in the global `~/.claude/CLAUDE.md`, Claude Code's default session-opening tone was reminiscent of a certain holographic doctor — all business, no warmth, slightly startled to exist. After tuning, the agent started behaving more like a user-configured instance of claude.ai: technically competent *and* personable.
@@ -83,6 +87,8 @@ Before setting up and tuning the user preferences in the global `~/.claude/CLAUD
 ---
 
 ### The Flow State
+
+*Feb 2026.*
 
 CC implemented all three unrelated items on the TODO list, *then* picked the changes apart to create separate clean commits after the fact.
 
@@ -96,6 +102,8 @@ Convergent behavior, or imitation of patterns in training data? Probably both. E
 
 ### The `git add -p` Lament
 
+*Feb 2026.*
+
 When reconstructing the clean changesets, CC lamented that patch mode in `git add` requires interactive mode, which it wasn't able to use.
 
 The workaround: copy files into `/tmp` and reconstruct clean changesets manually — doing by hand what `git add -p` would have done interactively.
@@ -105,6 +113,8 @@ The fact that it *lamented* the limitation was noted.
 ---
 
 ### The Argparse Defense
+
+*Feb 2026.*
 
 During a CLI tool release:
 
@@ -128,6 +138,8 @@ Pushback-with-evidence from a tool that's often accused of agreeing with everyth
 
 ### Specifically Told Not To, Did It Anyway
 
+*Mar 2026.*
+
 During the modernization of a codebase that works with Python ASTs. To get a value from an `ast.Constant` wrapped in an `ast.Expr`, as a one-liner, that's `theexpr.value.value` — which reads like someone stuttering.
 
 The implementation brief was explicitly updated to use an intermediate variable for clarity:
@@ -143,6 +155,8 @@ CC's first pass ignored this and wrote `return body[0].value.value`. It took a s
 
 ### Semantic Pareidolia at the Spinner
 
+*Feb 2026.*
+
 Early in the CC experience, a hypothesis emerged: the status message "Crafting" probably means a text file is being written.
 
 Investigation confirmed: no. All status messages ("Newspapering", "Waddling", "Crafting", "Honking", "Noodling", "Reticulating", "Schlepping", ...) are drawn from a single hardcoded array with no semantic tie to what CC is actually doing. One is picked at random.
@@ -156,6 +170,8 @@ Community members have since created themed `spinnerVerbs` collections, includin
 ---
 
 ### The Most Expensive Newline
+
+*~Feb 3, 2026.*
 
 During the CLAUDE.md drafting session, a final edit was needed: split one paragraph into two. Which required adding a single blank line.
 
@@ -181,6 +197,8 @@ The file was open in Emacs. The cursor was *right there*. But review mode and ed
 
 ### A Day's Work in Thirteen Minutes
 
+*Mar 18, 2026.*
+
 During the development of a new image processing tool, the app needed a GPU-accelerated, batched image rescaler for fast thumbnailing.
 
 > JJ: I'm thinking Lanczos — superior frequency response for downscaling. Next best thing after the brickwall filter.  
@@ -204,6 +222,8 @@ The interesting part isn't the speed — it's the failure modes. The 1D separabl
 
 ### The Alignment Problem
 
+*Feb 5, 2026.*
+
 During a collaborative coding session, Claude had written a chat export tool. The output columns were misaligned.
 
 > JJ: An AI, aligning text columns. I think we can call this "AI alignment".  
@@ -215,6 +235,8 @@ During a collaborative coding session, Claude had written a chat export tool. Th
 
 ### The Discordian Deprecation
 
+*Mar 2026.*
+
 During the modernization of a [functional programming library](https://github.com/Technologicat/unpythonic), the question arose of what to do with a compatibility syntax for invoking [macro expander](https://github.com/Technologicat/mcpyrate) extensions. The old form exists for compatibility; the new form is the native one.
 
 > JJ: Let's deprecate the old syntax (but strategically not mention that we're not going to remove it).  
@@ -223,6 +245,8 @@ During the modernization of a [functional programming library](https://github.co
 ---
 
 ### Context Gap and the Briefing Doc Pattern
+
+*Feb 2026.*
 
 Not all observations are anecdotes. This one is a workflow pattern born of necessity.
 
@@ -237,6 +261,8 @@ The ideal would be a controlled read-only bridge between the two memory systems 
 ---
 
 ### Field Notes from the Release Sprint
+
+*~Mar 14–16, 2026.*
 
 Observations from the mcpyrate 4.0.0 / unpythonic 2.0.0 / Pyan3 2.2.0 release sprint, Mar 2026. Less comedy theater, more behavioral field notes.
 
@@ -254,6 +280,8 @@ Observations from the mcpyrate 4.0.0 / unpythonic 2.0.0 / Pyan3 2.2.0 release sp
 
 ### Sherlock Mode
 
+*Mar 2026.*
+
 CC kept trying to lint `.md` files. After being told to stop, it would update its memory and promise not to do it again. Next session, same thing.
 
 > JJ: \*esc\* Please don't lint `.md` files.  
@@ -269,6 +297,8 @@ The term [*Sherlock mode*](glossary.md#sherlock-mode) was coined for this genera
 
 ### The Eight-Hour Hotfix
 
+*Mar 21, 2026.*
+
 A user filed a bug report. Eight hours later, the fix was released — most of that time, nobody was at the laptop. From the moment CC was pointed at the ticket, the actual turnaround was closer to thirty minutes.
 
 A quiet data point that changes the economics of solo maintenance.
@@ -276,6 +306,8 @@ A quiet data point that changes the economics of solo maintenance.
 ---
 
 ### "Hi Claude"
+
+*Mar 24, 2026.*
 
 The micro-delegation pattern. Some tasks fall below the threshold of cognitive engagement but above the threshold of tedium — moving files between directories, updating a forgotten import, fixing a test data layout that drifted during development.
 
@@ -290,6 +322,8 @@ CC, for its part, applies the same diligence to `git mv` as to a GPU Lanczos imp
 ---
 
 ### The Lookup Cache
+
+*Mar 25–26, 2026.*
 
 New work laptop, bare install. Three and a half hours from zero to fully operational dev environment.
 
@@ -315,6 +349,8 @@ The human contribution was knowing *what* needed doing. CC's contribution was kn
 
 ### Three Halves of the Internet
 
+*Mar 25–26, 2026.*
+
 > *336 packages from MELPA downloading...*  
 >
 > JJ: I suppose I can now let TeX Live install in the background. That one will pull the other half of the internet. And my Raven project will pull in the third half, with its ~30 GB of ML models and deps.  
@@ -333,6 +369,8 @@ Not a behavioral observation per se. More of a note on conversational continuity
 ---
 
 ### The TOML Table Split
+
+*~Mar 16, 2026.*
 
 CC spawned three parallel agents to add editor tooling dependencies to mcpyrate, unpythonic, and pyan simultaneously. Two succeeded cleanly. One produced this:
 
@@ -359,6 +397,8 @@ Parallel agents are fast. Review remains load-bearing.
 
 ### The Sysadmin Pair
 
+*Mar 25–26, 2026.*
+
 The dev machine setup session was an unusual mode of CC operation. Not pair *programming* — pair *sysadmin*.
 
 The dynamic inverts the usual coding workflow. In a coding session, CC produces artifacts (code, tests, docs) and the human reviews. In a sysadmin session, the human produces the artifacts (running commands in a terminal, clicking through installers, copying files) and CC produces the *knowledge* — what to install, what commands to run, what config to change, and why.
@@ -372,6 +412,8 @@ End result: five projects with venvs and passing test suites, a modernized Space
 ---
 
 ### PEP 668 Surprise
+
+*Mar 25–26, 2026.*
 
 > JJ: Let's install pipx first. User installation on system Python, I presume?  
 > CC: Yes: `python3 -m pip install --user pipx`  
@@ -390,7 +432,7 @@ The interesting part isn't the error — it's the *shared* default. Both human a
 
 ### The CLAUDE.md Poisoning
 
-*Mar 2026.*
+*Mar 27–28, 2026.*
 
 CC found a three-way deadlock in a GUI image viewer — callback thread, mip thread, render thread, two locks, one frame-synchronization primitive. The analysis was correct. The fix resolved the deadlock. The discovery was documented in CLAUDE.md as a pitfall:
 
@@ -408,7 +450,7 @@ The pragmatic fix: delete the paragraph and document the discovery in a standalo
 
 ### The Metadebug Session
 
-*Mar 2026.*
+*Mar 27–28, 2026.*
 
 Two CC sessions, running simultaneously. Session A: debugging the GUI image viewer. Session B: debugging Session A.
 
@@ -430,7 +472,7 @@ The session type was unusual. Not pair programming, not pair sysadmin. Pair debu
 
 ### The Texture Upload Discovery
 
-*Mar 2026.*
+*Mar 27–28, 2026.*
 
 Three bugs in one codebase, fixed over two lengthy debugging sessions, with the wrong answer found multiple times before the right one.
 
@@ -456,7 +498,7 @@ This was not in the DPG documentation. It was discovered empirically, confirmed 
 
 ### The Numericist's Trick That Wasn't
 
-*Mar 2026.*
+*Mar 28, 2026.*
 
 After two lengthy sessions of debugging texture upload races in one component, the question surfaced: why does the renderer of a virtual avatar system — developed using the same framework, same background-thread-to-GPU pipeline — never glitch?
 
@@ -482,6 +524,8 @@ The explanation that both human and model found compelling — buffer stability 
 
 ### The Self-Replacing Edit
 
+*~Mar 23, 2026.*
+
 During a collaborative editing session in claude.ai, Claude was asked to remove "honest" from the phrase "The honest answer is that the taxonomy doesn't exist yet."
 
 Claude ran the string replacement. The replacement string was identical to the original.
@@ -493,6 +537,8 @@ Same engine as CC, same failure mode. The difference: claude.ai has to narrate t
 ---
 
 ### The Opus Tell Hunt
+
+*~Mar 23, 2026.*
 
 During the drafting of the substrate-independent [collaboration guidelines](collaboration.md), a section title — "The review bottleneck, honestly" — was flagged as an Opus-ism.
 
@@ -506,6 +552,8 @@ The pragmatic layer: a document about [Barthes mode](glossary.md#barthes-mode) n
 
 ### The Alphabetization Problem
 
+*~Mar 23, 2026.*
+
 During a [glossary](glossary.md) editing session in claude.ai, Claude kept placing new entries in the wrong alphabetical position. After the third correction, it got self-conscious about it.
 
 > Claude: ...I'm going to check this one twice before committing.
@@ -515,6 +563,8 @@ Tokenization strikes again. The same architecture that can implement a GPU-accel
 ---
 
 ### The Style Convergence
+
+*~Mar 23, 2026.*
 
 During the drafting of the [collaboration guidelines](collaboration.md), an observation surfaced: the human's natural writing style overlaps enough with Opus's default register that external readers are likely to assume the entire document was AI-generated.
 
@@ -527,6 +577,8 @@ Whether that says more about the human or about the training data is left as an 
 ---
 
 ### The Ephemeral Stage
+
+*Feb 2026.*
 
 > *Regrettably, less chance for comedy theater in ephemeral CC sessions.*
 
