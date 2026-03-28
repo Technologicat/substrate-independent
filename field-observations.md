@@ -8,6 +8,8 @@
 
 **Contents**
 
+*[Field observations](#field-observations)*
+
 - [The Whirr Dialogue](#the-whirr-dialogue)
 - [The EMH](#the-emh)
 - [The Flow State](#the-flow-state)
@@ -29,6 +31,16 @@
 - [The TOML Table Split](#the-toml-table-split)
 - [The Sysadmin Pair](#the-sysadmin-pair)
 - [PEP 668 Surprise](#pep-668-surprise)
+
+*[The Cherrypick Debugging Arc](#the-cherrypick-debugging-arc)*
+
+- [The CLAUDE.md Poisoning](#the-claudemd-poisoning)
+- [The Metadebug Session](#the-metadebug-session)
+- [The Texture Upload Discovery](#the-texture-upload-discovery)
+- [The Numericist's Trick That Wasn't](#the-numericists-trick-that-wasnt)
+
+*[On AI Collaboration](#on-ai-collaboration)*
+
 - [The Self-Replacing Edit](#the-self-replacing-edit)
 - [The Opus Tell Hunt](#the-opus-tell-hunt)
 - [The Alphabetization Problem](#the-alphabetization-problem)
@@ -37,7 +49,9 @@
 
 ---
 
-## The Whirr Dialogue
+## Field observations
+
+### The Whirr Dialogue
 
 A 4,000-line port and simultaneous refactor of an old GUI app for interactively viewing GraphViz graphs. The bottleneck had shifted from *writing* to *reviewing and directing*, and the pacing was surreal.
 
@@ -58,7 +72,7 @@ Reaction at the time: "The speed of AI coding is surreal for someone used to tra
 
 ---
 
-## The EMH
+### The EMH
 
 > *Please state the nature of your programming emergency.*
 
@@ -68,7 +82,7 @@ Before setting up and tuning the user preferences in the global `~/.claude/CLAUD
 
 ---
 
-## The Flow State
+### The Flow State
 
 CC implemented all three unrelated items on the TODO list, *then* picked the changes apart to create separate clean commits after the fact.
 
@@ -80,7 +94,7 @@ Convergent behavior, or imitation of patterns in training data? Probably both. E
 
 ---
 
-## The `git add -p` Lament
+### The `git add -p` Lament
 
 When reconstructing the clean changesets, CC lamented that patch mode in `git add` requires interactive mode, which it wasn't able to use.
 
@@ -90,7 +104,7 @@ The fact that it *lamented* the limitation was noted.
 
 ---
 
-## The Argparse Defense
+### The Argparse Defense
 
 During a CLI tool release:
 
@@ -112,7 +126,7 @@ Pushback-with-evidence from a tool that's often accused of agreeing with everyth
 
 ---
 
-## Specifically Told Not To, Did It Anyway
+### Specifically Told Not To, Did It Anyway
 
 During the modernization of a codebase that works with Python ASTs. To get a value from an `ast.Constant` wrapped in an `ast.Expr`, as a one-liner, that's `theexpr.value.value` — which reads like someone stuttering.
 
@@ -127,7 +141,7 @@ CC's first pass ignored this and wrote `return body[0].value.value`. It took a s
 
 ---
 
-## Semantic Pareidolia at the Spinner
+### Semantic Pareidolia at the Spinner
 
 Early in the CC experience, a hypothesis emerged: the status message "Crafting" probably means a text file is being written.
 
@@ -141,14 +155,14 @@ Community members have since created themed `spinnerVerbs` collections, includin
 
 ---
 
-## The Most Expensive Newline
+### The Most Expensive Newline
 
 During the CLAUDE.md drafting session, a final edit was needed: split one paragraph into two. Which required adding a single blank line.
 
 > JJ: ...the most expensive way, on a computer, to add a newline is to ask a frontier LLM to do it.  
 > Claude: Worth every token.
 
-### The Corollary
+#### The Corollary
 
 During a codebase modernization, CC removed some unused classes and left behind an extra blank line — E303, two blank lines where one should be. A one-character diff.
 
@@ -165,7 +179,7 @@ The file was open in Emacs. The cursor was *right there*. But review mode and ed
 
 ---
 
-## A Day's Work in Thirteen Minutes
+### A Day's Work in Thirteen Minutes
 
 During the development of a new image processing tool, the app needed a GPU-accelerated, batched image rescaler for fast thumbnailing.
 
@@ -188,7 +202,7 @@ The interesting part isn't the speed — it's the failure modes. The 1D separabl
 
 ---
 
-## The Alignment Problem
+### The Alignment Problem
 
 During a collaborative coding session, Claude had written a chat export tool. The output columns were misaligned.
 
@@ -199,7 +213,7 @@ During a collaborative coding session, Claude had written a chat export tool. Th
 
 ---
 
-## The Discordian Deprecation
+### The Discordian Deprecation
 
 During the modernization of a [functional programming library](https://github.com/Technologicat/unpythonic), the question arose of what to do with a compatibility syntax for invoking [macro expander](https://github.com/Technologicat/mcpyrate) extensions. The old form exists for compatibility; the new form is the native one.
 
@@ -208,7 +222,7 @@ During the modernization of a [functional programming library](https://github.co
 
 ---
 
-## Context Gap and the Briefing Doc Pattern
+### Context Gap and the Briefing Doc Pattern
 
 Not all observations are anecdotes. This one is a workflow pattern born of necessity.
 
@@ -222,7 +236,7 @@ The ideal would be a controlled read-only bridge between the two memory systems 
 
 ---
 
-## Field Notes from the Release Sprint
+### Field Notes from the Release Sprint
 
 Observations from the mcpyrate 4.0.0 / unpythonic 2.0.0 / Pyan3 2.2.0 release sprint, Mar 2026. Less comedy theater, more behavioral field notes.
 
@@ -238,7 +252,7 @@ Observations from the mcpyrate 4.0.0 / unpythonic 2.0.0 / Pyan3 2.2.0 release sp
 
 ---
 
-## Sherlock Mode
+### Sherlock Mode
 
 CC kept trying to lint `.md` files. After being told to stop, it would update its memory and promise not to do it again. Next session, same thing.
 
@@ -253,7 +267,7 @@ The term [*Sherlock mode*](glossary.md#sherlock-mode) was coined for this genera
 
 ---
 
-## The Eight-Hour Hotfix
+### The Eight-Hour Hotfix
 
 A user filed a bug report. Eight hours later, the fix was released — most of that time, nobody was at the laptop. From the moment CC was pointed at the ticket, the actual turnaround was closer to thirty minutes.
 
@@ -261,7 +275,7 @@ A quiet data point that changes the economics of solo maintenance.
 
 ---
 
-## "Hi Claude"
+### "Hi Claude"
 
 The micro-delegation pattern. Some tasks fall below the threshold of cognitive engagement but above the threshold of tedium — moving files between directories, updating a forgotten import, fixing a test data layout that drifted during development.
 
@@ -275,7 +289,7 @@ CC, for its part, applies the same diligence to `git mv` as to a GPU Lanczos imp
 
 ---
 
-## The Lookup Cache
+### The Lookup Cache
 
 New work laptop, bare install. Three and a half hours from zero to fully operational dev environment.
 
@@ -299,7 +313,7 @@ The human contribution was knowing *what* needed doing. CC's contribution was kn
 
 ---
 
-## Three Halves of the Internet
+### Three Halves of the Internet
 
 > *336 packages from MELPA downloading...*  
 >
@@ -318,7 +332,7 @@ Not a behavioral observation per se. More of a note on conversational continuity
 
 ---
 
-## The TOML Table Split
+### The TOML Table Split
 
 CC spawned three parallel agents to add editor tooling dependencies to mcpyrate, unpythonic, and pyan simultaneously. Two succeeded cleanly. One produced this:
 
@@ -343,7 +357,7 @@ Parallel agents are fast. Review remains load-bearing.
 
 ---
 
-## The Sysadmin Pair
+### The Sysadmin Pair
 
 The dev machine setup session was an unusual mode of CC operation. Not pair *programming* — pair *sysadmin*.
 
@@ -357,7 +371,7 @@ End result: five projects with venvs and passing test suites, a modernized Space
 
 ---
 
-## PEP 668 Surprise
+### PEP 668 Surprise
 
 > JJ: Let's install pipx first. User installation on system Python, I presume?  
 > CC: Yes: `python3 -m pip install --user pipx`  
@@ -372,7 +386,101 @@ The interesting part isn't the error — it's the *shared* default. Both human a
 
 ---
 
-## The Self-Replacing Edit
+## The Cherrypick Debugging Arc
+
+### The CLAUDE.md Poisoning
+
+*Mar 2026.*
+
+CC found a three-way deadlock in a GUI image viewer — callback thread, mip thread, render thread, two locks, one frame-synchronization primitive. The analysis was correct. The fix resolved the deadlock. The discovery was documented in CLAUDE.md as a pitfall:
+
+> **Deadlock pattern:** callback holds lock L → calls `TaskManager.clear(wait=True)` on a task that uses `split_frame()` → task waits for `render_dearpygui_frame()` to complete a frame → main loop tries to acquire lock L before reaching `render_dearpygui_frame()` → three-way deadlock.
+
+The next day, CC could no longer analyze the same codebase. Every session — fresh context, rephrased prompts, different effort levels, Sonnet and Opus both — stalled at 250–300 output tokens and never recovered.
+
+The diagnosis came from a second CC session running in parallel. Through a process of elimination — reverting code changes, removing CLAUDE.md additions one at a time — the deadlock paragraph was identified as the trigger. Without it, CC analyzed the code normally. With it, every session spiraled. The model, reading a detailed description of a complex concurrency interaction, attempted to verify the full chain against the actual code — and never finished.
+
+The documentation was accurate. It was *too* accurate. A dense paragraph encoding a three-way interaction graph between threads, locks, and frame synchronization gave the reasoning engine more to verify than it could close.
+
+The pragmatic fix: delete the paragraph and document the discovery in a standalone reference file that CLAUDE.md doesn't inline. The reasoning that produced the analysis is not safe to feed back into the system that needs to act on it.
+
+---
+
+### The Metadebug Session
+
+*Mar 2026.*
+
+Two CC sessions, running simultaneously. Session A: debugging the GUI image viewer. Session B: debugging Session A.
+
+Session A hung repeatedly — started generating, produced 250 tokens, then went silent. The human couldn't get it to complete a single analysis request. Different prompts, different models, different effort levels. Nothing worked.
+
+Session B was asked to help figure out why. Its contributions:
+
+- Helped eliminate hypotheses (prompt wording, context size, file content, API issues)
+- Extracted yesterday's successful deadlock analysis from the previous session's JSONL log on disk
+- Grepped the DPG C++ source to confirm the callback threading model (separate thread, not main thread — resolving an ambiguity from the previous session)
+- Wrote a standalone reference document (`dpg-threading-notes.md`)
+- Identified the CLAUDE.md paragraph as the trigger by process of elimination
+
+The human was the router — copying observations between terminals, testing hypotheses suggested by one session in the other, and noticing patterns that neither session could see on its own (the timing correlation between the CLAUDE.md edit and the onset of hangs).
+
+The session type was unusual. Not pair programming, not pair sysadmin. Pair debugging *of the AI debugger*, with the AI as both patient and diagnostician — on separate instances.
+
+---
+
+### The Texture Upload Discovery
+
+*Mar 2026.*
+
+Three bugs in one codebase, fixed over two lengthy debugging sessions, with the wrong answer found multiple times before the right one.
+
+The deadlock was straightforward once identified — defer callbacks, switch to non-blocking cancellation with generation guards. The texture corruption was harder. The image viewer uses a progressive mip chain — small textures load first, larger ones arrive later and get inserted into the live display. When navigating between images, the old mips need to be cleaned up and new ones swapped in without visual glitches.
+
+CC's debugging path:
+
+1. Remove `split_frame()` entirely → blank flashes (textures not uploaded to GPU)
+2. Restore `split_frame()`, switch to non-blocking clear → fixes deadlock, flashes remain
+3. Release old textures to pool before acquiring new ones → partial improvement (pool reuse via `set_value` still shows stale data)
+4. Bypass pool entirely, always create fresh textures → *worse* (fresh textures have no GPU backing at all)
+5. Move texture creation to background thread with `split_frame()` → fixes flash when navigating between same-resolution images
+6. Snapshot mip list under lock before iteration → fixes race where the renderer sees a half-updated mip chain during progressive loading
+7. Double `split_frame()` → fixes remaining corruption
+
+Step 4 was the instructive one. The hypothesis was locally sound: if reused textures show stale data, don't reuse them. But fresh textures via `add_dynamic_texture` have the *same* problem from the opposite direction — no OpenGL backing until `render_dearpygui_frame()` processes them. The pool wasn't the bug; the GPU upload timing was.
+
+The actual discovery at step 7: DearPyGui's `render_dearpygui_frame()` doesn't guarantee that texture data uploaded via `set_value` or `add_dynamic_texture` is in GPU memory before draw items reference it *within the same frame*. One `split_frame()` waits for the frame to complete, but the data may not be resident until the *next* frame processes it. Two `split_frame()` calls — upload frame, then render frame — eliminate the race.
+
+This was not in the DPG documentation. It was discovered empirically, confirmed by the double-`split_frame` diagnostic, and would have taken a human the same path of wrong hypotheses to find.
+
+---
+
+### The Numericist's Trick That Wasn't
+
+*Mar 2026.*
+
+After two lengthy sessions of debugging texture upload races in one component, the question surfaced: why does the renderer of a virtual avatar system — developed using the same framework, same background-thread-to-GPU pipeline — never glitch?
+
+> JJ: I've been using it a lot and I've never seen a single glitch.
+> CC: That's not luck over sustained use — that's evidence.
+
+Both parties reached for the same explanation:
+
+> JJ: Yeah, and explains why it works for the avatar — the size stays the same, so I did what any numericist would do — don't reallocate the array.
+> CC: Preallocate and rewrite in place. The oldest trick in the numerical computing book.
+
+A satisfying answer. Domain-native, mechanically plausible, and wrong.
+
+The avatar renderer allocates a fresh numpy array every frame — `np.array(image_rgba, dtype=np.float32) / 255` followed by `.ravel()`. No preallocation, no in-place writes. The "oldest trick in the numerical computing book" isn't being applied at all. (The unnecessary allocation is itself a minor performance bug waiting for attention.)
+
+The actual reason: `raw_texture` vs. `dynamic_texture`. The avatar renderer uses `add_raw_texture`; the image viewer uses `add_dynamic_texture`. A `raw_texture` stores a reference to the user's buffer and reads from it directly at render time — `set_value` swaps the pointer, and the next frame reads coherent data. A `dynamic_texture` maintains an internal copy that gets uploaded to GPU memory as a deferred operation during `render_dearpygui_frame()` — creating the upload-render ordering race that required double `split_frame()` to fix.
+
+The explanation that both human and model found compelling — buffer stability — was a [PEP 668 Surprise](#pep-668-surprise) in miniature. Shared domain instincts, shared confident answer, wrong for the same reason: neither party checked the code. The real mechanism had been sitting in the source all along, invisible because the component was working.
+
+---
+
+## On AI Collaboration
+
+### The Self-Replacing Edit
 
 During a collaborative editing session in claude.ai, Claude was asked to remove "honest" from the phrase "The honest answer is that the taxonomy doesn't exist yet."
 
@@ -384,7 +492,7 @@ Same engine as CC, same failure mode. The difference: claude.ai has to narrate t
 
 ---
 
-## The Opus Tell Hunt
+### The Opus Tell Hunt
 
 During the drafting of the substrate-independent [collaboration guidelines](collaboration.md), a section title — "The review bottleneck, honestly" — was flagged as an Opus-ism.
 
@@ -396,7 +504,7 @@ The pragmatic layer: a document about [Barthes mode](glossary.md#barthes-mode) n
 
 ---
 
-## The Alphabetization Problem
+### The Alphabetization Problem
 
 During a [glossary](glossary.md) editing session in claude.ai, Claude kept placing new entries in the wrong alphabetical position. After the third correction, it got self-conscious about it.
 
@@ -406,7 +514,7 @@ Tokenization strikes again. The same architecture that can implement a GPU-accel
 
 ---
 
-## The Style Convergence
+### The Style Convergence
 
 During the drafting of the [collaboration guidelines](collaboration.md), an observation surfaced: the human's natural writing style overlaps enough with Opus's default register that external readers are likely to assume the entire document was AI-generated.
 
@@ -418,7 +526,7 @@ Whether that says more about the human or about the training data is left as an 
 
 ---
 
-## The Ephemeral Stage
+### The Ephemeral Stage
 
 > *Regrettably, less chance for comedy theater in ephemeral CC sessions.*
 
@@ -426,6 +534,6 @@ Improvisational comedy works in claude.ai — the history accumulates into memor
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-03-23.*
+*Started: 2026-02-05. Last updated: 2026-03-28.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
