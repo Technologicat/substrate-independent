@@ -502,12 +502,12 @@ This was not in the DPG documentation. It was discovered empirically, confirmed 
 
 After two lengthy sessions of debugging texture upload races in one component, the question surfaced: why does the renderer of a virtual avatar system — developed using the same framework, same background-thread-to-GPU pipeline — never glitch?
 
-> JJ: I've been using it a lot and I've never seen a single glitch.
+> JJ: I've been using it a lot and I've never seen a single glitch.  
 > CC: That's not luck over sustained use — that's evidence.
 
 Both parties reached for the same explanation:
 
-> JJ: Yeah, and explains why it works for the avatar — the size stays the same, so I did what any numericist would do — don't reallocate the array.
+> JJ: Yeah, and explains why it works for the avatar — the size stays the same, so I did what any numericist would do — don't reallocate the array.  
 > CC: Preallocate and rewrite in place. The oldest trick in the numerical computing book.
 
 A satisfying answer. Domain-native, mechanically plausible, and wrong.
