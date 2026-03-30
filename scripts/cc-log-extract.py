@@ -9,6 +9,8 @@ Usage:
 
 Tool display modes:
     summary  (default) — one-line summary per tool call, e.g. [Read: imageview.py]
+    edits    — show Edit/Write content (diffs, new files); other tools as
+               one-liners; omit Read entirely. Light code review mode.
     full     — include tool input details (truncated)
     none     — omit tool calls entirely, show only prose
 
@@ -30,32 +32,10 @@ def format_tool_call(item, mode):
     inp = item.get("input", {})
 
     if mode == "summary":
-        # Compact one-liners for common tools
-        if name in ("Read", "read"):
-            fp = inp.get("file_path", "")
-            return f"[Read: {Path(fp).name}]" if fp else f"[Read]"
-        elif name in ("Write", "write"):
-            fp = inp.get("file_path", "")
-            return f"[Write: {Path(fp).name}]" if fp else f"[Write]"
-        elif name in ("Edit", "edit", "MultiEdit"):
-            fp = inp.get("file_path", "")
-            return f"[Edit: {Path(fp).name}]" if fp else f"[Edit]"
-        elif name in ("Bash", "bash"):
-            cmd = inp.get("command", "")
-            # First line, truncated
-            cmd_line = cmd.split("\n")[0][:120]
-            return f"[Bash: {cmd_line}]"
-        elif name == "Agent":
-            desc = inp.get("description", "")[:100]
-            return f"[Agent: {desc}]"
-        elif name in ("Grep", "grep"):
-            pat = inp.get("pattern", "")
-            return f"[Grep: {pat}]"
-        elif name in ("Glob", "glob"):
-            pat = inp.get("pattern", "")
-            return f"[Glob: {pat}]"
-        else:
-            return f"[{name}]"
+        return _format_summary(name, inp)
+
+    elif mode == "edits":
+        return _format_edits(name, inp)
 
     elif mode == "full":
         inp_str = json.dumps(inp, ensure_ascii=False)
@@ -64,6 +44,71 @@ def format_tool_call(item, mode):
         return f"[{name}: {inp_str}]"
 
     return None
+
+
+def _truncate(s, limit):
+    """Truncate string to limit, adding '…' if truncated."""
+    return s if len(s) <= limit else s[:limit] + "…"
+
+
+def _format_summary(name, inp):
+    """Compact one-liners for all tools."""
+    if name in ("Read", "read"):
+        fp = inp.get("file_path", "")
+        return f"[Read: {Path(fp).name}]" if fp else "[Read]"
+    elif name in ("Write", "write"):
+        fp = inp.get("file_path", "")
+        return f"[Write: {Path(fp).name}]" if fp else "[Write]"
+    elif name in ("Edit", "edit", "MultiEdit"):
+        fp = inp.get("file_path", "")
+        return f"[Edit: {Path(fp).name}]" if fp else "[Edit]"
+    elif name in ("Bash", "bash"):
+        cmd = inp.get("command", "")
+        cmd_line = cmd.split("\n")[0][:120]
+        return f"[Bash: {cmd_line}]"
+    elif name == "Agent":
+        desc = inp.get("description", "")[:100]
+        return f"[Agent: {desc}]"
+    elif name in ("Grep", "grep"):
+        pat = inp.get("pattern", "")
+        return f"[Grep: {pat}]"
+    elif name in ("Glob", "glob"):
+        pat = inp.get("pattern", "")
+        return f"[Glob: {pat}]"
+    else:
+        return f"[{name}]"
+
+
+def _format_edits(name, inp):
+    """Edits mode: show Edit/Write content, summarize other tools, omit reads."""
+    # Omit reads entirely
+    if name in ("Read", "read"):
+        return None
+
+    # Edit with content
+    if name in ("Edit", "edit", "MultiEdit"):
+        fp = inp.get("file_path", "")
+        label = Path(fp).name if fp else name
+        lines = [f"[Edit: {label}]"]
+        old = inp.get("old_string", "")
+        new = inp.get("new_string", "")
+        if old or new:
+            lines.append(f"  - old: {_truncate(repr(old), 200)}")
+            lines.append(f"  + new: {_truncate(repr(new), 200)}")
+        return "\n".join(lines)
+
+    # Write with content
+    if name in ("Write", "write"):
+        fp = inp.get("file_path", "")
+        label = Path(fp).name if fp else name
+        content = inp.get("content", "")
+        lines = [f"[Write: {label}]"]
+        if content:
+            lines.append(f"  {_truncate(content, 500)}")
+        return "\n".join(lines)
+
+    # Everything else: fall back to summary one-liners
+    return _format_summary(name, inp)
 
 
 def extract_content(content, tool_mode):
@@ -202,7 +247,7 @@ def main():
     parser.add_argument("-o", "--output", help="Output file (default: stdout)")
     parser.add_argument(
         "--tools",
-        choices=["summary", "full", "none"],
+        choices=["summary", "edits", "full", "none"],
         default="summary",
         help="Tool call display mode (default: summary)",
     )
