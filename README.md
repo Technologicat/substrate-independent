@@ -5,5 +5,6 @@
 - [Collaboration](collaboration.md) — contribution guidelines and philosophy for @Technologicat projects
 - [Field Observations on AI Pair Programming](field-observations.md)
 - [Field Guide to Useful Neologisms](glossary.md)
+- [Scripts](scripts/) — tools for working with AI pair programming session data
 
 More documents may appear over time.
