@@ -202,7 +202,7 @@ Z
 # Q
 
 ## Questino
-**Meaning:** A question too small or not yet sufficiently formed to articulate, but persistent enough to keep surfacing at the edge of thought. Distinguished from a *nagging question* (which you can state) by its pre-verbal quality: you notice a questino mainly by the recurring impulse to ask something, without yet knowing what.
+**Meaning:** A question too small or not yet sufficiently formed to articulate, but persistent enough to keep surfacing at the edge of thought. Distinguished from a *nagging question* (which you can state) by its pre-verbal quality: you notice a questino mainly by the recurring impulse to ask something, without yet knowing what.  
 **Context:** Etymologically, from a recurring typo of *question*.
 
 ---
