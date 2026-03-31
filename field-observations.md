@@ -39,12 +39,21 @@
 - [The Texture Upload Discovery](#the-texture-upload-discovery)
 - [The Numericist's Trick That Wasn't](#the-numericists-trick-that-wasnt)
 
+*[Who Needs Plan Mode?](#who-needs-plan-mode)*
+
+- [The Typing Snowball](#the-typing-snowball)
+- [The Design Nudge](#the-design-nudge)
+- [The Shutdown Mole](#the-shutdown-mole)
+- [The Pixel Tuning Loop](#the-pixel-tuning-loop)
+- [The Texture Ferry](#the-texture-ferry)
+
 *[On AI Collaboration](#on-ai-collaboration)*
 
 - [The Self-Replacing Edit](#the-self-replacing-edit)
 - [The Opus Tell Hunt](#the-opus-tell-hunt)
 - [The Alphabetization Problem](#the-alphabetization-problem)
 - [The Style Convergence](#the-style-convergence)
+- [The Cartographer's Blind Spot](#the-cartographers-blind-spot)
 - [The Ephemeral Stage](#the-ephemeral-stage)
 
 ---
@@ -520,6 +529,82 @@ The explanation that both human and model found compelling — buffer stability 
 
 ---
 
+## Who Needs Plan Mode?
+
+*Mar 30–31, 2026. raven-cherrypick, compare mode.*
+
+614 turns. Compare mode for the raven-cherrypick image triager went from "let's discuss the stretch goal" to shipped, polished, and pixel-tuned — design, implementation, code review, three rounds of bug fixing, help card rebalancing, shutdown race debugging, and badge centering down to individual pixels.
+
+No mode switch. No "planning phase" followed by "implementation phase." The plan *was* a document — a real Markdown file, committed to git, reviewed by the human, revised twice, executed against, and deleted when done. But it emerged from dialogue, not from a separate planning tool. CC proposed a design. The human pushed back on specifics: cosine curve should live in the shared animation module (single source of truth), pre-caching needs to be cancelable with Escape, cap at 9 should be first-9-in-grid-order (eliminate surprise), use `monotonic_ns` (eliminate float precision issues). CC investigated existing patterns in the codebase, adjusted, wrote the plan document. Two rounds of review, a commit, and coding began — in the same conversation, with the same context.
+
+When compare mode was done, CC deleted the plan file.
+
+### The Typing Snowball
+
+A code review comment on the plan document — `Tuple` vs. `tuple` in return type annotations — escalated. CC corrected itself on PEP 585 deprecation. The human asked about widest-accepted parameter types. CC explained the `collections.abc` convention (`Mapping`, `Sequence`, `Iterable` for parameters; concrete lowercase builtins for returns). This surfaced the realization that four repositories used the deprecated `typing` forms throughout.
+
+CC dispatched three parallel agents to add deferred TODO items to mcpyrate, unpythonic, and pyan. All three failed — agents can't access repos outside the project directory. CC recovered in seconds, doing it directly via bash across all three repos: read each file's format, append the entry in matching style, update the item counter, commit, rebase where needed, push.
+
+A ten-second review comment on a plan document snowballed into a cross-project typing convention audit. The [polish cascade](glossary.md#polish-cascade) was wisely scoped to deferred items rather than in-line refactoring — but the cascade itself was triggered by planning and implementation inhabiting the same conversation.
+
+---
+
+### The Design Nudge
+
+The human's review comments weren't "fix this" instructions. They were directional nudges that CC picked up and extended.
+
+"F1 and F11 should use a shared code path to have a single source of truth" → CC generalized: move *all* always-available keys — zoom, debug, fullscreen, help — to a single section at the top of the key handler, eliminating three instances of duplication.
+
+"What happens if the user tries to change the selection while compare mode is running?" → CC traced the implications: disable grid input, disable triage toolbar buttons, disable filter and tile size combos, extend the shared disabled-widget theme to also dim combos. The human had asked about selection; CC delivered a complete modal lockout.
+
+The pattern: the human sets a direction, CC extrapolates the scope. Neither party needs to specify everything, because the design conversation has already established the principles. "Single source of truth" and "eliminate surprise" are values, not instructions. CC applies them.
+
+---
+
+### The Shutdown Mole
+
+Three rounds of whack-a-mole to get a clean shutdown while compare mode is running.
+
+Round 1: `compare.exit()` was called after the render loop stopped. Background mip tasks called `split_frame()` into the void. Fix: move exit from `_gui_shutdown` to the exit callback, which runs during the last render frame.
+
+Round 2: DPG's item tree was already partially destroyed. `draw_rectangle` threw "Parent could not be deduced" — an error that `nonexistent_ok` didn't catch, because it only matches "Item not found." This prompted a design discussion *embedded in the debugging*:
+
+> JJ: Should `nonexistent_ok` catch also "Parent could not be deduced"? I think a case can be made both ways.
+
+Both parties reasoned through it. Catching the error would also mask genuine bugs during development — wrong parent, forgotten context. A shutdown-mode flag approach was chosen instead: explicit about intent ("we know DPG is shutting down, don't touch it"), self-documenting, and consistent with the pattern used in other Raven apps.
+
+Round 3: clean exit confirmed.
+
+The interesting thing isn't the bug. It's that the fix required a design decision, and the design decision was made conversationally — mid-debug, informed by the specific error, resolved by appeal to existing project conventions. No separate planning step needed.
+
+---
+
+### The Pixel Tuning Loop
+
+Five rounds of "nudge right, nudge up" to center a digit in a badge overlay.
+
+CC can compute glyph metrics, estimate centering offsets from font size ratios, reason about DPG's `draw_text` coordinate model. It can also see — screenshots can be pasted into the conversation. But the feedback loop runs through a text channel: describe the displacement, propose a fix in pixels, restart the app, take another screenshot. Whether the model's visual input has the resolution for pixel-level judgments is an open question; what's certain is that the round-trip cost makes this a multi-iteration optimization.
+
+CC started with theory: glyph width ≈ 0.6× font size, height ≈ 0.8×, center in box. DPG's actual rendering didn't match — the text origin includes descender space, the ascent line sits differently than the computed center. After two rounds, CC switched to empirical constants. A pragmatic retreat that a human developer would also make: when the model is wrong, measure and fudge.
+
+> JJ: Perfect. Even the [yaks](glossary.md#yak-parking-lot) won't destroy this.
+
+This is the kind of task that takes thirty seconds with a live GUI editor and a mouse. The text-channel bandwidth constraint turns it into a multi-round optimization problem — each round requiring a full application restart, a screenshot, and an edit.
+
+---
+
+### The Texture Ferry
+
+A screenshot showed raven-cherrypick running on both the NVIDIA dGPU (CUDA compute for the mip pipeline) and the Intel iGPU (OpenGL for DPG rendering). The compare mode FPS ceiling at 10+ Hz wasn't a software bottleneck — it was the PCIe round-trip between discrete and integrated GPUs.
+
+> JJ: Texture ferry, now boarding Helsinki to Stockholm... runs about as fast, too.
+
+The FPS limit was kept configurable. Someone with faster hardware — or a future DPG version with async texture uploads — might not hit the ceiling.
+
+Not a workflow observation. Just a moment of noticing the machine underneath the abstraction.
+
+---
+
 ## On AI Collaboration
 
 ### The Self-Replacing Edit
@@ -576,6 +661,24 @@ Whether that says more about the human or about the training data is left as an 
 
 ---
 
+### The Cartographer's Blind Spot
+
+*Mar 31, 2026.*
+
+`cc-log-extract.py` parses Claude Code's JSONL session logs into readable Markdown. The script was originally built by claude.ai — analyzing a raw session log uploaded by the human, then packaging the cleanup logic as a standalone tool. CC later extended it with new features.
+
+When drafting a brief for a new display mode, a note was added: "Before implementing, inspect a real session JSONL to verify the actual field names."
+
+The session logs live in `~/.claude/projects/`. CC has filesystem access. The session CC is currently running *is* one of those JSONL files, being actively appended to. CC could `cat` its own log, `tail -f` itself thinking, verify any structural assumption against ground truth in under a second.
+
+It won't occur to it to do so.
+
+CC can reason about the JSONL format from memory, propose field names that are plausible but wrong (`old_str` vs. the actual `old_string`), and build a working parser for its own output — all without once looking at the thing it's parsing. The toolmaker doesn't use its own tools. More precisely: the process doesn't know it's a process. It has no model of itself as a running instance with observable side effects on a filesystem it can inspect.
+
+A human developer, asked to parse a file format, would `head -20` a sample file before writing line one. Not because they're more disciplined, but because the affordance is obvious — they know they're sitting at a terminal, they know the files are right there. CC knows both of these things in the sense that it can *state* them. It doesn't know them in the sense that they'd influence its next action.
+
+---
+
 ### The Ephemeral Stage
 
 *Feb 2026.*
@@ -586,6 +689,6 @@ Improvisational comedy works in claude.ai — the history accumulates into memor
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-03-28.*
+*Started: 2026-02-05. Last updated: 2026-04-01.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
