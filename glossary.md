@@ -18,7 +18,7 @@ K
 N
 O
 [P](#P)
-Q
+[Q](#Q)
 [R](#R)
 [S](#S)
 T
@@ -196,6 +196,14 @@ Z
 ## Prose basilisks
 **Meaning:** Self-propagating LLM-ese phrases that infect both AI-generated and human writing: "rich cultural heritage," "at the intersection of," "testament to," "nestled in," "delve into." The prose equivalent of stock photos — technically depicting the right category of thing, but so generic they communicate nothing specific. Called "basilisks" because exposure to them is harmful (to prose quality) and they reproduce memetically.  
 **Context:** AI writing detection, Wikipedia's signs-of-AI-writing page, and AI tech journalism. The "basilisk" metaphor traces back to David Langford's "BLIT" (1988).
+
+---
+
+# Q
+
+## Questino
+**Meaning:** A question too small or not yet sufficiently formed to articulate, but persistent enough to keep surfacing at the edge of thought. Distinguished from a *nagging question* (which you can state) by its pre-verbal quality: you notice a questino mainly by the recurring impulse to ask something, without yet knowing what.
+**Context:** Etymologically, from a recurring typo of *question*.
 
 ---
 
