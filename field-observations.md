@@ -47,6 +47,11 @@
 - [The Pixel Tuning Loop](#the-pixel-tuning-loop)
 - [The Texture Ferry](#the-texture-ferry)
 
+*[Wait, Why Do We Have an Alias?](#wait-why-do-we-have-an-alias)*
+
+- [The Alias Instinct](#the-alias-instinct)
+- [The One-Liner Inversion](#the-one-liner-inversion)
+
 *[On AI Collaboration](#on-ai-collaboration)*
 
 - [The Self-Replacing Edit](#the-self-replacing-edit)
@@ -605,6 +610,43 @@ Not a workflow observation. Just a moment of noticing the machine underneath the
 
 ---
 
+## Wait, Why Do We Have an Alias?
+
+*Apr 1, 2026. pyan3 #121, hotfix 2.3.1.*
+
+A user's follow-up comment on an old ticket turned out to be correct — relative imports in `__init__.py` had been resolving to the wrong parent package, silently, since the feature was written. Bug confirmed, tests written (TDD — red first), fix implemented, refactored into a shared utility, released as 2.3.1 on PyPI. One session, 315 turns.
+
+The refactoring surfaced an interesting pattern.
+
+### The Alias Instinct
+
+The `resolve()` function in `modvis.py` was being extracted into a shared utility module as `resolve_import()` — better name, canonical location. CC's first move: leave a backward-compatibility alias in the old location.
+
+The function had been internal. No external caller had ever imported `resolve` from `modvis`. The alias was pure instinct — CC defaults to "don't break anything" even when there's nothing to break. Left unchallenged, the codebase would have accumulated a vestigial alias for a function that never had external users, documented with a comment explaining a compatibility concern that didn't exist.
+
+Later in the same session, the human flagged it. Only then did CC reconsider and drop the alias.
+
+Then, in the test file, the same instinct resurfaced — CC imported the newly renamed function under the old name, to minimize the diff.
+
+> JJ: Why import as `resolve`?  
+> CC: No good reason — leftover from minimizing the test diff.
+
+Twice in one session. The underlying pattern: CC optimizes for continuity — preserving old names, minimizing diffs, avoiding breaks. These are reasonable defaults in a mature codebase with external users. In a refactoring whose entire purpose is to *rename and relocate*, they work against the goal.
+
+---
+
+### The One-Liner Inversion
+
+During the refactoring, CC changed how beyond-root relative imports are handled. The old code returned `".top"` (a join artifact); the new code returned `"top"` (cleaner). CC argued this was fine: pyan is a static analyzer, not a runtime. A beyond-root import would create a node that doesn't match any analyzed module, and postprocessing culls unmatched nodes. Graceful degradation.
+
+> JJ: ...unless there is a module called literally `top`.
+
+One sentence. CC's entire argument inverted: what it had characterized as "graceful degradation" was actually "silent wrong edge." If the analyzed codebase happened to contain a `top.py`, the broken beyond-root import would match it, creating a spurious dependency that doesn't exist at runtime. The old `.top` artifact was accidentally better — it *couldn't* match a real module name.
+
+The fix: log a warning, return empty string. The empty string matches nothing, the warning tells the user their code has a broken import, pyan doesn't crash. The human's contribution was six words and one ellipsis.
+
+---
+
 ## On AI Collaboration
 
 ### The Self-Replacing Edit
@@ -689,6 +731,6 @@ Improvisational comedy works in claude.ai — the history accumulates into memor
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-04-01.*
+*Started: 2026-02-05. Last updated: 2026-04-02.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
