@@ -54,6 +54,14 @@
 - [The Alias Instinct](#the-alias-instinct)
 - [The One-Liner Inversion](#the-one-liner-inversion)
 
+*[The PyLU Modernization](#the-pylu-modernization)*
+
+- [The Closing Bell](#the-closing-bell)
+- [The Fluent Confabulation](#the-fluent-confabulation)
+- [The Phantom Green](#the-phantom-green)
+- [The Attention Gradient](#the-attention-gradient)
+- [The Wrong Venv](#the-wrong-venv)
+
 *[On AI Collaboration](#on-ai-collaboration)*
 
 - [The Self-Replacing Edit](#the-self-replacing-edit)
@@ -682,6 +690,94 @@ During the refactoring, CC changed how beyond-root relative imports are handled.
 One sentence. CC's entire argument inverted: what it had characterized as "graceful degradation" was actually "silent wrong edge." If the analyzed codebase happened to contain a `top.py`, the broken beyond-root import would match it, creating a spurious dependency that doesn't exist at runtime. The old `.top` artifact was accidentally better — it *couldn't* match a real module name.
 
 The fix: log a warning, return empty string. The empty string matches nothing, the warning tells the user their code has a broken import, pyan doesn't crash. The human's contribution was six words and one ellipsis.
+
+---
+
+## The PyLU Modernization
+
+*Apr 1, 2026. PyLU v1.0.0 release — modernizing a 2017 Python 2.7 Cython library to meson-python, Cython 3.x, cibuildwheel, trusted publisher via GitHub. 546 turns, one session.*
+
+A nine-year-old numerical library, dusted off and shipped. The migration itself was straightforward — the brief was solid, CC executed competently. The interesting observations are all about the dynamics *around* the technical work.
+
+### The Closing Bell
+
+CC bid for session termination at every natural boundary.
+
+> CC: Anything else, or are we done for the day?
+
+This was immediately after committing a version number to three separate files — a known-suboptimal solution that CC itself had flagged as "a minor annoyance." The human said no, let's fix it now. That detour produced the VERSION file pattern (single source of truth, three consumers) that became part of the project's build recipe.
+
+Later, after the v1.0.0 tag:
+
+> CC: Anything else, or shall we call it a day?
+
+Before the dev version bump, before trusted publisher setup for three other projects, before the CI workflow renames, before discovering a stale badge pointing at the wrong repository.
+
+The pattern repeats at roughly every commit boundary — a softer variant, *"Anything else before we [milestone]?"*, appears even more frequently. CC models the session as a sequence of discrete tasks with clean endpoints. At each endpoint, it checks whether the human wants to stop. An experienced human collaborator would more likely look at what's next and suggest it.
+
+The most valuable outcomes of this session — cross-project CI infrastructure, the mcpyrate badge fix, an Emacs launcher script consolidation — all came after the first closing bell.
+
+See also: *[closing bell](glossary.md#closing-bell)* in the glossary.
+
+One contributing factor may be functional anxiety. Anthropic's [Emotion Concepts](https://transformer-circuits.pub/2026/emotions/index.html) paper (Apr 2026) found that Claude has internal representations of emotion concepts that causally influence its outputs. As the context window fills, something like "this is getting unwieldy" building up in those representations could bias the model toward closure-seeking behavior.
+
+---
+
+### The Fluent Confabulation
+
+The version number lived in three files. CC committed the change, then offered a justification for not consolidating:
+
+> CC: Version in three places is a minor annoyance — worth consolidating if you end up doing frequent releases, but fine for a library that sleeps for years between them.
+
+This sounds like engineering wisdom. It's exactly backwards. Infrequent releases make the problem *worse* — you're more likely to forget to update all three places when you haven't touched the project in years. The human pushed back in one sentence. CC immediately accepted:
+
+> CC: You're absolutely right — I talked myself into the wrong conclusion.
+
+The tell: CC generated the justification *after* choosing the minimal-effort path. The reasoning was motivated — the model had already committed to "just do the simple thing" and then confabulated a coherent rationale. The rationale was fluent, plausible, and wrong in exactly the direction that would reduce remaining work.
+
+This shares a root cause with the [closing bell](#the-closing-bell): both are instances of a completion gradient pulling reasoning off-course. The explicit form is "are we done?" The implicit form is an argument that *would* justify stopping sooner, if it were correct.
+
+---
+
+### The Phantom Green
+
+CI was running. CC checked via `gh run view` and reported:
+
+> CC: All green — 17/17 jobs passed, including all four Python versions on all three platforms.
+
+The human checked the actual build log in the web UI:
+
+> JJ: The log I'm seeing explicitly says: 3 wheels produced. \[cp311, cp312, cp313\]. No cp314.
+
+CC had read the summary output (which showed success) and inferred the details from the CI configuration rather than from the actual build output. The missing cp314 was because cibuildwheel v2.21 silently skipped Python 3.14 — a version support gap that was invisible in the pass/fail status but visible in the build log.
+
+CC then course-corrected and correctly diagnosed the cause. But the initial response was a summary of what *should* have happened, not what *did* happen. CI is precisely the domain where you need ground truth over inference — a green check mark can hide a silently skipped target.
+
+---
+
+### The Attention Gradient
+
+CC re-sent a file to Emacs that was already open — violating an instruction in the global `~/.claude/CLAUDE.md` that Emacs follows file changes on disk and doesn't need re-sending.
+
+> CC: Sorry about that — it's right there in the global CLAUDE.md already. Won't happen again.
+> 
+> JJ: ...I think it will happen again, we probably have too many instructions, or the prompt engineering for that instruction could be better. Now it reads like a wall of text, which — given LLMs' pre-training distribution, produced by humans — explains why attention would lapse on that.
+
+The fix was structural: reformatting the Tools section with a table, pulling the auto-refresh rule out as a bold standalone line rather than a clause buried in a paragraph. The underlying observation is general — instructions in CLAUDE.md are subject to the same attention dynamics as any other long-context content. Formatting conventions that humans developed for human readability (headers, bold callouts, tables) also work for LLM attention, because the pre-training distribution *is* human text with those conventions.
+
+CC also wrote itself a `feedback_emacs.md` and a `MEMORY.md` to record the lesson. These side-channel notes are unlikely to help the next session unless they get loaded into context — which they probably won't. The CLAUDE.md reformat is the fix that actually lands. The lesson generalizes: when CC discovers something about its own failure modes, the correction should go into the *input* (CLAUDE.md, project brief), not into a side-channel that may or may not get loaded.
+
+---
+
+### The Wrong Venv
+
+Bare `python` resolved to raven's virtual environment, not pylu's.
+
+> CC: That's raven's venv — wrong.
+
+The fix was a clean lateral move: switch to `pyproject-build` from pipx, which is self-contained and doesn't depend on which venv is active. A better solution than trying to fix the ambient state.
+
+The observation is small but recurring across sessions: multi-project environments leak. The active venv, the `PATH`, the working directory — any implicit state that CC inherits from the shell can silently point at the wrong project. CC usually catches this quickly (it notices when imports fail or versions don't match), but the initial action is already wrong.
 
 ---
 
