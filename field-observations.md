@@ -31,6 +31,8 @@
 - [The TOML Table Split](#the-toml-table-split)
 - [The Sysadmin Pair](#the-sysadmin-pair)
 - [PEP 668 Surprise](#pep-668-surprise)
+- [The Phantom Line](#the-phantom-line)
+- [The Stale Bytecode Ghost](#the-stale-bytecode-ghost)
 
 *[The Cherrypick Debugging Arc](#the-cherrypick-debugging-arc)*
 
@@ -439,6 +441,42 @@ Neither party questioned it. The human assumed `--user`; CC confirmed. Both were
 The correct answer was one apt command away: `sudo apt install pipx`. CC course-corrected immediately.
 
 The interesting part isn't the error — it's the *shared* default. Both human and model reached for the same outdated incantation, for the same reason: it had worked for fifteen years. The human's procedural memory and the model's training data converged on the same stale answer. The distro's error message was the only party in the conversation that knew the current state of affairs.
+
+---
+
+### The Phantom Line
+
+*Apr 3, 2026.*
+
+A tooltip window in DearPyGui displayed one line of blank space below its content. The text was clean — `repr()` confirmed no trailing newline. Three lines of text, three lines of space, plus a phantom fourth.
+
+CC spent 15 iterations debugging this. The trajectory: trailing newline in the parser (no — `.strip()` confirmed clean), `WindowPadding` (top tightened, bottom didn't), `FramePadding` (no effect), `ItemSpacing` (theme was binding but bottom gap persisted), text wrapping mode (`wrap=0` killed the phantom line *and* the text width; `wrap=-1` brought it back), spacer tricks from Visualizer's tooltip (adding items made it worse), manual height correction (autosize wouldn't let the window shrink below content), and finally a red debug drawlist overlay — which, revealingly, filled the phantom space exactly: the combined height of text + drawlist exceeded the minimum window size, so the window fit tightly. The phantom space was *outside* the text item, in the gap between the content and a minimum size constraint.
+
+At this point CC concluded it was an ImGui-level quirk with multiline text and proposed deferring. Twice. The human tried one more thing: display a *single-line* tooltip.
+
+The single-line tooltip had the same enormous blank space — far more than one line's worth. This wasn't a text height bug. It was a minimum window size. `add_window` has a `min_size` parameter that defaults to something large enough to swallow the phantom line. The theme-level `mvStyleVar_WindowMinSize` override had been doing nothing — the window constructor parameter takes precedence. `min_size=[1, 1]` on the window itself fixed it instantly.
+
+**The pattern:** CC was systematic and thorough *within* a single hypothesis ("this is a text height / padding issue"). It tried every parameter in that space. What it didn't do was *change the hypothesis*. The breakthrough came from the human applying a simplification test — reduce to one line, observe what changes — which is a different kind of move: not "try another value for this parameter" but "test whether my model of the problem is correct at all."
+
+This isn't unique to AI. Every programmer has spent hours searching under the wrong lamppost. But the density of iteration — 15 trial-and-error cycles in the time a human might have tried 3 or 4 — is distinctly CC. High iteration speed can compensate for a wrong hypothesis (you exhaust the space faster), but it can also mask the need to step back, because each iteration feels like progress.
+
+See also: *[the closing bell](https://github.com/Technologicat/substrate-independent/blob/main/glossary.md#closing-bell)* — CC proposed deferring twice during the investigation, and both times the human's persistence led to eventual resolution.
+
+---
+
+### The Stale Bytecode Ghost
+
+*Apr 3, 2026.*
+
+During the tooltip debugging, CC's edits had no visible effect on the running application. Print statements didn't appear. Logger output was silent. CC checked the virtualenv, verified the import path, confirmed the source file had the expected content. Five launches, no output.
+
+The cause: Python's `.pyc` bytecache had the same modification timestamp as the `.py` file — presumably from the edit landing within the same filesystem-timestamp granularity window as the compile. Python saw matching timestamps and used the cached version.
+
+Deleting the `.pyc` fixed it immediately. CC then encountered the issue again later in the same session, suggesting it's a systematic hazard of rapid-iteration CC workflows rather than a one-off race condition.
+
+**The pattern:** An environmental issue masquerading as a code issue. CC's debugging was entirely within-code (check imports, check paths, check file content) — it didn't question whether the runtime was actually *running its code*. The `__pycache__` directory is infrastructure that, under normal development cadence, is invisible. CC's editing speed collapsed the assumption that "save file → next import picks up the change."
+
+Worth noting: this is the first time this issue appeared across many CC sessions. It may be specific to certain filesystem configurations, PDM editable installs, or other environmental factors that weren't fully diagnosed.
 
 ---
 
