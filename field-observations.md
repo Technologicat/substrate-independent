@@ -68,6 +68,7 @@
 - [The Self-Replacing Edit](#the-self-replacing-edit)
 - [The Opus Tell Hunt](#the-opus-tell-hunt)
 - [The Alphabetization Problem](#the-alphabetization-problem)
+- [The Space-Counting Problem](#the-space-counting-problem)
 - [The Style Convergence](#the-style-convergence)
 - [The Cartographer's Blind Spot](#the-cartographers-blind-spot)
 - [The Ephemeral Stage](#the-ephemeral-stage)
@@ -841,6 +842,18 @@ During a [glossary](glossary.md) editing session in claude.ai, Claude kept placi
 > Claude: ...I'm going to check this one twice before committing.
 
 Tokenization strikes again. The same architecture that can implement a GPU-accelerated Lanczos downscaler in thirteen minutes cannot sort words by their first letter, because it doesn't process words as sequences of characters. It processes them as tokens — opaque integer IDs with no inherent ordering.
+
+---
+
+### The Space-Counting Problem
+
+*Apr 12, 2026.*
+
+A PEP 8 E128 violation ("continuation line under-indented for visual indent") took three attempts to fix. The rule is simple: align the continuation to the column one past the opening paren. CC knew the rule, read the offending line, produced a fix that was off by a couple of spaces. Re-ran flake8, got the same complaint, adjusted, still wrong. Third try stuck.
+
+Counting spaces to a specific column is a character-level spatial task, and a token-based reader doesn't see individual spaces — it sees a token that encodes "some whitespace" without cheap access to its exact width. Sibling to *[The Alphabetization Problem](#the-alphabetization-problem)*: character-level precision defeating a system optimized for higher-level structure.
+
+Text editors for LLMs apparently still have a way to go.
 
 ---
 
