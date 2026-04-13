@@ -33,6 +33,7 @@
 - [PEP 668 Surprise](#pep-668-surprise)
 - [The Phantom Line](#the-phantom-line)
 - [The Stale Bytecode Ghost](#the-stale-bytecode-ghost)
+- [Modernization is Incidental Archaeology](#modernization-is-incidental-archaeology)
 
 *[The Cherrypick Debugging Arc](#the-cherrypick-debugging-arc)*
 
@@ -485,6 +486,24 @@ Deleting the `.pyc` fixed it immediately. CC then encountered the issue again la
 **The pattern:** An environmental issue masquerading as a code issue. CC's debugging was entirely within-code (check imports, check paths, check file content) — it didn't question whether the runtime was actually *running its code*. The `__pycache__` directory is infrastructure that, under normal development cadence, is invisible. CC's editing speed collapsed the assumption that "save file → next import picks up the change."
 
 Worth noting: this is the first time this issue appeared across many CC sessions. It may be specific to certain filesystem configurations, PDM editable installs, or other environmental factors that weren't fully diagnosed.
+
+---
+
+### Modernization is Incidental Archaeology
+
+*Apr 1 & Apr 8, 2026.*
+
+Two modernization sessions, two latent bugs surfaced — neither by a linter, a compiler, or a test.
+
+**[PyLU](https://github.com/Technologicat/pylu), `solve_c` (Apr 1).** A 2017-vintage inline Cython helper: allocate `p` and `LU`, call `decompose_lu_inplace_c`, and if it fails, `return False`. The failure path leaked both allocations. The code had worked correctly for nine years because the failure path is rarely taken — singular matrices aren't what you feed an LU solver on purpose — and when it is taken, the process is usually on its way out anyway. No leak detector was running. CC noticed the missing `free()` calls while reading the function during the Cython 3.x pass.
+
+**[pydgq](https://github.com/Technologicat/pydgq), `Linear2ndOrderKernel.compute()` (Apr 8).** An index typo in the matvec inner loop — a row index used where a column index was needed. Invisible for diagonal mass matrices (the only element that gets read is the one that also happens to be on the diagonal), and invisible for tests with identical initial conditions across degrees of freedom (the wrong element equals the right one). The existing test suite had neither dense mass matrices nor asymmetric ICs, so it had been green for years. CC flagged the line while reading through `builtin_kernels.pyx` during the pytest-migration pass. The human confirmed it against the math, agreed it was a bug, and the fix landed alongside a gyroscopic-system test that would have caught it.
+
+**The pattern.** In both cases the tool that found the bug was *attention*, not instrumentation. No new linter rule fired; no test went from red to green on its own. What changed was that a reader who had never seen the code before walked through it line by line with a specific question in mind ("is this idiomatic Cython 3?", "does this test cover all the branches?") and, as a side effect, noticed something that didn't add up. Modernization forces that reading. The ostensible task is syntactic, but the reader has to understand each line well enough to decide whether the replacement is safe, and understanding a line means briefly holding a model of what it's supposed to do. Held models catch discrepancies.
+
+This is archaeology in the literal sense: the bugs were already there, preserved under strata of "it works, don't touch it," and the excavation happened to pass through them on the way to somewhere else. The economic framing is worth noting too — neither bug would have justified a dedicated debugging session. Both were cheap to fix *because* we were already in the file with the compiler warmed up and the tests running. "While we're here" is a legitimate line item in the maintenance budget, and modernization is the event that opens it.
+
+A secondary note on the reader substrate: the obvious reading is that CC's uniform attention and lack of *"I wrote this, I know what it does"* shortcut is what caught these. That's part of it, but it isn't the whole story — any new human contributor reading the code during a modernization would plausibly catch the same bugs for the same reason. What's distinctive about CC is not *how* it reads but *that* it always reads as a stranger: every session starts from zero familiarity, so every modernization is guaranteed to be a fresh-eyes pass. A human author gets one fresh reading of their own code and then habituates; CC gets a fresh reading every time. The archaeology isn't a substrate advantage so much as a scheduling one — CC makes fresh-eyes reviews cheap enough to happen on every pass through the file, not just at onboarding.
 
 ---
 
