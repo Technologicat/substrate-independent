@@ -80,6 +80,7 @@ Z
 
 ## co-
 **Meaning:** In "codeveloper," "coresearcher," and similar compounds applied to AI, the "co-" tends to get parsed as "assistant" or "sidekick" — a banal subordination. A more interesting reading is mathematical: co- as in sine/cosine, homology/cohomology. The co-thing is not lesser but *complementary* — filling different dimensional roles in the same space. A coresearcher brings different skills, different failure modes, different blind spots; not a junior researcher, but a dual. This reading reframes working with an AI as collaboration rather than merely as directing.  
+**Nuance:** *cocommitter*: the party supplying the judgment axis that the AI driving git necessarily lacks. The role assignment isn't static across the workflow — while the AI drives throughout, editor during drafting and git at commit time, the human's mode rotates: forward-looking architect during drafting, backward-looking reviewer at commit time.  
 **Context:** AI collaboration framing and how linguistic choices shape expectations.
 
 ## Collaborator-line
