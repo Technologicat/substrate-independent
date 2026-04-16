@@ -143,6 +143,12 @@ Z
 **Extended meaning:** A metaphor for prompt injection attacks against LLMs. Where McDonald's fracters exploit the human visual system, prompt injections exploit the text-processing system of a language model — with crafted inputs that hijack the model's behavior on contact. Both are adversarial patterns that subvert a cognitive system by exploiting the same channel it uses for normal input.  
 **Context:** LLM security, prompt injection, and adversarial inputs.
 
+## Fup
+**Part of speech:** v. trans.  
+**Meaning:** To apply a non-destructive structural transformation to a sequence. The original is left untouched; the result is a modified copy. Often with directional complement: *fup at*, *fup into*.  
+**Etymology:** Back-formation from *functional update*; also the sound a sequence makes when it is hit by one (per the [`unpythonic`](https://github.com/Technologicat/unpythonic) documentation, 2019).  
+**Usage:** *"The list was fupped at index 3, leaving the original untouched."*
+
 ---
 
 # G
