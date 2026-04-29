@@ -214,6 +214,13 @@ Z
 **Meaning:** In programming, the phenomenon where a small cosmetic fix reveals an adjacent inconsistency, which once fixed reveals another, and so on — each individually trivial, collectively unstoppable. Produces a chain of atomic commits whose git log reads like someone slowly realizing they should have grepped first. The cascade is not really about missing a search; each fix shifts what you *notice*, and you couldn't have grepped for "things that will look wrong once you've fixed this other thing." Not to be confused with anything from Warsaw. See also: *steering tax*.  
 **Context:** Code review and polish passes in AI-assisted development; the gravitational pull of local consistency.
 
+## Prequisite
+**Part of speech:** n.  
+**Meaning:** A unit of work emitted *toward* completing the current task, structurally symmetric to a follow-up. Where a follow-up is work emitted *by* completing something — discovered as a consequence and bumped to its own ticket — a prequisite is work that must precede it: an architectural cleanup whose absence is the reason the current task is harder than it should be, surfaced when designing the current task and likewise bumped to its own ticket. Both are projects in their own right, with their own PRs; the relationship is sequential, not hierarchical. Distinct from *prerequisite*: a prerequisite carries a faint flavour of dependency-as-obstacle (must be cleared before proceeding), whereas a prequisite is dependency-as-companion (the matched pair).  
+**Etymology:** *Pre-* + *(re)quisite*, dropping the *re-* by analogy with *sequel* → *prequel*. Drop the prefix that pins the word to one temporal direction; the remainder carries the symmetric meaning.  
+**Usage:** *"The prequisite for #129 is the NAME-Node generalisation; #129 itself is a small overlay on top."*  
+**Context:** Project planning where designing a feature surfaces an architectural cleanup that wants its own ticket.
+
 ## Prose basilisks
 **Meaning:** Self-propagating LLM-ese phrases that infect both AI-generated and human writing: "rich cultural heritage," "at the intersection of," "testament to," "nestled in," "delve into." The prose equivalent of stock photos — technically depicting the right category of thing, but so generic they communicate nothing specific. Called "basilisks" because exposure to them is harmful (to prose quality) and they reproduce memetically.  
 **Context:** AI writing detection, Wikipedia's signs-of-AI-writing page, and AI tech journalism. The "basilisk" metaphor traces back to David Langford's "BLIT" (1988).
