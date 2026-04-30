@@ -63,6 +63,18 @@
 - [The Attention Gradient](#the-attention-gradient)
 - [The Wrong Venv](#the-wrong-venv)
 
+*[When Refactors Got Cheap](#when-refactors-got-cheap)*
+
+- [The Activation-Cost Collapse](#the-activation-cost-collapse)
+- [As It Doesn't Say On The Tin](#as-it-doesnt-say-on-the-tin)
+- [The Asymmetric Sweep](#the-asymmetric-sweep)
+- [The Cross-Repo Helper Generalization](#the-cross-repo-helper-generalization)
+- [The Dissolving Vendor Boundary](#the-dissolving-vendor-boundary)
+
+*[Conversation as Discovery](#conversation-as-discovery)*
+
+- [The Pedagogical Ladder](#the-pedagogical-ladder)
+
 *[On AI Collaboration](#on-ai-collaboration)*
 
 - [The Self-Replacing Edit](#the-self-replacing-edit)
@@ -803,6 +815,124 @@ The observation is small but recurring across sessions: multi-project environmen
 
 ---
 
+## When Refactors Got Cheap
+
+### The Activation-Cost Collapse
+
+*~Apr 2026.*
+
+A long-deferred refactor landed.
+
+Raven's AI services — Classifier, Translator, Postprocessor, Upscaler, TTS, STT — had drifted into asymmetric dispatch shapes. Some services were always remote, some always local, some routed through selection logic. The right architectural move had been visible "for some time": unify them under a single local/remote dispatch wrapper, with `is_local()` as the discriminator. The reason it hadn't happened was budget. Touching every service in a working application, in a single coherent sweep, was the kind of refactor that competes with feature work on the time axis and loses.
+
+With CC, it landed in a session.
+
+The interesting finding is not that CC wrote the code. The finding is what changed about *what was reachable*. The architectural insight had existed for months; what had been missing was the energy to act on it. AI-assisted development's dominant effect, in this instance, was not speed-of-coding but a collapse in activation cost — the threshold above which a known-good refactor stays cataloged-but-deferred and below which it becomes economically reasonable to do today.
+
+This is a different framing than "Claude makes coding faster." Faster coding compresses tasks that would have happened anyway. Activation-cost collapse changes the set of tasks that happen at all. Refactors driven by aesthetic noticing, or by accumulated drift, or by *I keep meaning to do this* — these are the tasks most sensitive to budget pressure, and the ones most likely to graduate from intent to commit when the cost drops.
+
+The pattern is testable in the inverse direction: any architectural improvement a developer can describe in a paragraph but hasn't done is a candidate. The question to ask is not "is this worth doing?" — that was answered at noticing-time. The question is "is this still too expensive?" The answer in 2026 is more often *no* than it was in 2024, and the implications for what codebases look like over time are not yet obvious.
+
+---
+
+### As It Doesn't Say On The Tin
+
+*~Apr 2026.*
+
+A package's name became a diagnostic instrument.
+
+`raven.client` was the HTTP client to Raven Server. Over time, it had accumulated things that didn't belong in a client: audio Player and Recorder singletons, image codec utilities, miscellaneous helpers that had landed there because the client module happened to be where they were first needed. The contents had drifted; the name hadn't. Reading the module list with the package name in mind produced a quiet wrongness — *why is the audio Player here? It's not client-server.*
+
+That wrongness was the trigger for a thinning sweep. Codec → `raven.common.image.codec`. Audio Player/Recorder → lifted out of `raven.client` to a more appropriate home. Each move was small; collectively they restored the package's name as an honest description of its contents.
+
+The ethnographic finding is that *the package name was the diagnostic*. Not a profiler, not a failing test, not a user complaint — the contents had departed from what the tin said. This is a class of refactor trigger that doesn't show up in the standard "when to refactor" heuristics, which tend to focus on duplication, complexity metrics, or test pain. Naming pressure is a quieter signal, but it correlates with real architectural drift: when a name no longer fits, the package has usually grown a second job that wants its own home.
+
+The pattern generalizes. Modules called `utils` accumulate things that aren't utilities; modules called `common` accumulate things that are only ever plausibly needed by one part of the system; modules named after a layer accumulate things from adjacent layers. The name itself, taken seriously, is a check on the contents.
+
+The cost of taking it seriously is low. The cost of *not* taking it seriously is paid later, when a future reader trusts the name and is misled by it.
+
+---
+
+### The Asymmetric Sweep
+
+*~Apr 2026.*
+
+A refactor was triggered by aesthetic discomfort, not by failing behavior.
+
+Across Raven's AI services, the dispatch shape was uneven. Two services routed through one pattern; a third had ad-hoc local-or-remote logic; a fourth was hardcoded one way. Nothing was broken. Each individual service worked. The asymmetry was visible only when reading them side by side — *these are the same kind of thing, why don't they look the same?*
+
+The trigger was not friction (no feature was blocked, no bug was open) but the noticing itself. The architectural-noticing version of *the carpet is uneven*: you could keep walking on it, but now that you've seen it, you can't unsee it.
+
+The sweep that followed unified the services under a single dispatch wrapper. The work was substantive; the justification was *it offends the eye*. This is a category of refactor that the standard literature has trouble endorsing — *don't refactor without a concrete reason* is sound advice for working programmers under deadline pressure, but it underweights aesthetic noticing as a legitimate signal. Aesthetic wrongness in code, when it persists, usually correlates with structural issues that haven't surfaced as bugs *yet*. Catching the wrongness while the change is still local is cheaper than catching the bug after the asymmetry has propagated.
+
+The finding pairs naturally with *[As It Doesn't Say On The Tin](#as-it-doesnt-say-on-the-tin)* — both are noticing-driven refactors, but the noticing is of different kinds. The tin-mismatch case is *vertical*: the label doesn't match what's inside. The asymmetric-sweep case is *horizontal*: parallel things aren't parallel. Together they describe a practice of reading code with the eye attuned to wrongness, and treating wrongness as data.
+
+CC was a viable collaborator in both cases. The noticing was the human's; the execution was tractable for CC because the change was mechanical once the target shape had been described. This is the inverse of the usual division of labor in CC sessions, where CC proposes and the human evaluates. Here the human noticed, and CC carried.
+
+---
+
+### The Cross-Repo Helper Generalization
+
+*~Apr 23, 2026.*
+
+A helper function migrated to its proper home without explicit deliberation.
+
+[unpythonic](https://github.com/Technologicat/unpythonic) was acquiring a Brainfuck dialect — a source-level transformer that takes BF source and emits Python. The dialect-import line at the top of the file (`from unpythonic.dialects import dialects, bf`) had to be split out of the source before the rest of the text was handed off to the BF compiler. The two languages are mutually unparseable: Python is not valid BF, BF is not valid Python, and the dialect machinery couldn't take the file as a unit. The clean split: scan for the dialect-import line in Python syntax, hand the remaining lines to the dialect to obtain a Python program that does the same thing as the original `bf` program. (The contract is deliberately broader than "compile to Python" — a future Befunge dialect would emit an interpreter rather than straight-line code; what's required is equivalent Python, not necessarily transpiled Python.)
+
+The split-the-import-line operation was not specific to BF. Any source-level dialect with a non-Python surface syntax would need the same machinery. CC, working on the BF dialect, was about to write a local fix until the human steered: both repositories were the human's, maintainer access wasn't a constraint, the helper belonged upstream. A short discussion settled the shape; CC factored the operation into a helper named `split_at_dialectimport`, and it went into mcpyrate — the macro expander whose language-lab capabilities include the dialect machinery the helper belonged to.
+
+The interesting part is how short the deliberation was. There was no PR discussion, no negotiation between maintainers, no review cycle. The dependency direction was clean because both repositories were in the same head; once the human flagged the upstream option, the right home was obvious, and the implemented split followed in the same session.
+
+The finding is methodological. In multi-developer settings, cross-repo generalization usually requires explicit coordination — open an upstream PR, justify the change, wait for review, then consume the new helper from downstream. The overhead is real and is one of the reasons that downstream projects accumulate locally-scoped helpers that *should* be upstream but never make the trip. In solo-developer-with-CC settings, that overhead vanishes. The upstream and downstream changes happen as one architectural move, in one session, with the dependency direction enforced by the writing rather than by process.
+
+This compresses the time between *noticing the helper wants to be upstream* and *the helper being upstream* from weeks to minutes. The downstream consumer of the helper (BF) shipped with the helper already in its proper place, not as a local copy awaiting future consolidation.
+
+The methodological caution: this works because the dependency direction is unambiguous (mcpyrate strictly underlies unpythonic; helpers move up, never sideways). When the right home is genuinely ambiguous, the absence of explicit deliberation becomes a hazard rather than a feature.
+
+---
+
+### The Dissolving Vendor Boundary
+
+*Apr 2026.*
+
+The traditional taxonomy of third-party code in a project was clean: dependencies (imported, upstream-maintained, accessed via a package manager), forks (a separate repository on a code-hosting platform, asserting an alternative project identity, with you as the maintainer), vendored copies (bundled at a specific version inside the source tree, typically under a `vendor/` subfolder, frozen in place). Each had distinct social and engineering implications, and the boundaries were enforced by cost.
+
+AI coding agents are dissolving the boundary between *vendored copy* and *fork*. The cost that previously kept vendored copies frozen — modifying them was technical debt against a future "upstream this or update from upstream" decision that usually went unmade — has dropped enough that local modifications become economically reasonable. The decision often went unmade for a reason: upstreaming has its own friction (PR review cycles, maintainer responsiveness, alignment with the upstream's roadmap), and a separate fork repository carries social cost (non-official forks tend to be second-class citizens on most code hosts, and the upstream community's attention is rarely directed at them). Keeping the modified code under `vendor/` sidesteps both, at the cost of accepting the maintenance burden yourself. AI coding agents have lowered that burden.
+
+Several [Raven](https://github.com/Technologicat/raven) components live in this newly-accessible space. `file_dialog` is recognizably descended from the upstream, with provenance preserved in code comments, but extended beyond the original — its OK button now uses Raven's GUI animation system to flash red on save-overwrite confirmation, a UX feature that exists for Raven's needs and would be a hard sell as an upstream contribution. `dpg_markdown` underwent a structural pass that replaced every `with dpg.widget(...):` block with the corresponding `dpg.add_widget(..., parent=...)` form, eliminating the dependency on DearPyGui's global widget-stack state; the structure is mostly preserved, but the side effect — concurrent use from multiple threads — is a substantive capability extension. The change is also a hard sell upstream, but for a different reason than `file_dialog`: it's mechanical and touches enough places that a human reviewer's eyes will glaze over reading the diff, perhaps exactly *because* each individual change is small and uniform. The PyTorch port of Anime4K used in Raven gained an extensive module docstring cross-linking the original Anime4K docs (the upstream had none), plus RGBA support (the alpha channel is scaled bilinearly, which is good enough for the use case). THA3 received a small change — `no_grad` → `inference_mode` — close enough to upstream that the diff would not surprise anyone.
+
+What these components share is a relationship to upstream that the existing taxonomy doesn't have a word for. Not a dependency: the code lives in the tree, and you maintain it. Not a fork: you're not contributing back, not tracking releases, not asserting an alternative project identity. Not a vendored copy: the code has diverged enough that pretending it's still theirs would be dishonest. The substance is closer to *adopted code* — material that originated elsewhere, integrated, and progressively made yours, with the original provenance preserved as historical record rather than as ongoing relationship.
+
+The license-and-attribution practices that keep this honest have to be deliberate. Each component is treated according to its original license. LICENSE files are preserved, attributions remain prominent in module headers, modifications are tracked where they're not too pervasive to mark individually. The adopted-code relationship is sustainable only as long as the lineage stays visible.
+
+Whether to upstream is a separate question. In principle, contributing back is the decent thing to do; also from a practical perspective, those who would benefit from the modifications are unlikely to find the modifying repository on their own. Against this: several of these libraries are effectively abandoned by their original authors, making upstream merge unlikely in practice; some changes are tailored to one project's needs and would be a hard sell as general improvements; and the review-cycle friction is exactly what made vendoring attractive in the first place. AI coding agents may make the upstreaming work more tractable — drafting clean PRs, generating compatibility shims, navigating maintainer feedback — but that's a separate question from whether the upstream is reachable at all.
+
+The methodological observation: this is another instance of the same underlying mechanism named in *[The Activation-Cost Collapse](#the-activation-cost-collapse)*. AI lowering the cost of *modify and maintain* makes a class of work economically reasonable that previously wasn't. In the architectural-refactor case, the result was sweeps that had been deferred. Here, the result is a class of code-management practice — adopt, modify, maintain — that previously sat in the trap between vendoring (free but rigid) and forking (flexible but socially expensive). The trap has stopped being a trap. What replaces it doesn't have a name yet.
+
+---
+
+## Conversation as Discovery
+
+### The Pedagogical Ladder
+
+*~Apr 30, 2026.*
+
+A three-tier example structure was discovered, not designed.
+
+A conversation about implementing esoteric programming languages as unpythonic dialects began with one example (Brainfuck, already implemented as a transpiler-style dialect). A second example came up in passing: INTERCAL, with a local LLM as the politeness judge. The conversation considered Malbolge as a third, then replaced it with Befunge.
+
+In the course of working out what Befunge would actually require — a 2D grid, a directional instruction pointer, self-modifying source via `p`/`g` — it became clear that Befunge couldn't be a transpiler. The grid had to be mutable at runtime; an interpreter was forced. This was structurally different from BF, which compiles cleanly to straight-line Python.
+
+That structural difference was the discovery. The three examples were not three flavors of the same thing; they spanned an axis. BF: dialect-as-transpiler. Befunge: dialect-as-hosted-interpreter. INTERCAL: dialect-as-semantic-gate (the model judges, the language gates). Each demonstrates a different capability of the underlying dialect machinery. The cluster, taken as a unit, would document what `split_at_dialectimport` enables in a way that any single example could not.
+
+The finding is about the *mechanism of discovery*. The pedagogical arc was not planned at the start of the conversation. It emerged because the second and third examples, considered carefully, refused to be variants of the first. The axis became visible only because there were three points on it; with two, it would have looked like a coincidence.
+
+The conversational dynamic that produced this is worth naming. The human had one example and a vague intuition that more would be fun. The interlocutor proposed candidates. Each candidate was tested against the existing example, and the test surfaced the structural difference. Neither side designed the ladder; it materialized between them, by repeated trial.
+
+This is a single-instance observation; the pattern may or may not recur. Logged here so that a second instance, if it appears, has a place to attach.
+
+---
+
 ## On AI Collaboration
 
 ### The Self-Replacing Edit
@@ -899,6 +1029,6 @@ Improvisational comedy works in claude.ai — the history accumulates into memor
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-04-02.*
+*Started: 2026-02-05. Last updated: 2026-04-30.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
