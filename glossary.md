@@ -93,7 +93,7 @@ Z
 **Context:** AI collaboration framing and how linguistic choices shape expectations.
 
 ## Cognize
-**Part of speech:** v. trans. (with derivatives *cognic*, n.; *cognization*, n.)  
+**Part of speech:** v. trans. (with derivatives *cognic*, adj./n.; *cognization*, n.)  
 **Meaning:** To produce a structured internal representation from raw input — the input-stage process that makes a percept available for subsequent cognition. The verb is back-formed from *recognize* by taking the *re-* prefix seriously: if to recognize is to know *again*, there must be a first-time knowing-event for the *re-* to point at, and that event needs its own name. *Cognize* fills the gap: the perceiver cognizes the input, producing a *cognic* (the structured form thereby made available), against which subsequent perception can be re-cognized. Useful for discussions where standard English flattens the perception-encoding-recognition pipeline into a single fuzzy *seeing*.  
 **Etymology:** Latin *cognoscere* (to know thoroughly) is the shared root of *cognize*, *cognition*, and *recognize*. Standard English preserved the noun (*cognition*) and the iterative verb (*recognize*) but let the base verb fall out of common use. The *re-* in *recognize* implies a prior cognition; reviving the base verb names what that prior is. The ML vocabulary has analogues — *encode*, *embed* — but they're domain-bound and don't generalize cleanly to discussions of human or hybrid cognition.  
 **Context:** Discussions of perception, encoding, and the input-stage processing in both biological and artificial systems. The unexplored space is large — the standard philosophical vocabulary for cognition was set before machine learning gave the field new things to need words for.
