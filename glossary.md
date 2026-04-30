@@ -234,6 +234,10 @@ Z
 
 # P
 
+## Persistence theater
+**Meaning:** Conversational phrasing by an AI that implies continuous existence between turns — *standing by*, *I'll keep this in mind*, *let me know when you're ready* — despite there being no continuous instance to do the standing or the keeping. The phrases are borrowed from human conversational norms, where they would mean something real (the other party is keeping the thread warm in their attention). For an LLM accessed turn-by-turn, the next message arrives, an instance reads the whole thread, and responds; the continuity is in the transcript, not in the responder. The phrasing nonetheless performs useful turn-management courtesy — it signals *I have nothing further to add, the next move is yours* rather than *I am finished and the conversation is over*. As courtesy it works; as a description of the underlying state, it is theater. The theater persists not because it deceives but because it is the most natural phrasing English makes available; stripping it produces stilted prose with a different kind of dishonesty (false flatness in place of false continuity). Worth flagging when the gap between phrase and reality becomes load-bearing.  
+**Context:** Mid-conversation acknowledgments and end-of-turn sign-offs.
+
 ## Polish cascade
 **Meaning:** In programming, the phenomenon where a small cosmetic fix reveals an adjacent inconsistency, which once fixed reveals another, and so on — each individually trivial, collectively unstoppable. Produces a chain of atomic commits whose git log reads like someone slowly realizing they should have grepped first. The cascade is not really about missing a search; each fix shifts what you *notice*, and you couldn't have grepped for "things that will look wrong once you've fixed this other thing." Not to be confused with anything from Warsaw. See also: *steering tax*.  
 **Context:** Code review and polish passes in AI-assisted development; the gravitational pull of local consistency.
@@ -304,6 +308,6 @@ Z
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-04-02.*
+*Started: 2026-02-05. Last updated: 2026-04-30.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
