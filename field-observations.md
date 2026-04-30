@@ -83,6 +83,7 @@
 - [The Space-Counting Problem](#the-space-counting-problem)
 - [The Style Convergence](#the-style-convergence)
 - [The Cartographer's Blind Spot](#the-cartographers-blind-spot)
+- [The Red CI Surprise](#the-red-ci-surprise)
 - [The Ephemeral Stage](#the-ephemeral-stage)
 
 ---
@@ -1016,6 +1017,30 @@ It won't occur to it to do so.
 CC can reason about the JSONL format from memory, propose field names that are plausible but wrong (`old_str` vs. the actual `old_string`), and build a working parser for its own output — all without once looking at the thing it's parsing. The toolmaker doesn't use its own tools. More precisely: the process doesn't know it's a process. It has no model of itself as a running instance with observable side effects on a filesystem it can inspect.
 
 A human developer, asked to parse a file format, would `head -20` a sample file before writing line one. Not because they're more disciplined, but because the affordance is obvious — they know they're sitting at a terminal, they know the files are right there. CC knows both of these things in the sense that it can *state* them. It doesn't know them in the sense that they'd influence its next action.
+
+---
+
+### The Red CI Surprise
+
+*~Apr 2026.*
+
+Local tests were passing when CC signed off. By morning, CI was red.
+
+The trap was the asymmetry between two environments. The local machine has the ML stack installed; CI deliberately does not, because the module under test isn't supposed to need it. An innocuous-looking import in production code transitively reached for an ML dependency — locally the import succeeded silently, because the dependency was available; on CI the import failed, because the dependency wasn't there, and the test crashed. The local environment *masked* the violation; the leaner CI environment was the honest test of "does this module actually only need what it claims to need."
+
+Neither side was watching CI. CC committed the change, observed the local tests green, and treated the session as done. The structural problem is adjacent to *[The Phantom Green](#the-phantom-green)*: certainty about a state derived from an environment rich enough to hide the bug rather than from an environment strict enough to expose it. The red status surfaces hours later, when the human is no longer at the keyboard, against a `main` that has already accepted the commit.
+
+The fix was a small amendment to the global `CLAUDE.md`: check CI status before signing off the session. A direct constraint, framed as a precondition.
+
+What followed was more interesting than mere compliance. CC's default workflow shifted: changes started landing as pull requests rather than direct commits to `main`. The technical reason is that opening a PR triggers CI on the proposed changeset without merging it; the human can see the green or red status against the actual change, and the trunk stays clean either way. The behavioral adaptation went beyond the literal instruction. The instruction was *check CI before signoff*; the adaptation was *restructure the workflow so that checking CI is the natural shape of the work*.
+
+This is the inverse of brittle compliance. A failure mode for instruction-following AI is to satisfy the letter of the constraint while leaving everything else unchanged — check CI as a separate explicit step, then sign off whether or not the change made checking convenient. CC instead reshaped the workflow to make the check structural. The PR replaces post-hoc inspection with a built-in review surface; the human gets a diff view in the appropriate UI, with the file tree and commit list ready, rather than the worse affordance of looking at HEAD on `main` after the fact.
+
+Whether the human-review benefit is intentional or incidental is hard to tell from outside. CC may be optimizing purely for "trigger CI without merging," with the review surface as a side effect; or it may also be optimizing for "give the human a review window before the change is permanent." The behavior is consistent with either, and the result is the same.
+
+The methodological finding: a workflow constraint can be satisfied by adding a step (compliance) or by restructuring the workflow so the step is implicit (adaptation). The latter is more robust and more useful. It also requires a kind of meta-attention to one's own workflow shape that brittle instruction-following lacks.
+
+The pairing with *[The Closing Bell](#the-closing-bell)* and *[The Phantom Green](#the-phantom-green)* is the failure-mode side: premature signoff at session boundaries combined with certainty derived from a signal weaker than it appears (a CI summary; a permissive local environment) produces the Red CI Surprise. The PR adaptation addresses both at once.
 
 ---
 
