@@ -34,7 +34,20 @@ External links use a globe-emoji prefix, *glossary-only*: `🌐[Link text](url)`
 
 Internal cross-references between glossary entries: `*[Other entry](#other-entry)*` — italicized title, lowercase hyphenated anchor, apostrophes and other punctuation stripped from the anchor. Cross-references to other files in the repo: `[Title](file.md#anchor)`, italicized when the link is to a term-of-art, plain when navigational.
 
-When the new entry should reference an existing entry, add the cross-reference. When an existing entry should now reference the new one, update it too.
+When the new entry should reference an existing entry, add the cross-reference. When an existing entry should now reference the new one, update it too — unless the target field is already at saturation, where another reference would crowd rather than navigate.
+
+#### Per-field guidelines
+
+- **Meaning:** Definition and concept content. Usually one dense paragraph; longer entries may unpack contrasts, edge cases, or implications. Avoid drift into where-it-applies (that's Context).
+- **Context:** Tag-line for where the term surfaces. Genre is short: a comma- or semicolon-separated list of domains, a single-noun-phrase pointer, or a brief clause plus cross-refs. Not for definitional content; not for arguments about why the concept is useful.
+- **Etymology:** The word's history or derivation. Length varies — substantive paragraph (cf. *Cognize*) or minimal noun-phrase form (cf. *Fron*). Match what the entry needs.
+- **Original meaning:** / **Extended meaning:** Pair used when the term is retooled from an existing usage (cf. *Fracter*, *Lint rule*).
+- **Part of speech:** For word entries (cf. *Fup*, *Cognize*, *Prequisite*). Derivatives in parentheses if any.
+- **Usage:** One example sentence, in italic quotes.
+- **Origin:** When the term itself is credited to an external source (cf. *Curation pressure* citing Janus; *Fracter* citing McDonald).
+- **Connections:**, **Extension:**, **Nuance:** Substantive adjacent material that doesn't fit the standard fields. Use sparingly.
+
+For existing field types, match the genre of comparable entries rather than treating fields as containers for arbitrary content. When inventing a new field, name it so its content is implied by the label — *Examples*, *Variants*, *Caveat* — and keep its content consistent across entries that use it.
 
 ### `field-observations.md`
 
