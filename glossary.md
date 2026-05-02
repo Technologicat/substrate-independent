@@ -159,10 +159,10 @@ Z
 **Context:** LLM security, prompt injection, and adversarial inputs.
 
 ## Fup
-**Part of speech:** v. trans.  
+**Part of speech:** v. trans. (with derivative *fuppable*, adj.: ready to be fupped)  
 **Meaning:** To apply a non-destructive structural transformation to a sequence. The original is left untouched; the result is a modified copy. Often with directional complement: *fup at*, *fup into*.  
 **Etymology:** Back-formation from *functional update*; also the sound a sequence makes when it is hit by one (per the [`unpythonic`](https://github.com/Technologicat/unpythonic) documentation, 2019).  
-**Usage:** *"The list was fupped at index 3, leaving the original untouched."*
+**Usage:** *"`fup(lst)[3]` is fuppable; `<< 42` fires it, leaving the original untouched."*
 
 ---
 
