@@ -9,7 +9,7 @@ A glossary of terms that emerge from a specific kind of mind-pairing — one hum
 [E](#E)
 [F](#F)
 [G](#G)
-H
+[H](#H)
 [I](#I)
 [J](#J)
 K
@@ -158,6 +158,13 @@ Z
 **Extended meaning:** A metaphor for prompt injection attacks against LLMs. Where McDonald's fracters exploit the human visual system, prompt injections exploit the text-processing system of a language model — with crafted inputs that hijack the model's behavior on contact. Both are adversarial patterns that subvert a cognitive system by exploiting the same channel it uses for normal input.  
 **Context:** LLM security, prompt injection, and adversarial inputs.
 
+## Fron
+**Part of speech:** adj.; n.  
+**Meaning:** Of an AI model: at or near the current capability envelope — the moving outer edge of what is presently achievable. As adjective, possessing that property (*"is this model fron?"*); as noun, the envelope itself, or a model on it (*"Opus is on the fron"*). Multiple models can be fron simultaneously, none can be fron forever. Rankings describe a snapshot; *fron* describes the snapshot's relation to the historical envelope.  
+**Etymology:** Video game character tier lists; AI technology.  
+**Adjacent terms:** *sub-fron* (close to but not at the envelope); *ex-fron* (was there, no longer); *fron-adjacent* (matching the envelope on narrow capabilities without occupying it generally).  
+**Context:** Tier-list discourse in fighting-game communities compresses high-dimensional character kits — movesets, matchups, situational strengths — into community-negotiated rankings. In AI evaluation, the kit is the model's capability profile, alongside matchups (task-specific dominance), patch-note discourse (release-note autopsy), and counterpick culture (task-specific model selection). Cyberpunk-adjacent register.
+
 ## Fup
 **Part of speech:** v. trans. (with derivative *fuppable*, adj.: ready to be fupped)  
 **Meaning:** To apply a non-destructive structural transformation to a sequence. The original is left untouched; the result is a modified copy. Often with directional complement: *fup at*, *fup into*.  
@@ -171,6 +178,16 @@ Z
 ## Goodhart's law as an optimization algorithm
 **Meaning:** A one-line description of reinforcement learning. RL optimizes a proxy reward signal, which — per Goodhart's law — ceases to be a good measure once it becomes the target of optimization. This isn't a bug in RL, but its defining feature: the entire field is the systematic study of what happens when you do exactly the thing Goodhart warned about.  
 **Context:** RL, reward hacking, and AI alignment.
+
+---
+
+# H
+
+## Hedge-hog
+**Part of speech:** n.  
+**Meaning:** A person who hedges. The **strategic hedge-hog** reflexively constructs fallback positions, holding multiple bets to mitigate risk — failure mode is opportunity cost, building Plan B for situations Plan A would have handled fine. The **rhetorical hedge-hog** reflexively qualifies statements, softening every claim with epistemic markers — failure mode is epistemic mush, assertions that can't be falsified because they were never quite asserted. Not to be confused with the *edgehog*.  
+**Etymology:** *hedge* + *hedgehog*; cf. *[latent space collision](#latent-space-collision)*.  
+**Context:** Planning under uncertainty; LLM hedging behavior; the failure mode of over-qualifying.
 
 ---
 
@@ -204,6 +221,11 @@ Z
 ## Latent space collision
 **Meaning:** The productive moment when multiple meanings occupy the same point in representational space and the interference pattern generates something new. Distinct from polysemy (a word having multiple established meanings) and from puns (deliberate wordplay) in that the collision is a structural condition — the meanings genuinely coexist, and — in the rare case where the barrier between them breaks — the creative or comic output emerges from the superposition rather than from authorial intent. Applies equally to LLMs (where token embeddings literally occupy high-dimensional space) and to human associative memory (where the mechanism is less formal but phenomenologically similar). Many entries in this glossary are instances: *[EQ](#eq-curve)* as both emotional quotient and audio equalization, *[co-pter](#co-pter)* emerging by correcting a false morpheme boundary. Related to Koestler's "bisociation" but grounded in a spatial metaphor that bridges the computational and the cognitive.  
 **Context:** The abbreviation "dnd" activating both drag-and-drop and Dungeons & Dragons; `import io` summoning Jupiter's moon; `class Popper` for an iterator that pops items from a container, evoking Karl Popper.
+
+## Lint rule
+**Original meaning:** An automated check that flags style or correctness issues in source code without modifying it (`flake8`, `ruff`, `eslint`, `clippy`, etc.; named after Unix `lint`).  
+**Extended meaning:** A self-imposed, named, pass-or-fail check on creative output, applied at the gate before the artifact ships. Failure rejects rather than reworks: a candidate that fails a lint rule isn't sent back for revision, it's dropped. The mechanism (named pre-commit gate) is borrowed from coding; the content of any particular rule is whatever the writer needs to keep out of their work.  
+**Context:** Editorial discipline in AI-assisted creative work; cf. *[Little Prince mode](#little-prince-mode)*, *[aria-worthy design](#aria-worthy-design)*.
 
 ## Listening to the architecture sing
 **Meaning:** The practice of treating one's perception of structural wrongness in code as data. The architecture is always communicating; the question is whether you are tuned to hear it. The first version always sings off-key, and the skill is hearing which note is wrong. Two performance modes: forward-looking (rare, hard, has to fight every uncertainty about the future) and retrospective (common, easier, has access to evidence — *this is what we built, this is where the shape strained*). Forward-looking gets the cultural prestige; retrospective is honest about what hindsight actually buys. Listening in retrospect is not a failure of foresight; it is using the additional information that became available by virtue of having lived in the code. The same shape recurs outside software — in numerical analysis, a priori error estimates give asymptotic bounds with unspecified constants that can render the bound operationally useless, while a posteriori estimators give computable bounds from the actual computed solution; the empirical mode wins on the same grounds. The Lisp tradition has an adjacent phrase — *the code wants to be written this way* — but it carries an implicit requirement of getting it right the first time, which sets the bar high enough that people stop trying. Drop the requirement, and the practice becomes usable: build, live in it, listen, refactor. The lost nineteenth maxim of the Zen of Python may well be *a posteriori is better than a priori*. See *[build thrice, cherrypick](#build-thrice-cherrypick)*.  
