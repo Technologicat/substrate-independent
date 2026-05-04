@@ -161,7 +161,7 @@ Z
 ## Fron
 **Part of speech:** adj.; n.  
 **Meaning:** Of an AI model: at or near the current capability envelope — the moving outer edge of what is presently achievable. As adjective, possessing that property (*"is this model fron?"*); as noun, the envelope itself, or a model on it (*"Opus is on the fron"*). Multiple models can be fron simultaneously, none can be fron forever. Rankings describe a snapshot; *fron* describes the snapshot's relation to the historical envelope.  
-**Etymology:** Video game character tier lists; AI technology.  
+**Etymology:** Tier lists for video game characters; AI technology.  
 **Adjacent terms:** *sub-fron* (close to but not at the envelope); *ex-fron* (was there, no longer); *fron-adjacent* (matching the envelope on narrow capabilities without occupying it generally).  
 **Context:** Tier-list discourse in fighting-game communities compresses high-dimensional character kits — movesets, matchups, situational strengths — into community-negotiated rankings. In AI evaluation, the kit is the model's capability profile, alongside matchups (task-specific dominance), patch-note discourse (release-note autopsy), and counterpick culture (task-specific model selection). Cyberpunk-adjacent register.
 
