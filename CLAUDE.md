@@ -38,7 +38,7 @@ When the new entry should reference an existing entry, add the cross-reference. 
 
 #### Per-field guidelines
 
-- **Meaning:** Definition and concept content. Usually one dense paragraph; longer entries may unpack contrasts, edge cases, or implications. Avoid drift into where-it-applies (that's Context).
+- **Meaning:** Definition and concept content. Usually one dense paragraph; longer entries may unpack contrasts, edge cases, or implications. Avoid drift into where-it-applies (that's Context). Open with the genre: the first clause should locate what kind of thing the entry defines (a practice, a strategy, an LLM failure mode, an architectural pattern, a part of speech, …). Form is free — leading clause, opening noun phrase, retooled-from header — but the check is one question: *does the first half-sentence tell the reader what kind of thing we're defining?*
 - **Context:** Tag-line for where the term surfaces. Genre is short: a comma- or semicolon-separated list of domains, a single-noun-phrase pointer, or a brief clause plus cross-refs. Not for definitional content; not for arguments about why the concept is useful.
 - **Etymology:** The word's history or derivation. Length varies — substantive paragraph (cf. *Cognize*) or minimal noun-phrase form (cf. *Fron*). Match what the entry needs.
 - **Original meaning:** / **Extended meaning:** Pair used when the term is retooled from an existing usage (cf. *Fracter*, *Lint rule*).

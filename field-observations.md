@@ -492,7 +492,7 @@ See also: *[the closing bell](https://github.com/Technologicat/substrate-indepen
 
 *Apr 3, 2026.*
 
-During the tooltip debugging, CC's edits had no visible effect on the running application. Print statements didn't appear. Logger output was silent. CC checked the virtualenv, verified the import path, confirmed the source file had the expected content. Five launches, no output.
+During an extended DPG debugging session, CC's edits had no visible effect on the running application. Print statements didn't appear. Logger output was silent. CC checked the virtualenv, verified the import path, confirmed the source file had the expected content. Five launches, no output.
 
 The cause: Python's `.pyc` bytecache had the same modification timestamp as the `.py` file — presumably from the edit landing within the same filesystem-timestamp granularity window as the compile. Python saw matching timestamps and used the cached version.
 
@@ -594,7 +594,7 @@ The session type was unusual. Not pair programming, not pair sysadmin. Pair debu
 
 Three bugs in one codebase, fixed over two lengthy debugging sessions, with the wrong answer found multiple times before the right one.
 
-The deadlock was straightforward once identified — defer callbacks, switch to non-blocking cancellation with generation guards. The texture corruption was harder. The image viewer uses a progressive mip chain — small textures load first, larger ones arrive later and get inserted into the live display. When navigating between images, the old mips need to be cleaned up and new ones swapped in without visual glitches.
+The deadlock was straightforward once identified — defer callbacks, switch to non-blocking cancellation with generation guards. The texture corruption was harder — blank flashes when navigating between images, and stale tile data bleeding through during progressive loading. The image viewer uses a progressive mip chain — small textures load first, larger ones arrive later and get inserted into the live display. When navigating between images, the old mips need to be cleaned up and new ones swapped in without visual glitches.
 
 CC's debugging path:
 
