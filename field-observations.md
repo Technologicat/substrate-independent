@@ -34,6 +34,7 @@
 - [The Phantom Line](#the-phantom-line)
 - [The Stale Bytecode Ghost](#the-stale-bytecode-ghost)
 - [The Incidental Archaeologist](#the-incidental-archaeologist)
+- [The Halting Problem, Revisited?](#the-halting-problem-revisited)
 
 *[The Cherrypick Debugging Arc](#the-cherrypick-debugging-arc)*
 
@@ -520,6 +521,28 @@ Three sessions, three latent bugs surfaced — none of them by a linter, a compi
 This is archaeology in the literal sense: the bugs were already there, preserved under strata of "it works, don't touch it," and the excavation happened to pass through them on the way to somewhere else. The economic framing is worth noting too — none of the three bugs would have justified a dedicated debugging session. All three were cheap to fix *because* the session was already focused on the surrounding code, with the editor open and the tests running. "While we're here" is a legitimate line item in the maintenance budget, and both modernization and test-writing are events that open it.
 
 A secondary note on the reader substrate: the obvious reading is that CC's uniform attention and lack of *"I wrote this, I know what it does"* shortcut is what caught these. That's part of it, but it isn't the whole story — any new human contributor reading the code during a modernization would plausibly catch the same bugs for the same reason. What's distinctive about CC is not *how* it reads but *that* it always reads as a stranger: every session starts from zero familiarity, so every modernization is guaranteed to be a fresh-eyes pass. A human author gets one fresh reading of their own code and then habituates; CC gets a fresh reading every time. The archaeology isn't a substrate advantage so much as a scheduling one — CC makes fresh-eyes reviews cheap enough to happen on every pass through the file, not just at onboarding.
+
+---
+
+### The Halting Problem, Revisited?
+
+*~May 6, 2026.*
+
+Mid-session, between watching CI runs complete, the human — partly thinking aloud, partly wishlisting — said: AI coding agents need an *"are you making progress?"* ping. Now that there's actual intelligence in the system, we have a limited solution to the halting problem.
+
+The classical halting problem is undecidable: you can't algorithmically determine whether an arbitrary program will terminate. But that isn't actually what an agent harness needs to answer. The harness's question is much weaker — "is *this particular* loop, in *this particular* context, making progress?" — and an LLM, whether watching from a sibling process or introspecting on itself, is well-suited to recognize the smell. From outside the agent: *"this command has been running 5× its typical wall-clock time"*, *"the same file is being read for the fourth time without measurable progress"*. From inside: *"I keep retrying the same thing"*, *"uncertainty hasn't decreased in N steps"*, *"the goalposts moved again"*. Heuristic, not a proof. But the agent is operating at that level anyway.
+
+Three layers worth keeping distinct, because conflating them produces the wrong fix:
+
+1. **Pure infrastructure** — no LLM response, no network, dead socket. Classical timeouts, heartbeats, TCP keepalive. No intelligence needed.
+2. **Out-of-band monitor with context** — a command is running, no output, not timed out. *Is* this normal for this command at this point? Needs some intelligence, but mostly contextual knowledge. A sibling agent with read access to what the parent is trying to do can catch it.
+3. **Agent meta-cognition** — the loop is technically advancing but not toward the goal. The genuinely hard one. Needs the model to introspect on its own reasoning trajectory. *"Are you actually making progress?"* in the literal sense.
+
+A heartbeat won't catch a moving-goalposts loop. A sibling-process monitor watching IO and timing won't see the model's internal reasoning drift. Asking the LLM to introspect on its own reasoning won't catch a dead socket. Each layer wants a different mechanism, and assigning intelligence to the wrong layer is wasteful in one direction and inadequate in the other.
+
+This is still the halting problem — same family of question — but we're working in a tractable subset. This in itself is nothing new. A careful re-reading of the problem is precisely how you [bypass no-go theorems](https://fexpr.blogspot.com/2013/07/bypassing-no-go-theorems.html). A classical CS approach is to step back from Turing completeness on the *program* side: primitive recursion, total functional languages, structural induction. A new approach, now possible, is to step back on the *observation* side instead: a specific running loop, with surrounding context legible to an intelligent monitor, on a bounded time budget. Same family, different subset. The limiting factor becomes AI agent harness design, not theoretical computer science — and a practically important subset of what was previously unreachable becomes actually tractable.
+
+Of the three layers, layer 2 is the one where AI agent harness work pays off most directly today. Layer 1 is solved engineering. Layer 3 will plausibly fold into base-model capabilities as introspective reasoning matures — the capability curve will pick it up. Layer 2 won't: whether the harness *has* an out-of-band monitor with context is an architectural choice independent of how smart the underlying model gets.
 
 ---
 
@@ -1054,6 +1077,6 @@ Improvisational comedy works in claude.ai — the history accumulates into memor
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-04-30.*
+*Started: 2026-02-05. Last updated: 2026-05-06.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
