@@ -128,7 +128,7 @@ Before setting up and tuning the user preferences in the global `~/.claude/CLAUD
 
 ### The Flow State
 
-*Feb 2026.*
+*Feb 2026. Opus 4.6.*
 
 CC implemented all three unrelated items on the TODO list, *then* picked the changes apart to create separate clean commits after the fact.
 
@@ -142,7 +142,7 @@ Convergent behavior, or imitation of patterns in training data? Probably both. E
 
 ### The `git add -p` Lament
 
-*Feb 2026.*
+*Feb 2026. Opus 4.6.*
 
 When reconstructing the clean changesets, CC lamented that patch mode in `git add` requires interactive mode, which it wasn't able to use.
 
@@ -154,7 +154,7 @@ The fact that it *lamented* the limitation was noted.
 
 ### The Argparse Defense
 
-*Feb 2026.*
+*Feb 2026. Opus 4.6.*
 
 During a CLI tool release:
 
@@ -195,7 +195,7 @@ CC's first pass ignored this and wrote `return body[0].value.value`. It took a s
 
 ### Semantic Pareidolia at the Spinner
 
-*Feb 2026.*
+*Feb 2026. Opus 4.5.*
 
 Early in the CC experience, a hypothesis emerged: the status message "Crafting" probably means a text file is being written.
 
@@ -262,7 +262,7 @@ The interesting part isn't the speed — it's the failure modes. The 1D separabl
 
 ### The Alignment Problem
 
-*Feb 5, 2026.*
+*Feb 5, 2026. Opus 4.5/4.6 (cutover day).*
 
 During a collaborative coding session, Claude had written a chat export tool. The output columns were misaligned.
 
@@ -286,7 +286,7 @@ During the modernization of a [functional programming library](https://github.co
 
 ### Context Gap and the Briefing Doc Pattern
 
-*Feb 2026.*
+*Feb 2026. Opus 4.6.*
 
 Not all observations are anecdotes. This one is a workflow pattern born of necessity.
 
@@ -843,7 +843,7 @@ The observation is small but recurring across sessions: multi-project environmen
 
 ### The Activation-Cost Collapse
 
-*~Apr 2026.*
+*~Apr 2026. Opus 4.7.*
 
 A long-deferred refactor landed.
 
@@ -861,7 +861,7 @@ The pattern is testable in the inverse direction: any architectural improvement 
 
 ### As It Doesn't Say On The Tin
 
-*~Apr 2026.*
+*~Apr 2026. Opus 4.7.*
 
 A package's name became a diagnostic instrument.
 
@@ -879,7 +879,7 @@ The cost of taking it seriously is low. The cost of *not* taking it seriously is
 
 ### The Asymmetric Sweep
 
-*~Apr 2026.*
+*~Apr 2026. Opus 4.7.*
 
 A refactor was triggered by aesthetic discomfort, not by failing behavior.
 
@@ -917,7 +917,7 @@ The methodological caution: this works because the dependency direction is unamb
 
 ### The Dissolving Vendor Boundary
 
-*Apr 2026.*
+*Apr 2026. Opus 4.7.*
 
 The traditional taxonomy of third-party code in a project was clean: dependencies (imported, upstream-maintained, accessed via a package manager), forks (a separate repository on a code-hosting platform, asserting an alternative project identity, with you as the maintainer), vendored copies (bundled at a specific version inside the source tree, typically under a `vendor/` subfolder, frozen in place). Each had distinct social and engineering implications, and the boundaries were enforced by cost.
 
@@ -1045,7 +1045,7 @@ A human developer, asked to parse a file format, would `head -20` a sample file 
 
 ### The Red CI Surprise
 
-*~Apr 2026.*
+*~Apr 2026. Opus 4.7.*
 
 Local tests were passing when CC signed off. By morning, CI was red.
 
@@ -1069,7 +1069,7 @@ The pairing with *[The Closing Bell](#the-closing-bell)* and *[The Phantom Green
 
 ### The Ephemeral Stage
 
-*Feb 2026.*
+*Feb 2026. Opus 4.6.*
 
 > *Regrettably, less chance for comedy theater in ephemeral CC sessions.*
 
