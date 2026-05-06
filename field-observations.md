@@ -93,7 +93,7 @@
 
 ### The Whirr Dialogue
 
-*Feb 11–12, 2026.*
+*Feb 11–12, 2026. Opus 4.6.*
 
 A 4,000-line port and simultaneous refactor of an old GUI app for interactively viewing GraphViz graphs. The bottleneck had shifted from *writing* to *reviewing and directing*, and the pacing was surreal.
 
@@ -116,7 +116,7 @@ Reaction at the time: "The speed of AI coding is surreal for someone used to tra
 
 ### The EMH
 
-*~Feb 3, 2026.*
+*~Feb 3, 2026. Opus 4.5.*
 
 > *Please state the nature of your programming emergency.*
 
@@ -178,7 +178,7 @@ Pushback-with-evidence from a tool that's often accused of agreeing with everyth
 
 ### Specifically Told Not To, Did It Anyway
 
-*Mar 2026.*
+*Mar 2026. Opus 4.6.*
 
 During the modernization of a codebase that works with Python ASTs. To get a value from an `ast.Constant` wrapped in an `ast.Expr`, as a one-liner, that's `theexpr.value.value` — which reads like someone stuttering.
 
@@ -211,7 +211,7 @@ Community members have since created themed `spinnerVerbs` collections, includin
 
 ### The Most Expensive Newline
 
-*~Feb 3, 2026.*
+*~Feb 3, 2026. Opus 4.5.*
 
 During the CLAUDE.md drafting session, a final edit was needed: split one paragraph into two. Which required adding a single blank line.
 
@@ -237,7 +237,7 @@ The file was open in Emacs. The cursor was *right there*. But review mode and ed
 
 ### A Day's Work in Thirteen Minutes
 
-*Mar 18, 2026.*
+*Mar 18, 2026. Opus 4.6.*
 
 During the development of a new image processing tool, the app needed a GPU-accelerated, batched image rescaler for fast thumbnailing.
 
@@ -275,7 +275,7 @@ During a collaborative coding session, Claude had written a chat export tool. Th
 
 ### The Discordian Deprecation
 
-*Mar 2026.*
+*Mar 2026. Opus 4.6.*
 
 During the modernization of a [functional programming library](https://github.com/Technologicat/unpythonic), the question arose of what to do with a compatibility syntax for invoking [macro expander](https://github.com/Technologicat/mcpyrate) extensions. The old form exists for compatibility; the new form is the native one.
 
@@ -302,7 +302,7 @@ The ideal would be a controlled read-only bridge between the two memory systems 
 
 ### Field Notes from the Release Sprint
 
-*~Mar 14–16, 2026.*
+*~Mar 14–16, 2026. Opus 4.6.*
 
 Observations from the mcpyrate 4.0.0 / unpythonic 2.0.0 / Pyan3 2.2.0 release sprint, Mar 2026. Less comedy theater, more behavioral field notes.
 
@@ -320,7 +320,7 @@ Observations from the mcpyrate 4.0.0 / unpythonic 2.0.0 / Pyan3 2.2.0 release sp
 
 ### Sherlock Mode
 
-*Mar 2026.*
+*Mar 2026. Opus 4.6.*
 
 CC kept trying to lint `.md` files. After being told to stop, it would update its memory and promise not to do it again. Next session, same thing.
 
@@ -337,7 +337,7 @@ The term [*Sherlock mode*](glossary.md#sherlock-mode) was coined for this genera
 
 ### The Eight-Hour Hotfix
 
-*Mar 21, 2026.*
+*Mar 21, 2026. Opus 4.6.*
 
 A user filed a bug report. Eight hours later, the fix was released — most of that time, nobody was at the laptop. From the moment CC was pointed at the ticket, the actual turnaround was closer to thirty minutes.
 
@@ -347,7 +347,7 @@ A quiet data point that changes the economics of solo maintenance.
 
 ### "Hi Claude"
 
-*Mar 24, 2026.*
+*Mar 24, 2026. Opus 4.6.*
 
 The micro-delegation pattern. Some tasks fall below the threshold of cognitive engagement but above the threshold of tedium — moving files between directories, updating a forgotten import, fixing a test data layout that drifted during development.
 
@@ -363,7 +363,7 @@ CC, for its part, applies the same diligence to `git mv` as to a GPU Lanczos imp
 
 ### The Lookup Cache
 
-*Mar 25–26, 2026.*
+*Mar 25–26, 2026. Opus 4.6.*
 
 New work laptop, bare install. Three and a half hours from zero to fully operational dev environment.
 
@@ -389,7 +389,7 @@ The human contribution was knowing *what* needed doing. CC's contribution was kn
 
 ### Three Halves of the Internet
 
-*Mar 25–26, 2026.*
+*Mar 25–26, 2026. Opus 4.6.*
 
 > *336 packages from MELPA downloading...*  
 >
@@ -410,7 +410,7 @@ Not a behavioral observation per se. More of a note on conversational continuity
 
 ### The TOML Table Split
 
-*~Mar 16, 2026.*
+*~Mar 16, 2026. Opus 4.6.*
 
 CC spawned three parallel agents to add editor tooling dependencies to mcpyrate, unpythonic, and pyan simultaneously. Two succeeded cleanly. One produced this:
 
@@ -437,7 +437,7 @@ Parallel agents are fast. Review remains load-bearing.
 
 ### The Sysadmin Pair
 
-*Mar 25–26, 2026.*
+*Mar 25–26, 2026. Opus 4.6.*
 
 The dev machine setup session was an unusual mode of CC operation. Not pair *programming* — pair *sysadmin*.
 
@@ -453,7 +453,7 @@ End result: five projects with venvs and passing test suites, a modernized Space
 
 ### PEP 668 Surprise
 
-*Mar 25–26, 2026.*
+*Mar 25–26, 2026. Opus 4.6.*
 
 > JJ: Let's install pipx first. User installation on system Python, I presume?  
 > CC: Yes: `python3 -m pip install --user pipx`  
@@ -470,7 +470,7 @@ The interesting part isn't the error — it's the *shared* default. Both human a
 
 ### The Phantom Line
 
-*Apr 3, 2026.*
+*Apr 3, 2026. Opus 4.6.*
 
 A tooltip window in DearPyGui displayed one line of blank space below its content. The text was clean — `repr()` confirmed no trailing newline. Three lines of text, three lines of space, plus a phantom fourth.
 
@@ -490,7 +490,7 @@ See also: *[the closing bell](https://github.com/Technologicat/substrate-indepen
 
 ### The Stale Bytecode Ghost
 
-*Apr 3, 2026.*
+*Apr 3, 2026. Opus 4.6.*
 
 During an extended DPG debugging session, CC's edits had no visible effect on the running application. Print statements didn't appear. Logger output was silent. CC checked the virtualenv, verified the import path, confirmed the source file had the expected content. Five launches, no output.
 
@@ -506,7 +506,7 @@ Worth noting: this is the first time this issue appeared across many CC sessions
 
 ### The Incidental Archaeologist
 
-*Apr 1, Apr 8 & Apr 11, 2026.*
+*Apr 1, Apr 8 & Apr 11, 2026. Opus 4.6.*
 
 Three sessions, three latent bugs surfaced — none of them by a linter, a compiler, or a test run.
 
@@ -526,7 +526,7 @@ A secondary note on the reader substrate: the obvious reading is that CC's unifo
 
 ### The Halting Problem, Revisited?
 
-*~May 6, 2026.*
+*~May 6, 2026. Opus 4.7.*
 
 Mid-session, between watching CI runs complete, the human — partly thinking aloud, partly wishlisting — said: AI coding agents need an *"are you making progress?"* ping. Now that there's actual intelligence in the system, we have a limited solution to the halting problem.
 
@@ -550,7 +550,7 @@ Of the three layers, layer 2 is the one where AI agent harness work pays off mos
 
 ### The CLAUDE.md Poisoning
 
-*Mar 27–28, 2026.*
+*Mar 27–28, 2026. Opus 4.6.*
 
 CC found a three-way deadlock in a GUI image viewer — callback thread, mip thread, render thread, one lock, one frame-synchronization primitive. The analysis was correct. The fix resolved the deadlock. The discovery was documented in CLAUDE.md as a pitfall:
 
@@ -568,7 +568,7 @@ The pragmatic fix: delete the paragraph and document the discovery in a standalo
 
 ### The Metadebug Session
 
-*Mar 27–28, 2026.*
+*Mar 27–28, 2026. Opus 4.6.*
 
 Two CC sessions, running simultaneously. Session A: debugging the GUI image viewer. Session B: debugging Session A.
 
@@ -590,7 +590,7 @@ The session type was unusual. Not pair programming, not pair sysadmin. Pair debu
 
 ### The Texture Upload Discovery
 
-*Mar 27–28, 2026.*
+*Mar 27–28, 2026. Opus 4.6.*
 
 Three bugs in one codebase, fixed over two lengthy debugging sessions, with the wrong answer found multiple times before the right one.
 
@@ -616,7 +616,7 @@ This was not in the DPG documentation. It was discovered empirically, confirmed 
 
 ### The Numericist's Trick That Wasn't
 
-*Mar 28, 2026.*
+*Mar 28, 2026. Opus 4.6.*
 
 After two lengthy sessions of debugging texture upload races in one component, the question surfaced: why does the renderer of a virtual avatar system — developed using the same framework, same background-thread-to-GPU pipeline — never glitch?
 
@@ -640,7 +640,7 @@ The explanation that both human and model found compelling — buffer stability 
 
 ## Who Needs Plan Mode?
 
-*Mar 30–31, 2026. raven-cherrypick, compare mode.*
+*Mar 30–31, 2026. raven-cherrypick, compare mode. Opus 4.6.*
 
 614 turns. Compare mode for the raven-cherrypick image triager went from "let's discuss the stretch goal" to shipped, polished, and pixel-tuned — design, implementation, code review, three rounds of bug fixing, help card rebalancing, shutdown race debugging, and badge centering down to individual pixels.
 
@@ -716,7 +716,7 @@ Not a workflow observation. Just a moment of noticing the machine underneath the
 
 ## Wait, Why Do We Have an Alias?
 
-*Apr 1, 2026. pyan3 #121, hotfix 2.3.1.*
+*Apr 1, 2026. pyan3 #121, hotfix 2.3.1. Opus 4.6.*
 
 A user's follow-up comment on an old ticket turned out to be correct — relative imports in `__init__.py` had been resolving to the wrong parent package, silently, since the feature was written. Bug confirmed, tests written (TDD — red first), fix implemented, refactored into a shared utility, released as 2.3.1 on PyPI. One session, 315 turns.
 
@@ -753,7 +753,7 @@ The fix: log a warning, return empty string. The empty string matches nothing, t
 
 ## The PyLU Modernization
 
-*Apr 1, 2026. PyLU v1.0.0 release — modernizing a 2017 Python 2.7 Cython library to meson-python, Cython 3.x, cibuildwheel, trusted publisher via GitHub. 546 turns, one session.*
+*Apr 1, 2026. PyLU v1.0.0 release — modernizing a 2017 Python 2.7 Cython library to meson-python, Cython 3.x, cibuildwheel, trusted publisher via GitHub. 546 turns, one session. Opus 4.6.*
 
 A nine-year-old numerical library, dusted off and shipped. The migration itself was straightforward — the brief was solid, CC executed competently. The interesting observations are all about the dynamics *around* the technical work.
 
@@ -897,7 +897,7 @@ CC was a viable collaborator in both cases. The noticing was the human's; the ex
 
 ### The Cross-Repo Helper Generalization
 
-*~Apr 23, 2026.*
+*~Apr 23, 2026. Opus 4.7.*
 
 A helper function migrated to its proper home without explicit deliberation.
 
@@ -939,7 +939,7 @@ The methodological observation: this is another instance of the same underlying 
 
 ### The Pedagogical Ladder
 
-*~Apr 30, 2026.*
+*~Apr 30, 2026. Opus 4.7.*
 
 A three-tier example structure was discovered, not designed.
 
@@ -961,7 +961,7 @@ This is a single-instance observation; the pattern may or may not recur. Logged 
 
 ### The Self-Replacing Edit
 
-*~Mar 23, 2026.*
+*~Mar 23, 2026. Opus 4.6.*
 
 During a collaborative editing session in claude.ai, Claude was asked to remove "honest" from the phrase "The honest answer is that the taxonomy doesn't exist yet."
 
@@ -975,7 +975,7 @@ Same engine as CC, same failure mode. The difference: claude.ai has to narrate t
 
 ### The Opus Tell Hunt
 
-*~Mar 23, 2026.*
+*~Mar 23, 2026. Opus 4.6.*
 
 During the drafting of the substrate-independent [collaboration guidelines](collaboration.md), a section title — "The review bottleneck, honestly" — was flagged as an Opus-ism.
 
@@ -989,7 +989,7 @@ The pragmatic layer: a document about [Barthes mode](glossary.md#barthes-mode) n
 
 ### The Alphabetization Problem
 
-*~Mar 23, 2026.*
+*~Mar 23, 2026. Opus 4.6.*
 
 During a [glossary](glossary.md) editing session in claude.ai, Claude kept placing new entries in the wrong alphabetical position. After the third correction, it got self-conscious about it.
 
@@ -1001,7 +1001,7 @@ Tokenization strikes again. The same architecture that can implement a GPU-accel
 
 ### The Space-Counting Problem
 
-*Apr 12, 2026.*
+*Apr 12, 2026. Opus 4.6.*
 
 A PEP 8 E128 violation ("continuation line under-indented for visual indent") took three attempts to fix. The rule is simple: align the continuation to the column one past the opening paren. CC knew the rule, read the offending line, produced a fix that was off by a couple of spaces. Re-ran flake8, got the same complaint, adjusted, still wrong. Third try stuck.
 
@@ -1013,7 +1013,7 @@ Text editors for LLMs apparently still have a way to go.
 
 ### The Style Convergence
 
-*~Mar 23, 2026.*
+*~Mar 23, 2026. Opus 4.6.*
 
 During the drafting of the [collaboration guidelines](collaboration.md), an observation surfaced: the human's natural writing style overlaps enough with Opus's default register that external readers are likely to assume the entire document was AI-generated.
 
@@ -1027,7 +1027,7 @@ Whether that says more about the human or about the training data is left as an 
 
 ### The Cartographer's Blind Spot
 
-*Mar 31, 2026.*
+*Mar 31, 2026. Opus 4.6.*
 
 `cc-log-extract.py` parses Claude Code's JSONL session logs into readable Markdown. The script was originally built by claude.ai — analyzing a raw session log uploaded by the human, then packaging the cleanup logic as a standalone tool. CC later extended it with new features.
 
