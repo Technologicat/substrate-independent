@@ -124,6 +124,12 @@ Z
 **Meaning:** A text (typically a press release or tech article) so dense with self-propagating LLM-ese phrases that it functions as a protected habitat for the species. *"Should put up a warning sign for venomous animals."*  
 **Context:** AI tech journalism.
 
+## Discordian-deprecated
+**Part of speech:** adj. (also n.: *Discordian deprecation*).  
+**Meaning:** Of an API: marked deprecated, with no plan to remove. The threat of removal is the lever; the lever, once useful, never gets pulled. Users get nudged toward the modern spelling without facing churn; the project keeps the courtesy of letting old code keep working indefinitely. Distinct from ordinary deprecation (which carries an implicit removal commitment on some future schedule) and from "soft-deprecated" (which usually means "not yet scheduled, but will be"); Discordian deprecation is *never* scheduled, by design.  
+**Etymology:** 🌐[Eris approves](https://en.wikipedia.org/wiki/Discordianism).  
+**Context:** Originally observed during the unpythonic 2.0 modernization (March 2026); see [*The Discordian Deprecation*](field-observations.md#the-discordian-deprecation). In code, marked with the literal adjective, e.g. *"`<<` is the legacy (discordian-deprecated) alternative"*.
+
 ## Dual blades
 **Meaning:** A fantasy action hero dual-wielding *Occam's Razor* and Barthes's *Death of the Author*, optimized for critical hit rate. Occam cuts interpretation — if a text supports a simple reading and an elaborate one, prefer the simple one rather than treating the ambiguity as richness. Barthes cuts authorial intent — inviting you to find all the readings a text can support. There is an element of tension between the two; Occam asks Barthes why he is furnishing an apartment he doesn't live in. Then out comes the nunchuk — Bayes — and changes the subject: not how to read a text, but what it's evidence for. If LLMs have made the text cheap to produce, the same words carry less evidential weight — word-for-word identical, yet weaker evidence in 2026 than in 2020. Barthes finds this objectionable. Bayes finds Barthes's objection irrelevant.  
 **Context:** Argument-by-accumulation as a rhetorical form whose persuasive force is entangled with production cost.
@@ -330,6 +336,6 @@ Z
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-05-06.*
+*Started: 2026-02-05. Last updated: 2026-05-08.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
