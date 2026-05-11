@@ -49,6 +49,8 @@ When the new entry should reference an existing entry, add the cross-reference. 
 
 For existing field types, match the genre of comparable entries rather than treating fields as containers for arbitrary content. When inventing a new field, name it so its content is implied by the label — *Examples*, *Variants*, *Caveat* — and keep its content consistent across entries that use it.
 
+The guidelines describe a center of mass, not a fence. When an entry's flow genuinely benefits from carrying a beat in a neighboring field — e.g. *Approach memory*'s Context closing with an editorial sigh that would have weighed down an already-dense Meaning — the entry's flow wins. The guidelines keep entries from drifting; they don't override a deliberate choice that reads better.
+
 ### `field-observations.md`
 
 Organized as vignettes (the top "Field observations" section) and themed arcs (each with its own h2 heading). Within an arc, entries use h3 headings.
