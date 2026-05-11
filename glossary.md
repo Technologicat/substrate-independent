@@ -235,7 +235,7 @@ Z
 
 ## Lint rule
 **Original meaning:** An automated check that flags style or correctness issues in source code without modifying it (`flake8`, `ruff`, `eslint`, `clippy`, etc.; named after Unix `lint`).  
-**Extended meaning:** A self-imposed, named, pass-or-fail check on creative output, applied at the gate before the artifact ships. Failure rejects rather than reworks: a candidate that fails a lint rule isn't sent back for revision, it's dropped. The mechanism (named pre-commit gate) is borrowed from coding; the content of any particular rule is whatever the writer needs to keep out of their work.  
+**Extended meaning:** A self-imposed, named, pass-or-fail check on creative output, applied at the gate before the artifact ships. The mechanism (named pre-commit gate) is borrowed from coding; the content of any particular rule is whatever the writer needs to keep out of their work.  
 **Context:** Editorial discipline in AI-assisted creative work; cf. *[Little Prince mode](#little-prince-mode)*, *[aria-worthy design](#aria-worthy-design)*.
 
 ## Listening to the architecture sing
