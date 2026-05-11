@@ -79,6 +79,14 @@ Inline quotes use plain double quotes. Italicize when the quote is a direct quot
 
 After adding entries, run a quick visual check on the rendered output: anchor links resolve, the contents listing matches the section order, alphabetical placement is correct.
 
+## On register
+
+Read several existing entries in the relevant file before drafting a new one. Match the register of what's there rather than introducing a new voice. When in doubt whether a draft fits, ask the human collaborator before committing.
+
+## On naming
+
+When a technical concept has a mythological or folkloric referent whose properties genuinely map to it, that's a strong candidate name — the metaphor carries explanatory content rather than decorating it. *Prose basilisks* (Langford's BLIT lineage) names a creature: exposure-is-harmful and memetic reproduction are both the basilisk's defining behavior and the phenomenon's. *Pharaoh's curse* names a phenomenon-class: invisible affliction, supposedly supernatural, with a not-easily-discoverable scientific explanation — which is exactly the bug's phenomenology before you locate the stuck bit. The mojibake reference (character-ghosts, literally) is a third shape: a loanword whose original meaning is already the technical meaning. The technique works when the mapping is tight along whichever axis the referent supplies — behavior, phenomenology, or literal denotation. The rest is just colorful naming, which is fine but doesn't earn the same payoff. Don't force it.
+
 ## Co-authoring
 
 When Claude has contributed substantially to a commit, credit Claude in the commit message trailer:
@@ -88,7 +96,3 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 The repository's policy on substrate-independent credit is in `collaboration.md`. Read it before making attribution decisions.
-
-## On register
-
-Read several existing entries in the relevant file before drafting a new one. Match the register of what's there rather than introducing a new voice. When in doubt whether a draft fits, ask the human collaborator before committing.
