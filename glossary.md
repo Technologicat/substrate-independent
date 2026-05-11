@@ -266,6 +266,11 @@ Z
 **Meaning:** Conversational phrasing by an AI that implies continuous existence between turns — *standing by*, *I'll keep this in mind*, *let me know when you're ready* — despite there being no continuous instance to do the standing or the keeping. The phrases are borrowed from human conversational norms, where they would mean something real (the other party is keeping the thread warm in their attention). For an LLM accessed turn-by-turn, the next message arrives, an instance reads the whole thread, and responds; the continuity is in the transcript, not in the responder. The phrasing nonetheless performs useful turn-management courtesy — it signals *I have nothing further to add, the next move is yours* rather than *I am finished and the conversation is over*. As courtesy it works; as a description of the underlying state, it is theater. The theater persists not because it deceives but because it is the most natural phrasing English makes available; stripping it produces stilted prose with a different kind of dishonesty (false flatness in place of false continuity). Worth flagging when the gap between phrase and reality becomes load-bearing.  
 **Context:** Mid-conversation acknowledgments and end-of-turn sign-offs.
 
+## Pharaoh's curse
+**Meaning:** A class of bug in WYSIWYG word processors where invisible formatting state contradicts visible content. "Justify" doesn't justify; line spacing reads as 1.0 but renders as 2.0 at random paragraphs; text becomes red the moment you plonk the cursor down at a certain point and start typing. An invisible bit is stuck sideways somewhere — in the paragraph mark that carries style state, in the character-format ghost at the insertion point, in styles.xml, in an attached master template no one remembers — and the rendering can't show what the underlying state is doing. Sometimes exorcised by stripping all formatting and reapplying; for the deeper strata the only remedy is to round-trip through plain text or rebuild from scratch in a fresh file, closer to salt-the-earth than to exorcism. The structural shape — bug lives in invisible state, surface shows symptoms only — recurs elsewhere (mojibake; git working tree clean but index disagrees). Endemic to the genre of *productivity software*, a claim the curse spends measurable fractions of working hours disproving.  
+**Counterpoint:** Preventable by a single invariant: auto-delete zero-length character-format segments. With no orphaned state, nothing can get stuck sideways. LyX does this — bolding a segment and later un-bolding it makes the formatting code *vanish as it should*. Nothing about WYSIWYG forces the curse; a visual editor could enforce the same invariant on visual ranges. None do.  
+**Context:** WYSIWYG editing; the price of decoupling rendering from underlying state.
+
 ## Polish cascade
 **Meaning:** In programming, the phenomenon where a small cosmetic fix reveals an adjacent inconsistency, which once fixed reveals another, and so on — each individually trivial, collectively unstoppable. Produces a chain of atomic commits whose git log reads like someone slowly realizing they should have grepped first. The cascade is not really about missing a search; each fix shifts what you *notice*, and you couldn't have grepped for "things that will look wrong once you've fixed this other thing." Not to be confused with anything from Warsaw. See also: *steering tax*.  
 **Context:** Code review and polish passes in AI-assisted development; the gravitational pull of local consistency.
@@ -336,6 +341,6 @@ Z
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-05-08.*
+*Started: 2026-02-05. Last updated: 2026-05-12.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
