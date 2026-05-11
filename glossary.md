@@ -22,7 +22,7 @@ O
 [R](#R)
 [S](#S)
 T
-U
+[U](#U)
 V
 W
 X
@@ -282,7 +282,7 @@ Z
 
 ## Prequisite
 **Part of speech:** n.  
-**Meaning:** A unit of work emitted *toward* completing the current task, structurally symmetric to a follow-up. Where a follow-up is work emitted *by* completing something — discovered as a consequence and bumped to its own ticket — a prequisite is work that must precede it: an architectural cleanup whose absence is the reason the current task is harder than it should be, surfaced when designing the current task and likewise bumped to its own ticket. Both are projects in their own right, with their own PRs; the relationship is sequential, not hierarchical. Distinct from *prerequisite*: a prerequisite carries a faint flavour of dependency-as-obstacle (must be cleared before proceeding), whereas a prequisite is dependency-as-companion (the matched pair).  
+**Meaning:** A unit of work emitted *toward* completing the current task, structurally symmetric to a follow-up. Where a follow-up is work emitted *by* completing something — discovered as a consequence and bumped to its own ticket — a prequisite is work that must precede it: an architectural cleanup whose absence is the reason the current task is harder than it should be, surfaced when designing the current task and likewise bumped to its own ticket. Both are projects in their own right, with their own PRs; the relationship is sequential, not hierarchical. Distinct from *prerequisite*: a prerequisite carries a faint flavour of dependency-as-obstacle (must be cleared before proceeding), whereas a prequisite is dependency-as-companion (the matched pair). Both prequisite and follow-up are intra-project; the cross-project analog is *[Upstream lift](#upstream-lift)*.  
 **Etymology:** *Pre-* + *(re)quisite*, dropping the *re-* by analogy with *sequel* → *prequel*. Drop the prefix that pins the word to one temporal direction; the remainder carries the symmetric meaning.  
 **Usage:** *"The prequisite for #129 is the NAME-Node generalisation; #129 itself is a small overlay on top."*  
 **Context:** Project planning where designing a feature surfaces an architectural cleanup that wants its own ticket.
@@ -335,6 +335,17 @@ Z
 ## Superposition state pattern
 **Meaning:** Describing a thing that exists in genuinely multiple states as a superposition, written in bra-ket (Dirac) notation. This framing is disproportionately useful, as many things have this shape when viewed through the lens of pattern-matching. The notation is formally correct, technically applicable, and mildly absurd in casual contexts. The number of terms in the sum varies depending on application. For correct application of the notation, one should introduce the appropriate normalization factors (1/√N on each term, if the states are orthogonal). Canonical example: "empirical data is (1/√2)|king⟩ + (1/√2)|queen⟩" is the epistemically correct as well as gender-equal form of "empirical data is king", avoiding the category error of ascribing gender to data, as well as the premature superposition collapse of failing to use an uninformed prior.  
 **Context:** The implicit structure of *[Ancient Gratin](#ancient-gratin)* (Greek-Latin superposition) and *[Janus-adjacent mindset](#janus-adjacent-mindset)*. Originally from quantum mechanics; see 🌐[Bra–ket notation](https://en.wikipedia.org/wiki/Bra%E2%80%93ket_notation).
+
+---
+
+# U
+
+## Upstream lift
+**Part of speech:** n.  
+**Meaning:** A unit of work where the design of a downstream task surfaces a primitive whose natural home is in an upstream dependency, prompting extraction to the dependency, release, and consumption back into the project that surfaced it. The vertical vector — downstream to upstream — distinguishes it from a *[prequisite](#prequisite)* (architectural cleanup that *precedes* the current task within the same project) and from a follow-up (work emitted *by* task completion). The trigger is the downstream work creating pressure on the dependency's API; the lift is the recognition that the pressure relieves cleanly by an addition upstream, general enough to deserve a home there rather than being inlined. In the case where the same maintainer owns both projects, the bidirectional ownership makes the lift cheap to execute — or possible in practice at all.  
+**Etymology:** "Lift" in the refactoring sense (cf. lambda lifting — moving a definition to a less-nested scope to make it shareable). "Upstream" from package/dependency vocabulary. The compound names the operation: move the definition up one floor in the dependency stack.  
+**Usage:** *"`split_at_dialectimport` was an upstream lift from the BF dialect work — the primitive wanted to live in `mcpyrate`, not in `unpythonic`."*  
+**Context:** Library design across owned dependency stacks; the architectural correctness of letting downstream pressure shape upstream APIs. An instance of *[Listening to the architecture sing](#listening-to-the-architecture-sing)*.
 
 ---
 
