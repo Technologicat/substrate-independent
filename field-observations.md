@@ -976,7 +976,7 @@ A batched draft — two entries written in parallel and cross-referenced at the 
 
 The pattern is adjacent to but distinct from *[The Pedagogical Ladder](#the-pedagogical-ladder)*. There, three examples refused to be variants of each other, and the axis between them became visible. Here, three entries each surfaced what the next one needed, and the cross-references between them became natural rather than decorative. Both are forms of structure emerging from sequence rather than from upfront design. The arc-level theme holds; the specific mechanism differs.
 
-The shape recurs in code — abstractions surfaced during one project's work, named in a dependency, then consumed back (e.g. mcpyrate primitives developed during unpythonic's BF/Befunge-93 work). There the dependency is mechanically enforced and reads as normal import management; in prose it's visibly elective, which is what makes the structural use stand out.
+The shape recurs in code — abstractions surfaced during one project's work, lifted into a dependency, then consumed back (e.g. mcpyrate primitives developed during unpythonic's BF/Befunge-93 work; see *[Upstream lift](glossary.md#upstream-lift)*). Extraction is elective in both cases; the wedge is at the next step. In code, consumption is mechanically enforced once the lift is done, so the chain reads as normal dependency management. In prose, both ends stay elective — naming a concept doesn't oblige a later entry to reference it — so when the references end up structural, that's visible as a deliberate quality of the work.
 
 ---
 
