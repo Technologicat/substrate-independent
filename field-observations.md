@@ -75,6 +75,7 @@
 *[Conversation as Discovery](#conversation-as-discovery)*
 
 - [The Pedagogical Ladder](#the-pedagogical-ladder)
+- [The Cross-Reference Chain](#the-cross-reference-chain)
 
 *[On AI Collaboration](#on-ai-collaboration)*
 
@@ -957,6 +958,28 @@ This is a single-instance observation; the pattern may or may not recur. Logged 
 
 ---
 
+### The Cross-Reference Chain
+
+*~May 12, 2026. Opus 4.7.*
+
+A session produced three artifacts in sequence: a glossary entry on *[Pharaoh's curse](glossary.md#pharaohs-curse)*, a new "On naming" section in `CLAUDE.md`, and a glossary entry on *[Approach memory](glossary.md#approach-memory)*. They arrived in that order, and the order turned out to be load-bearing.
+
+The curse entry, in its "structural shape recurs elsewhere" parenthetical, reached for mojibake — a loanword whose literal meaning (character-ghost/monster) is exactly the technical meaning. The entry's title plus that aside, set next to *[Prose basilisks](glossary.md#prose-basilisks)*'s existing creature-name lineage, made a technique visible: when a technical concept has a mythological or folkloric referent whose properties genuinely map to it, the metaphor carries explanatory content. That observation crystallized into the "On naming" section.
+
+The curse entry's Counterpoint field named LyX's mechanism — auto-deletion of zero-length character-format segments — as the invariant that prevents the bug class. Naming it as an invariant, rather than as a feature of one tool, made it available as a unit. When the *Approach memory* entry needed a Connections field, the invariant was sitting there ready to pair with: auto-deletion keeps orphaned state out of the data model; approach memory keeps the user's mental model aligned with the data model at boundaries. The pairing was sharper because the invariant already had a name to reach for.
+
+A second transfer ran through "On naming" into the third entry. With the framework freshly articulated — tight mapping along whichever axis the referent supplies, or it's just colorful naming — mythological candidates for the direction-aware cursor entry were floated ("edge ghost exorcism") and discarded faster than they would have been otherwise. The flat descriptive title is the trace: the framework's main effect on the third artifact was to prevent something from being added.
+
+None of these moves was planned. Two were forced by the work of making each entry self-contained — to finish the curse entry's counterpoint, the invariant had to be named; to finish the parenthetical, the naming pattern had to be surfaced. The third was different in mechanism: an articulated framework, once written down, became something to apply rather than something to derive. The common shape is that the conceptual work was done before the artifact that depended on it.
+
+A batched draft — two entries written in parallel and cross-referenced at the end — would likely treat cross-references as decoration added after the structure is set. Sequential drafting treats them as load-bearing, because by the time the second entry exists, the first has already named the concepts the second's connection depends on. The cross-references are not added; they are the natural conclusion of conceptual work the prior entry already did.
+
+The pattern is adjacent to but distinct from *[The Pedagogical Ladder](#the-pedagogical-ladder)*. There, three examples refused to be variants of each other, and the axis between them became visible. Here, three entries each surfaced what the next one needed, and the cross-references between them became natural rather than decorative. Both are forms of structure emerging from sequence rather than from upfront design. The arc-level theme holds; the specific mechanism differs.
+
+Single instance, logged so a second instance has a place to attach.
+
+---
+
 ## On AI Collaboration
 
 ### The Self-Replacing Edit
@@ -1077,6 +1100,6 @@ Improvisational comedy works in claude.ai — the history accumulates into memor
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-05-06.*
+*Started: 2026-02-05. Last updated: 2026-05-12.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
