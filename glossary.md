@@ -287,6 +287,10 @@ Z
 **Usage:** *"The prequisite for #129 is the NAME-Node generalisation; #129 itself is a small overlay on top."*  
 **Context:** Project planning where designing a feature surfaces an architectural cleanup that wants its own ticket.
 
+## Preservation-pressure thinking
+**Meaning:** A design discipline: under conditions that filter out most content — a selective archival event, an organization's retention policy, an archaeologist in the year 32000 — which version of this decision still does its job? Not a prediction (most preservation events never come), but a constraint producing designs robust to degraded-context reading, which covers most actual reading contexts. Three operating patterns: co-locating content with its archival ride (public-API docs travel with the published repo); preserving context-marking specificity (a Finnish word in a directory path is higher-signal to a far-future reader than the homogenized English equivalent — the marker resists Translation Convention smoothing); and asymmetric protection for hard-to-reconstruct content (mechanical config regenerates from notes; a paragraph that took a week of tuning does not).  
+**Context:** Surfaced during `~/.claude` reorganization, when an Arctic Code Vault counterfactual reshaped where a pointer-skill's load-bearing content should live. Adjacent to *[Raptor contingency](#raptor-contingency)* — both engage low-probability high-consequence scenarios, but with opposite valence: raptor-contingency builds *against* loss (redundancy, fallbacks), preservation-pressure builds *for* persistence (concentrating signal so the right thing survives the filter).
+
 ## Prose basilisks
 **Meaning:** Self-propagating LLM-ese phrases that infect both AI-generated and human writing: "rich cultural heritage," "at the intersection of," "testament to," "nestled in," "delve into." The prose equivalent of stock photos — technically depicting the right category of thing, but so generic they communicate nothing specific. Called "basilisks" because exposure to them is harmful (to prose quality) and they reproduce memetically.  
 **Context:** AI writing detection, Wikipedia's signs-of-AI-writing page, and AI tech journalism. The "basilisk" metaphor traces back to David Langford's "BLIT" (1988).
@@ -305,7 +309,7 @@ Z
 
 ## Raptor contingency
 **Meaning:** A plan for an extremely unlikely situation that nevertheless feels important to prepare for — and where the very act of planning is part of the point. Distinct from a black swan (which emphasizes unpredictability and systemic impact) in that the planner is fully aware the scenario is absurd; the preparation is not delusional but a deliberate choice to spend effort on a low-probability, high-consequence edge case. The psychological driver is not anxiety but a kind of intellectual conscientiousness: you *know* the velociraptors aren't coming, but the building has a picture window and you can't not notice. Common in engineering (planning for simultaneous failure of redundant systems), information security (threat models for nation-state adversaries targeting your hobby project), and keeping a local LLM on your phone in case the cloud goes down.  
-**Context:** Mobile local LLMs as offline fallbacks — *"like carrying a paper map: you almost never need it, but when you do, nothing else will do."* See Randall Munroe's 🌐[xkcd #87](https://xkcd.com/87/).
+**Context:** Mobile local LLMs as offline fallbacks — *"like carrying a paper map: you almost never need it, but when you do, nothing else will do."* See Randall Munroe's 🌐[xkcd #87](https://xkcd.com/87/). Compare the positive-valence counterpart *[Preservation-pressure thinking](#preservation-pressure-thinking)*.
 
 ---
 
