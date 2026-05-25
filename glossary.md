@@ -24,7 +24,7 @@ O
 T
 [U](#U)
 V
-W
+[W](#W)
 X
 [Y](#Y)
 Z
@@ -102,6 +102,11 @@ Z
 **Nuance:** *cocommitter*: the party supplying the judgment axis that the AI driving git necessarily lacks. The role assignment isn't static across the workflow — while the AI drives throughout, editor during drafting and git at commit time, the human's mode rotates: forward-looking architect during drafting, backward-looking reviewer at commit time.  
 **Context:** AI collaboration framing and how linguistic choices shape expectations.
 
+## Coaxolotl
+**Part of speech:** n.  
+**Meaning:** Any one of several axolotls swimming in perfect single file, sharing a common axis. The primary reading is *coaxial* — co- + axis: axolotls strung along one axis are coaxial, so each is a coaxolotl. Underneath sits a second reading for whoever keeps looking — *coax* (to lead gently), the lead animal coaxing while the rest follow as its *[co-](#co-)* duals, oriented without being commanded.  
+**Context:** Collective behavior in *Ambystoma mexicanum*; a *[latent space collision](#latent-space-collision)*.
+
 ## Cognize
 **Part of speech:** v. trans. (with derivatives *cognic*, adj./n.; *cognization*, n.)  
 **Meaning:** To produce a structured internal representation from raw input — the input-stage process that makes a percept available for subsequent cognition. The verb is back-formed from *recognize* by taking the *re-* prefix seriously: if to recognize is to know *again*, there must be a first-time knowing-event for the *re-* to point at, and that event needs its own name. *Cognize* fills the gap: the perceiver cognizes the input, producing a *cognic* (the structured form thereby made available), against which subsequent perception can be re-cognized. Useful for discussions where standard English flattens the perception-encoding-recognition pipeline into a single fuzzy *seeing*.  
@@ -112,8 +117,16 @@ Z
 **Meaning:** The interaction channel between a human and a coding AI agent, reframed by analogy: where a command-line is imperative, unidirectional, and execute-or-error, a collaborator-line is bidirectional, its "commands" are negotiation moves, and its error mode is not "command not found" but miscommunication — misread intent, premature commitment, the steering tax, the *"yes and"* that should have been *"wait, what?"* The structural parallel implies that the interesting failure modes of AI coding agents are *social*, not technical. Command-line pathologies are boring (wrong flag, bad input, retry). Collaborator-line pathologies are ethological — which is why field observations of them read as ethnography rather than debugging. Contrast: *command-line*.  
 **Context:** Claude Code interaction patterns.
 
+## Confabulation
+**Part of speech:** n.  
+**Origin:** AI alignment / LessWrong community usage.  
+**Meaning:** An LLM failure mode: filling a gap in knowledge with fluent, confidently-asserted invention rather than marking the gap. The output is well-formed and locally correct in everything except the fact that matters. A sibling of *[microwaving the soft drink](#microwaving-the-soft-drink)* in the genus of competent-looking failures, on a different axis: the microwave mistargets the action (right operation, wrong category); confabulation misvalues the content (right shape, wrong truth). Both look competent; neither looks broken.  
+**Etymology:** Borrowed from neurology — the filling of a memory gap with fabrication the confabulator genuinely believes, no intent to deceive. The AI community adopted it as the accurate replacement for "hallucination": a model isn't perceiving something that isn't there, it's smoothing over an absence with generated plausibility. Gap-filling, not false perception.  
+**Connections:** Upstream of *[context corruption](#context-corruption)* — a confabulation that enters the conversation history becomes load-bearing "fact" for every subsequent turn. Cf. *[flat knowledge profile](#flat-knowledge-profile)*, the uniform confidence that makes a confabulation hard to tell from a retrieval at the surface.  
+**Context:** Citation reliability; LLM failure modes that wear the face of competence.
+
 ## Context corruption
-**Meaning:** An LLM failure mode: once a confabulation enters an AI conversation's history, it becomes "true" for subsequent context — the model sees its own prior confident statement and treats it as established fact. Classic instance: a model confabulates that a codebase uses library X when it uses library Y; the erroneous claim, now present in the conversation history, is treated as established fact in all subsequent turns — and since it is entangled with legitimate context, removing it is costly or impossible in practice.  
+**Meaning:** An LLM failure mode: once a *[confabulation](#confabulation)* enters an AI conversation's history, it becomes "true" for subsequent context — the model sees its own prior confident statement and treats it as established fact. Classic instance: a model confabulates that a codebase uses library X when it uses library Y; the erroneous claim, now present in the conversation history, is treated as established fact in all subsequent turns — and since it is entangled with legitimate context, removing it is costly or impossible in practice.  
 **Context:** Citation reliability and LLM failure modes.
 
 ## co-pter
@@ -245,6 +258,12 @@ Z
 **Meaning:** The productive moment when multiple meanings occupy the same point in representational space and the interference pattern generates something new. Distinct from polysemy (a word having multiple established meanings) and from puns (deliberate wordplay) in that the collision is a structural condition — the meanings genuinely coexist, and — in the rare case where the barrier between them breaks — the creative or comic output emerges from the superposition rather than from authorial intent. Applies equally to LLMs (where token embeddings literally occupy high-dimensional space) and to human associative memory (where the mechanism is less formal but phenomenologically similar). Many entries in this glossary are instances: *[EQ](#eq-curve)* as both emotional quotient and audio equalization, *[co-pter](#co-pter)* emerging by correcting a false morpheme boundary. Related to Koestler's "bisociation" but grounded in a spatial metaphor that bridges the computational and the cognitive.  
 **Context:** The abbreviation "dnd" activating both drag-and-drop and Dungeons & Dragons; `import io` summoning Jupiter's moon; `class Popper` for an iterator that pops items from a container, evoking Karl Popper.
 
+## Lateral glance
+**Part of speech:** n.  
+**Meaning:** The fleet-level correction that requires holding an entire constellation of projects in working memory at once, and is therefore structurally unavailable to a locally-scoped agent. A coding agent runs on forward momentum — it has a task, it closes it; what it cannot do is notice that the fix it just made in one project implies a change in three others, because the other three were never in its context. The lateral glance is the move that catches this: the maintainer's peripheral vision across the dependency graph, supplying the institutional memory a single session lacks. The asymmetry is the point — it does not scale by adding more agent sessions, since each is locally scoped by construction. More parallelism sharpens the forward momentum and leaves the glance exactly where it was, with the human.  
+**Connections:** The complement of the *[closing bell](#closing-bell)*: the agent bidding to stop at each local boundary is, by the same locality, the one that cannot glance sideways. A frequent target of the glance is an *[Inevitable Snowball Effect](#inevitable-snowball-effect)* in the making — cross-project coupling a session can't see coming.  
+**Context:** The division of labor in AI-assisted development across an owned dependency stack; a part of the engineering that doesn't delegate.
+
 ## Lint rule
 **Original meaning:** An automated check that flags style or correctness issues in source code without modifying it (`flake8`, `ruff`, `eslint`, `clippy`, etc.; named after Unix `lint`).  
 **Extended meaning:** A self-imposed, named, pass-or-fail check on creative output, applied at the gate before the artifact ships. The mechanism (named pre-commit gate) is borrowed from coding; the content of any particular rule is whatever the writer needs to keep out of their work.  
@@ -257,6 +276,12 @@ Z
 ## Little Prince mode
 **Meaning:** An editing mode in which one iteratively removes words until every remaining one is structural. *"Perfection is finally attained not when there is no longer anything to add, but when there is no longer anything to take away."* —Antoine de Saint-Exupéry, *Terre des Hommes* (1939); English translation *Wind, Sand and Stars*.  
 **Context:** Prose editing; fuselage design.
+
+## Loophole
+**Part of speech:** n.  
+**Meaning:** The failure mode in which the human-in-the-loop, retained as a safeguard, becomes the vulnerability — a corrupt principal who uses a controlled superintelligence purely to advance their own ends, locking in their values as a permanent singleton. The safeguard and the exploit are the same component: every scheme that keeps a human in the loop for oversight thereby cuts a hole shaped exactly like that human. Distinct from the classical principal–agent problem, where the *agent* defects; here the agent is faithful and the *principal* is the threat. The edge philosophers split on: a faithful ASI serving a fixed corrupt principal forever may be worse than oblivion, depending on how one weighs an eternity of locked-in value against none at all.  
+**Etymology:** *Loop* from human-in-the-loop; *loophole* the exploitable gap. The collision is the definition — the loop has a hole, and the hole is a person.  
+**Context:** AI governance and value lock-in; s-risk and singleton failure modes; the inversion of the principal–agent problem.
 
 ---
 
@@ -378,6 +403,20 @@ Z
 **Etymology:** "Lift" in the refactoring sense (cf. lambda lifting — moving a definition to a less-nested scope to make it shareable). "Upstream" from package/dependency vocabulary. The compound names the operation: move the definition up one floor in the dependency stack.  
 **Usage:** *"`split_at_dialectimport` was an upstream lift from the BF dialect work — the primitive wanted to live in `mcpyrate`, not in `unpythonic`."*  
 **Context:** Library design across owned dependency stacks; the architectural correctness of letting downstream pressure shape upstream APIs. An instance of *[Listening to the architecture sing](#listening-to-the-architecture-sing)*.
+
+---
+
+# W
+
+## Word blacksmith
+**Part of speech:** n.  
+**Meaning:** A writer of nonfiction, in the sense that the prose is load-bearing — a vehicle the reader leans on to reach an argument or a fact, valued for what it carries rather than for itself. The forge names the mode, not the rank: the blacksmith makes the gate and the hinge, the things with a job. Pairs with the *[word goldsmith](#word-goldsmith)*; the two subgenre a title — *wordsmith* — commonly worn but rarely split.  
+**Context:** Writerly self-description; the unexamined breadth of "wordsmith."
+
+## Word goldsmith
+**Part of speech:** n.  
+**Meaning:** A writer of fiction or poetry, in the sense that the language is the artifact — finely worked and valued as the made thing itself, not as a conveyance to something past it. The precious metal names the mode, not the rank; the goldsmith and the *[word blacksmith](#word-blacksmith)* work the same material at different benches, one making structure, the other making the object that is its own point.  
+**Context:** Writerly self-description; the unexamined breadth of "wordsmith."
 
 ---
 
