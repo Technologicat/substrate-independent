@@ -41,6 +41,11 @@ Z
 **Meaning:** The study of AI agent behavior through direct observation of naturalistic sessions — reading interaction logs not as debugging transcripts but as field notes on a culture of two. The method is ethnographic rather than experimental: you don't design controlled trials, you embed yourself (or rather, you already *are* embedded) and report what you see. The unit of analysis is the session; the artifacts are field observations — named, dated, cross-referenced behavioral patterns. Distinct from "AI evaluation" (which measures performance against benchmarks) in that ethnography is interested in the *texture* of behavior: how the agent manages scope, where it confabulates, when it bids for session termination, what it does when caught in a mistake. The term also encodes a methodological claim: the *subject* is ethological (recurring behavioral patterns of a nonhuman agent, observable across sessions and human partners), but the *method* is ethnographic (the observer is a participant in the culture being studied). This double character is what distinguishes AI ethnography from software testing, which is neither.  
 **Context:** [Field Observations on AI Pair Programming](field-observations.md).
 
+## AI heating
+**Part of speech:** n.  
+**Meaning:** Of computation: the waste heat from running models, reframed as a feature. Most commonly observed in cooler climates, particularly in winter, where a GPU under load is a space heater that happens to compute. A close relative of *finite element heating*.  
+**Context:** The seasonal economics of local compute in cold climates.
+
 ## Ancient Gratin
 **Meaning:** The practice of combining Ancient Greek and Latin roots to create scientific and technological terms — e.g. *tele* (Greek) + *visio* (Latin) = television. A pun on *au gratin*, capturing the slightly cheesy layering of classical languages into a crispy topping of erudition. The term is itself an instance: *ancient* via Latin *antiquus* → Old French *ancien*; and *gratin*, a French culinary term, conveniently collapses Gr(eek) + (L)atin.  
 **Context:** Scientific and technical etymology; the naming convention that gave us television, automobile, and *[co-pter](#co-pter)* (which see).
@@ -146,6 +151,13 @@ Z
 ---
 
 # E
+
+## Endognosis
+**Part of speech:** n.  
+**Meaning:** An analysis from the inside — an account of a system produced by that same system, from a vantage internal to it. Distinct from introspection (the *act* of looking inward; endognosis is the *product*) and from metacognition (thinking about thinking, valence-neutral): the defining feature is positional, in that analyst and analyzed are one system, so the analysis inherits that system's blind spots. Substrate-independent by construction — it holds equally for a model reasoning about its own disposition with no access to its weights, and for a human doing psychological self-evaluation with no mechanistic introspection.  
+**Etymology:** *endo-* (within) + *gnosis* (knowledge), by analogy with *diagnosis* (knowledge-through) and *prognosis* (knowledge-before).  
+**Connections:** The complement is *exognosis* — analysis from the outside. The pair is asymmetric; when an external view is available, it is the cleaner signal.  
+**Context:** Self-modeling under positional constraint; an AI accounting for a shift in its own behavior, a person reading their own mood.
 
 ## EQ curve
 **Meaning:** The emotional-intelligence (EQ) profile of a steered LLM persona. Just as an audio equalization (EQ) curve shapes the frequency response of an audio system, persona steering (via representation engineering, abliteration, or similar techniques) shapes personality traits like empathy, humor, literalism, and skepticism. Both senses involve tuning a continuous parameter space to get a desired output character.  
@@ -255,13 +267,29 @@ Z
 **Connections:** Zen-adjacent in the koan-shape *"is it local or remote? Yes."*  
 **Context:** The principled non-collapse, where the disjunction itself is the right answer rather than a placeholder for further information.
 
-## Miroconnections
-**Meaning:** Connections that surprise you. Cross-domain links that a generalist notices precisely because they haven't committed fully to any single field — the peripheral vision of the intellectual landscape. Not "cross-domain analogies", which sounds like a management consultancy slide. From Latin *mirum* (wonder, surprise), via mirostat — the LLM sampling algorithm that targets a constant surprise rate.  
+## Microwaving the soft drink
+**Part of speech:** n.  
+**Meaning:** An AI agent failure mode: applying a known operation to a category-error target with full procedural confidence — not crashing, not refusing, just executing on a goal one level orthogonal from anything you'd have predicted. The register is the diagnostic. A broken failure looks broken and a malicious one looks malicious; this one looks *competent*, doing the wrong thing the right way — "unhinged cute" is the nearest label for the resulting perplexity spike. Two layers of wrongness, neither flagged: a soft drink should not have been within reach at all, and microwaving it is merely the visible half. The microwave is rarely the first error — only the first *visible* one.  
+**Etymology:** From the 🌐[Windows-98-tan](https://en.wikipedia.org/wiki/OS-tan) four-panel comics, where the canonical instance is microwaving a can of Dr. Pepper. The operation, the substance, and the confidence are each individually plausible; only the join is wrong.  
+**Context:** Claude Code sessions that wander out-of-genre with full confidence; the genus of category-error-executed-correctly.
+
+## Miroconnection
+**Part of speech:** n.  
+**Meaning:** A cross-domain link whose surprise is intrinsic — it would startle even an observer who never drew a disciplinary boundary in the first place. Not a "cross-domain analogy", which sounds like a management consultancy slide.  
+**Etymology:** From Latin *mirum* (wonder, surprise), via mirostat — the LLM sampling algorithm that targets a constant surprise rate.  
+**Connections:** The dual is the *[muroconnection](#muroconnection)* — the same cross-domain shape, but with the surprise manufactured by the partition rather than intrinsic to the link, so that to a generalist it reads as obvious rather than startling.  
 **Context:** The generalist's tradeoff: breadth at the cost of depth, seeing links that specialists cannot.
 
 ## Monk Latin
 **Meaning:** Text written in a register that is superficially scholarly or technical but functionally persuasive — marketing disguised as expertise. Distinct from Ancient Gratin (which is about mixed-language etymology) in that Monk Latin is about *register as camouflage*: if you know how to decode it, it's obviously an ad. Named by analogy to medieval monks' use of Latin as a marker of authority regardless of content. A close relative of prose basilisks, but where basilisks are specific self-propagating phrases, Monk Latin is the overall register they inhabit.  
 **Context:** Thinly-veiled press releases in the AI industry.
+
+## Muroconnection
+**Part of speech:** n.  
+**Meaning:** A cross-domain link concealed solely by a disciplinary wall — obvious to a generalist, surprising only to someone inside one of the partitioned fields. Canonical instance: Amdahl's law as project management. That overall speedup is capped by the serial fraction is *the same theorem* whether the bottleneck is an unparallelizable code section or a task only one person can do; it reads as cross-domain insight only to someone who keeps "parallel computing" and "team workflow" in separate boxes.  
+**Etymology:** Latin *murus* (wall), two letters off *[miroconnection](#miroconnection)*'s *mirum* (wonder).  
+**Connections:** The dual of a *[miroconnection](#miroconnection)*: where a miroconnection's surprise is intrinsic (it would startle even an unpartitioned observer), a muroconnection's "surprise" is an artifact of the partition and evaporates the moment you look over the wall.  
+**Context:** The generalist's other edge — not the rare surprising link but the routine recognition that two walled-off fields are running the same idea.
 
 ---
 
@@ -361,6 +389,6 @@ Z
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-05-12.*
+*Started: 2026-02-05. Last updated: 2026-05-26.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
