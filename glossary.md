@@ -298,7 +298,7 @@ Z
 **Part of speech:** n.  
 **Meaning:** A connection whose surprise is intrinsic — it would startle even an observer who never partitioned the world into separate domains. Not a "cross-domain analogy", which sounds like a management consultancy slide.  
 **Etymology:** From Latin *mirum* (wonder, surprise), via mirostat — the LLM sampling algorithm that targets a constant surprise rate.  
-**Connections:** The dual is the *[muroconnection](#muroconnection)* — the same shape, but with the surprise manufactured by the domain partition rather than intrinsic to the link, so that to a generalist it reads as obvious rather than startling.  
+**Connections:** The dual is the *[muroconnection](#muroconnection)* — the same shape, but with the surprise manufactured by a domain partition rather than intrinsic to the link, so that to a generalist it reads as obvious rather than startling.  
 **Context:** The generalist's tradeoff: breadth at the cost of depth, seeing links that specialists cannot.
 
 ## Monk Latin
