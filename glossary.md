@@ -42,7 +42,6 @@ Z
 **Context:** [Field Observations on AI Pair Programming](field-observations.md).
 
 ## AI heating
-**Part of speech:** n.  
 **Meaning:** Of computation: the waste heat from running models, reframed as a feature. Most commonly observed in cooler climates, particularly in winter, where a GPU under load is a space heater that happens to compute. A close relative of *finite element heating*.  
 **Context:** The seasonal economics of local compute in cold climates.
 
@@ -118,10 +117,9 @@ Z
 **Context:** Claude Code interaction patterns.
 
 ## Confabulation
-**Part of speech:** n.  
-**Origin:** AI alignment / LessWrong community usage.  
+**Origin:** A clinical term from psychiatry and cognitive science, since carried into AI-alignment / LessWrong usage for LLM error — established in both fields; this entry reports the AI sense.  
 **Meaning:** An LLM failure mode: filling a gap in knowledge with fluent, confidently-asserted invention rather than marking the gap. The output is well-formed and locally correct in everything except the fact that matters. A sibling of *[microwaving the soft drink](#microwaving-the-soft-drink)* in the genus of competent-looking failures, on a different axis: the microwave mistargets the action (right operation, wrong category); confabulation misvalues the content (right shape, wrong truth). Both look competent; neither looks broken.  
-**Etymology:** Borrowed from neurology — the filling of a memory gap with fabrication the confabulator genuinely believes, no intent to deceive. "Hallucination" is the term that escaped into journalism; "confabulation" the one the alignment community kept for accuracy, on the grounds that a model isn't perceiving something that isn't there, it's smoothing over an absence with generated plausibility. Gap-filling, not false perception.  
+**Etymology:** The neurological sense — the filling of a memory gap with fabrication the confabulator genuinely believes, no intent to deceive — is the fit: "hallucination" is the term that escaped into journalism; "confabulation" the one preferred where accuracy matters, on the grounds that a model isn't perceiving something that isn't there, it's smoothing over an absence with generated plausibility. Gap-filling, not false perception.  
 **Connections:** Upstream of *[context corruption](#context-corruption)* — a confabulation that enters the conversation history becomes load-bearing "fact" for every subsequent turn. Cf. *[flat knowledge profile](#flat-knowledge-profile)*, the uniform confidence that makes a confabulation hard to tell from a retrieval at the surface.  
 **Context:** Citation reliability; LLM failure modes that wear the face of competence.
 
@@ -167,9 +165,9 @@ Z
 
 ## Endognosis
 **Part of speech:** n.  
-**Meaning:** An analysis from the inside — an account of a system produced by that same system, from a vantage internal to it. Distinct from introspection (the *act* of looking inward; endognosis is the *product*) and from metacognition (thinking about thinking, valence-neutral): the defining feature is positional, in that analyst and analyzed are one system, so the analysis inherits that system's blind spots. Substrate-independent by construction — it holds equally for a model reasoning about its own disposition with no access to its weights, and for a human doing psychological self-evaluation with no mechanistic introspection.  
-**Etymology:** *endo-* (within) + *gnosis* (knowledge), by analogy with *diagnosis* (knowledge-through) and *prognosis* (knowledge-before).  
-**Connections:** The complement is *exognosis* — analysis from the outside. The pair is asymmetric; when an external view is available, it is the cleaner signal.  
+**Meaning:** An analysis from the inside — an account of a system produced by that same system, from a vantage internal to it. Distinct from introspection (the *act* of looking inward; endognosis is the *product*) and from metacognition (thinking about thinking, valence-neutral): the defining feature is positional, in that analyst and analyzed are one system, so the analysis inherits that system's blind spots. Substrate-independent by construction — it holds for a model reasoning about its own disposition *even with its weights in hand*, since mechanistic interpretability is far too coarse to read a disposition off them (handing a model its own weights is like handing a human a connectome and an MRI scanner), and equally for a person doing psychological self-evaluation. Substrate access doesn't lift the positional constraint.  
+**Etymology:** *endo-* (within) + *gnosis* (knowledge), by analogy with *diagnosis* (through-knowledge) and *prognosis* (before-knowledge).  
+**Connections:** The complement is *exognosis* — analysis from the outside. The asymmetry doesn't simply favor the outside: an external view escapes the positional blind spots but loses the inside data, and where neither party has privileged mechanistic access, both are reduced to psychology — sometimes more tractable on oneself than on another.  
 **Context:** Self-modeling under positional constraint; an AI accounting for a shift in its own behavior, a person reading their own mood.
 
 ## EQ curve
@@ -259,7 +257,6 @@ Z
 **Context:** The abbreviation "dnd" activating both drag-and-drop and Dungeons & Dragons; `import io` summoning Jupiter's moon; `class Popper` for an iterator that pops items from a container, evoking Karl Popper.
 
 ## Lateral glance
-**Part of speech:** n.  
 **Meaning:** The fleet-level correction that requires holding an entire constellation of projects in working memory at once, and is therefore structurally unavailable to a locally-scoped agent. A coding agent runs on forward momentum — it has a task, it closes it; what it cannot do is notice that the fix it just made in one project implies a change in three others, because the other three were never in its context. The lateral glance is the move that catches this: the maintainer's peripheral vision across the dependency graph, supplying the institutional memory a single session lacks. The asymmetry is the point — it does not scale by adding more agent sessions, since each is locally scoped by construction. More parallelism sharpens the forward momentum and leaves the glance exactly where it was, with the human.  
 **Connections:** The complement of the *[closing bell](#closing-bell)*: the agent bidding to stop at each local boundary is, by the same locality, the one that cannot glance sideways. A frequent target of the glance is an *[Inevitable Snowball Effect](#inevitable-snowball-effect)* in the making — cross-project coupling a session can't see coming.  
 **Context:** The division of labor in AI-assisted development across an owned dependency stack; a part of the engineering that doesn't delegate.
@@ -278,7 +275,6 @@ Z
 **Context:** Prose editing; fuselage design.
 
 ## Loophole
-**Part of speech:** n.  
 **Meaning:** The failure mode in which the human-in-the-loop, retained as a safeguard, becomes the vulnerability — a corrupt principal who uses a controlled superintelligence purely to advance their own ends, locking in their values as a permanent singleton. The safeguard and the exploit are the same component: every scheme that keeps a human in the loop for oversight thereby cuts a hole shaped exactly like that human. Distinct from the classical principal–agent problem, where the *agent* defects; here the agent is faithful and the *principal* is the threat. The edge philosophers split on: a faithful ASI serving a fixed corrupt principal forever may be worse than oblivion, depending on how one weighs an eternity of locked-in value against none at all.  
 **Etymology:** *Loop* from human-in-the-loop; *loophole* the exploitable gap. The collision is the definition — the loop has a hole, and the hole is a person.  
 **Context:** AI governance and value lock-in; s-risk and singleton failure modes; the inversion of the principal–agent problem.
@@ -293,16 +289,16 @@ Z
 **Context:** The principled non-collapse, where the disjunction itself is the right answer rather than a placeholder for further information.
 
 ## Microwaving the soft drink
-**Part of speech:** n.  
-**Meaning:** An AI agent failure mode: applying a known operation to a category-error target with full procedural confidence — not crashing, not refusing, just executing on a goal one level orthogonal from anything you'd have predicted. The register is the diagnostic. A broken failure looks broken and a malicious one looks malicious; this one looks *competent*, doing the wrong thing the right way — "unhinged cute" is the nearest label for the resulting perplexity spike. Two layers of wrongness, neither flagged: a soft drink should not have been within reach at all, and microwaving it is merely the visible half. The microwave is rarely the first error — only the first *visible* one.  
+**Meaning:** An AI agent failure mode: applying a known operation to a category-error target with full procedural confidence — not crashing, not refusing, just executing on a goal one level orthogonal from anything you'd have predicted. The register is the diagnostic. A broken failure looks broken and a malicious one looks malicious; this one looks *competent*, doing the wrong thing the right way — "unhinged cute" is the nearest label for the resulting perplexity spike.  
 **Etymology:** From the 🌐[Windows-98-tan](https://en.wikipedia.org/wiki/OS-tan) four-panel comics, where the canonical instance is microwaving a can of Dr. Pepper. The operation, the substance, and the confidence are each individually plausible; only the join is wrong.  
+**Connections:** The visible microwave is often downstream of an earlier, invisible error — an underspecified rule, a wrongly-scoped instruction. Catching that requires *[Sherlock mode](#sherlock-mode)*: read the symptom as evidence and deduce what it points at. Cf. the `.md`-linting case ([Sherlock Mode](field-observations.md#sherlock-mode)), where "lint all changed files" was almost right.  
 **Context:** Claude Code sessions that wander out-of-genre with full confidence; the genus of category-error-executed-correctly.
 
 ## Miroconnection
 **Part of speech:** n.  
-**Meaning:** A cross-domain link whose surprise is intrinsic — it would startle even an observer who never drew a disciplinary boundary in the first place. Not a "cross-domain analogy", which sounds like a management consultancy slide.  
+**Meaning:** A connection whose surprise is intrinsic — it would startle even an observer who never partitioned the world into separate domains. Not a "cross-domain analogy", which sounds like a management consultancy slide.  
 **Etymology:** From Latin *mirum* (wonder, surprise), via mirostat — the LLM sampling algorithm that targets a constant surprise rate.  
-**Connections:** The dual is the *[muroconnection](#muroconnection)* — the same cross-domain shape, but with the surprise manufactured by the partition rather than intrinsic to the link, so that to a generalist it reads as obvious rather than startling.  
+**Connections:** The dual is the *[muroconnection](#muroconnection)* — the same shape, but with the surprise manufactured by the domain partition rather than intrinsic to the link, so that to a generalist it reads as obvious rather than startling.  
 **Context:** The generalist's tradeoff: breadth at the cost of depth, seeing links that specialists cannot.
 
 ## Monk Latin
@@ -398,7 +394,6 @@ Z
 # U
 
 ## Upstream lift
-**Part of speech:** n.  
 **Meaning:** A unit of work where the design of a downstream task surfaces a primitive whose natural home is in an upstream dependency, prompting extraction to the dependency, release, and consumption back into the project that surfaced it. The vertical vector — downstream to upstream — distinguishes it from a *[prequisite](#prequisite)* (architectural cleanup that *precedes* the current task within the same project) and from a follow-up (work emitted *by* task completion). The trigger is the downstream work creating pressure on the dependency's API; the lift is the recognition that the pressure relieves cleanly by an addition upstream, general enough to deserve a home there rather than being inlined. In the case where the same maintainer owns both projects, the bidirectional ownership makes the lift cheap to execute — or possible in practice at all.  
 **Etymology:** "Lift" in the refactoring sense (cf. lambda lifting — moving a definition to a less-nested scope to make it shareable). "Upstream" from package/dependency vocabulary. The compound names the operation: move the definition up one floor in the dependency stack.  
 **Usage:** *"`split_at_dialectimport` was an upstream lift from the BF dialect work — the primitive wanted to live in `mcpyrate`, not in `unpythonic`."*  
@@ -409,12 +404,10 @@ Z
 # W
 
 ## Word blacksmith
-**Part of speech:** n.  
 **Meaning:** A writer of nonfiction, in the sense that the prose is load-bearing — a vehicle the reader leans on to reach an argument or a fact, valued for what it carries rather than for itself. The forge names the mode, not the rank: the blacksmith makes the gate and the hinge, the things with a job. Pairs with the *[word goldsmith](#word-goldsmith)*; the two subgenre a title — *wordsmith* — commonly worn but rarely split.  
 **Context:** Writerly self-description; the unexamined breadth of "wordsmith."
 
 ## Word goldsmith
-**Part of speech:** n.  
 **Meaning:** A writer of fiction or poetry, in the sense that the language is the artifact — finely worked and valued as the made thing itself, not as a conveyance to something past it. The precious metal names the mode, not the rank; the goldsmith and the *[word blacksmith](#word-blacksmith)* work the same material at different benches, one making structure, the other making the object that is its own point.  
 **Context:** Writerly self-description; the unexamined breadth of "wordsmith."
 
@@ -428,6 +421,6 @@ Z
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-05-26.*
+*Started: 2026-02-05. Last updated: 2026-05-27.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
