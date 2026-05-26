@@ -172,7 +172,7 @@ Z
 
 ## EQ curve
 **Meaning:** The emotional-intelligence (EQ) profile of a steered LLM persona. Just as an audio equalization (EQ) curve shapes the frequency response of an audio system, persona steering (via representation engineering, abliteration, or similar techniques) shapes personality traits like empathy, humor, literalism, and skepticism. Both senses involve tuning a continuous parameter space to get a desired output character.  
-**Context:** [LLM steering](https://arxiv.org/abs/2502.03708); [Hindsight](https://hindsight.vectorize.io/) memory architecture's disposition settings.
+**Context:** 🌐[LLM steering](https://arxiv.org/abs/2502.03708); 🌐[Hindsight](https://hindsight.vectorize.io/) memory architecture's disposition settings.
 
 ---
 
@@ -202,7 +202,7 @@ Z
 ## Fup
 **Part of speech:** v. trans. (with derivative *fuppable*, adj.: ready to be fupped)  
 **Meaning:** To apply a non-destructive structural transformation to a sequence. The original is left untouched; the result is a modified copy. Often with directional complement: *fup at*, *fup into*.  
-**Etymology:** Back-formation from *functional update*; also the sound a sequence makes when it is hit by one (per the [`unpythonic`](https://github.com/Technologicat/unpythonic) documentation, 2019).  
+**Etymology:** Back-formation from *functional update*; also the sound a sequence makes when it is hit by one (per the 🌐[`unpythonic`](https://github.com/Technologicat/unpythonic) documentation, 2019).  
 **Usage:** *"`fup(lst)[3]` is fuppable; `<< 42` fires it, leaving the original untouched."*
 
 ---
