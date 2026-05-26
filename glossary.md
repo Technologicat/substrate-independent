@@ -137,7 +137,7 @@ Z
 ## Curation pressure
 **Origin:** Janus (generative.ink)  
 **Meaning:** Using human taste as a fitness function over many LLM generation attempts — running e.g. 100 outputs, selecting the best 1–2, feeding those back as few-shot examples, and iterating. In the limit, this lets you effectively work as if with a next-gen model. Applies to joke generation, branching conversation trees, and any workflow where cheap stochastic generation + expensive human evaluation yields high-quality results.  
-**Context:** Janus's writings on LLMs as stochastic time evolution operators and [multiverse generators](https://generative.ink/posts/language-models-are-multiverse-generators/).
+**Context:** Janus's writings on LLMs as stochastic time evolution operators and 🌐[multiverse generators](https://generative.ink/posts/language-models-are-multiverse-generators/).
 
 ---
 
@@ -154,7 +154,7 @@ Z
 **Context:** Originally observed during the unpythonic 2.0 modernization (March 2026); see [*The Discordian Deprecation*](field-observations.md#the-discordian-deprecation).
 
 ## Dual blades
-**Meaning:** A fantasy action hero dual-wielding *Occam's Razor* and Barthes's *Death of the Author*, optimized for critical hit rate. Occam cuts interpretation — if a text supports a simple reading and an elaborate one, prefer the simple one rather than treating the ambiguity as richness. Barthes cuts authorial intent — inviting you to find all the readings a text can support. There is an element of tension between the two; Occam asks Barthes why he is furnishing an apartment he doesn't live in. Then out comes the nunchuk — Bayes — and changes the subject: not how to read a text, but what it's evidence for. If LLMs have made the text cheap to produce, the same words carry less evidential weight — word-for-word identical, yet weaker evidence in 2026 than in 2020. Barthes finds this objectionable. Bayes finds Barthes's objection irrelevant.  
+**Meaning:** A specific mental image: a fantasy action hero dual-wielding *Occam's Razor* and Barthes's *Death of the Author*, optimized for critical hit rate. Occam cuts interpretation — if a text supports a simple reading and an elaborate one, prefer the simple one rather than treating the ambiguity as richness. Barthes cuts authorial intent — inviting you to find all the readings a text can support. There is an element of tension between the two; Occam asks Barthes why he is furnishing an apartment he doesn't live in. Then out comes the nunchuk — Bayes — and changes the subject: not how to read a text, but what it's evidence for. If LLMs have made the text cheap to produce, the same words carry less evidential weight — word-for-word identical, yet weaker evidence in 2026 than in 2020. Barthes finds this objectionable. Bayes finds Barthes's objection irrelevant.  
 **Context:** Argument-by-accumulation as a rhetorical form whose persuasive force is entangled with production cost.
 
 ## Duolect
@@ -354,7 +354,7 @@ Z
 
 ## Questino
 **Meaning:** A question too small or not yet sufficiently formed to articulate, but persistent enough to keep surfacing at the edge of thought. Distinguished from a *nagging question* (which you can state) by its pre-verbal quality: you notice a questino mainly by the recurring impulse to ask something, without yet knowing what.  
-**Context:** Etymologically, from a recurring typo of *question*.
+**Etymology:** From a recurring typo of *question*.
 
 ---
 
