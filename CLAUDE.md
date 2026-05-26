@@ -32,6 +32,14 @@ Each metadata line ends with two trailing spaces so the next field renders on it
 
 External links use a globe-emoji prefix, *glossary-only*: `🌐[Link text](url)`. The globe signals "leaving the document." Other files in the repository use plain markdown links without the globe.
 
+Pre-commit check — every external link in the glossary carries the globe (the trailing `grep -v` whitelists the shared repo footer, whose link is plain boilerplate by cross-file convention):
+
+```
+grep -nP '\]\((?:https?:)' glossary.md | grep -v '🌐' | grep -v 'is part of the'
+```
+
+No output means clean; any line printed is an external link missing its `🌐`. The globe is easy to drop in any field — the misses cluster by neither entry nor field type, so eyeballing the Meaning line isn't enough.
+
 Internal cross-references between glossary entries: `*[Other entry](#other-entry)*` — italicized title, lowercase hyphenated anchor, apostrophes and other punctuation stripped from the anchor. Cross-references to other files in the repo: `[Title](file.md#anchor)`, italicized when the link is to a term-of-art, plain when navigational.
 
 When the new entry should reference an existing entry, add the cross-reference. When an existing entry should now reference the new one, update it too — unless the target field is already at saturation, where another reference would crowd rather than navigate.
