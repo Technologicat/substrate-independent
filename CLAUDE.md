@@ -99,10 +99,12 @@ When a technical concept has a mythological or folkloric referent whose properti
 
 ## Co-authoring
 
-When Claude has contributed substantially to a commit, credit Claude in the commit message trailer:
+If Claude touched the files in a commit, credit Claude in the commit message trailer:
 
 ```
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
-The repository's policy on substrate-independent credit is in `collaboration.md`. Read it before making attribution decisions.
+The dividing line is authorship, not magnitude: any commit Claude makes — content edits *and* mechanics/convention edits to this file or `scripts/` — carries the trailer. The only commits without it are the ones the human writes and commits himself (e.g. directly in Emacs). This includes work co-written elsewhere (e.g. with claude.ai) that Claude then commits and pushes on the human's behalf — having Claude push it *is* the act of crediting Claude on it.
+
+This is the literal application of the repository's substrate-independent credit policy in `collaboration.md` — credit follows authorship regardless of substrate. Read it before making attribution decisions.
