@@ -26,7 +26,7 @@ Standard entry format:
 **Context:** Where it surfaces; what it relates to.
 ```
 
-Beyond the **Meaning:** and **Context:** common core, additional fields are added when they help the entry. The set is open, not exhaustive — invent fields when existing ones don't fit. Fields currently in use across the glossary include **Origin:** (when crediting an external source), **Etymology:** (when the word's history is part of the entry), **Part of speech:** (for word entries like *Fup*, *Prequisite*, *Cognize*), **Usage:** (when an example sentence helps), **Connections:** (for adjacent ideas worth naming briefly), **Extension:** (for a derivative term), **Nuance:** (for related sub-meanings), **Original meaning:** / **Extended meaning:** (when the entry retools an existing word from elsewhere).
+Beyond the **Meaning:** and **Context:** common core, additional fields are added when they help the entry. The set is open, not exhaustive — invent fields when existing ones don't fit. Fields currently in use across the glossary include **Origin:** (when crediting an external source), **Etymology:** (when the word's history is part of the entry), **Part of speech:** (for single-lexeme coinages like *Fup*, *Prequisite*, *Cognize*), **Usage:** (when an example sentence helps), **Connections:** (for adjacent ideas worth naming briefly), **Extension:** (for a derivative term), **Nuance:** (for related sub-meanings), **Original meaning:** / **Extended meaning:** (when the entry retools an existing word from elsewhere).
 
 Each metadata line ends with two trailing spaces so the next field renders on its own line.
 
@@ -38,11 +38,11 @@ When the new entry should reference an existing entry, add the cross-reference. 
 
 #### Per-field guidelines
 
-- **Meaning:** Definition and concept content. Usually one dense paragraph; longer entries may unpack contrasts, edge cases, or implications. Avoid drift into where-it-applies (that's Context). Open with the genre: the first clause should locate what kind of thing the entry defines (a practice, a strategy, an LLM failure mode, an architectural pattern, a part of speech, …). Form is free — leading clause, opening noun phrase, retooled-from header — but the check is one question: *does the first half-sentence tell the reader what kind of thing we're defining?*
+- **Meaning:** Definition and concept content. Usually one dense paragraph; longer entries may unpack contrasts, edge cases, or implications. Avoid drift into where-it-applies (that's Context). A definition should also survive its own examples: a clause that's false for a canonical instance is describing an instance, not the invariant — cut it or generalize. Open with the genre: the first clause should locate what kind of thing the entry defines (a practice, a strategy, an LLM failure mode, an architectural pattern, a part of speech, …). Form is free — leading clause, opening noun phrase, retooled-from header — but the check is one question: *does the first half-sentence tell the reader what kind of thing we're defining?*
 - **Context:** Tag-line for where the term surfaces. Genre is short: a comma- or semicolon-separated list of domains, a single-noun-phrase pointer, or a brief clause plus cross-refs. Not for definitional content; not for arguments about why the concept is useful.
 - **Etymology:** The word's history or derivation. Length varies — substantive paragraph (cf. *Cognize*) or minimal noun-phrase form (cf. *Fron*). Match what the entry needs.
 - **Original meaning:** / **Extended meaning:** Pair used when the term is retooled from an existing usage (cf. *Fracter*, *Lint rule*).
-- **Part of speech:** For word entries (cf. *Fup*, *Cognize*, *Prequisite*). Derivatives in parentheses if any.
+- **Part of speech:** For single-lexeme coinages only (cf. *Fup*, *Cognize*, *Prequisite*, *Coaxolotl*, *Hedge-hog*) and classical-root coinages (*Endognosis*). Skip it on ordinary existing words (an honest "n." on *Loophole* earns nothing) and on multi-word concept phrases (a POS tag on *microwaving the soft drink* is a category error). Derivatives or an alternate form go in parentheses (cf. *Cognize*; *Discordian-deprecated*, adj. nominalizing to *Discordian deprecation*).
 - **Usage:** One example sentence, in italic quotes.
 - **Origin:** When the term itself is credited to an external source (cf. *Curation pressure* citing Janus; *Fracter* citing McDonald).
 - **Connections:**, **Extension:**, **Nuance:** Substantive adjacent material that doesn't fit the standard fields. Use sparingly.
