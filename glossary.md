@@ -21,7 +21,7 @@ O
 [Q](#Q)
 [R](#R)
 [S](#S)
-T
+[T](#T)
 [U](#U)
 V
 [W](#W)
@@ -397,6 +397,31 @@ Z
 
 ---
 
+# T
+
+## True Name
+**Meaning:** A name that carries its referent, rather than merely pointing at it. Two senses
+converge. In the AI-alignment / LessWrong sense: a precise, robust formal characterization of a
+fuzzy concept — one that pins the real referent so reasoning about it generalizes instead of
+breaking at the edges. In the language-UX sense: a term evocative enough that its meaning is
+recoverable without a lookup — including, now, by an AI encountering it cold. The shared virtue
+is the name doing the work itself instead of serving as a pointer to where the work is stored.
+A True Name *saves the search*. cf. *[aria-worthy design](#aria-worthy-design)*, which turned
+out to be a *partial* True Name: the musical metaphor transmits the direction (a high bar)
+faithfully, but the load-bearing qualifier (the bar is relative to the floor the project has
+set) does not ride along in the name — the evocative half is a True Name, the precise half still
+needs the definition.  
+**Etymology:** Folkloric — knowing a thing's true name grants power over it (Le Guin's Earthsea,
+and older magic). Philosophically, the naturalist position that names capture essence is Plato's
+*Cratylus*; Aristotle moves the other way (*De Interpretatione*: names signify by convention),
+and mathematics completes the move — *holomorphic*, *symplectic* (Weyl calquing "complex" into
+Greek) are deliberate *anti*-True-Names, opaque by design, chosen for collision-freedom over
+transparency. Search and AI invert the cost: when a name can be resolved on sight, self-
+documentation becomes a feature again.  
+**Context:** Language UX in a search/AI-mediated world; term design in the duolect.
+
+---
+
 # U
 
 ## Upstream lift
@@ -427,6 +452,6 @@ Z
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-05-27.*
+*Started: 2026-02-05. Last updated: 2026-05-28.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
