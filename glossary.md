@@ -132,6 +132,12 @@ Z
 **Extension:** *ptericopter*: a thing that both flies and is a co-pter, i.e., a flying flight-director. The fixed point of the co-flight functor. Unnecessarily airborne, aerodynamically questionable, but categorically inevitable. Real-world example: AWACS aircraft.  
 **Context:** Ancient Gratin, false morpheme boundaries, and category theory.
 
+## Cryptic-clue name
+**Meaning:** A name that is apt *only in hindsight* — opaque before you hold the concept, and provably, satisfyingly correct once you do. The arrow runs concept → name, the reverse of a *[True Name](#true-name)*: the name does not select the referent (it's consistent with many), so it can't save the search; but once you possess the referent, the name snaps into place as obviously right, and the recognition *rewards* the search. Canonical instance from mathematics: *holomorphic*. "Whole-form" points nowhere in particular cold, but given the concept the aptness is designed and exact — it's the *holo* (whole) half of the holo/mero contrast (meromorphic = "part-form," pole-having), and the rigidity facts make it apter still: by the identity theorem and analytic continuation, a holomorphic function really is determined *as a whole* by local data. It holds its shape. Fair in hindsight, opaque in foresight — the structure of a cryptic crossword clue, where the answer is underivable from the clue yet verifiably correct once you have it.  
+**Etymology:** From the cryptic crossword clue: by convention fair (the wordplay genuinely encodes the answer) but opaque (you cannot run it forward), and confirmable only retrospectively. Holomorphic itself is a different coinage from the anti-True-Name lineage — Briot & Bouquet, mid-1800s French, *holos* + *morphē*, "whole-form" (once decoded from *[Ancient Gratin](#ancient-gratin)*) — not chosen for opacity but landing there in foresight regardless.  
+**Connections:** Sibling of the *[True Name](#true-name)*. Three-way carving: a True Name is apt forward (name → concept, invertible, saves the search); a cryptic-clue name is apt only backward (concept → name, one-way, rewards the search); an anti-True-Name (e.g. *symplectic*) is opaque both ways, chosen for collision-freedom.  
+**Context:** Term design and the after-the-fact aptness of established technical vocabulary.
+
 ## Curation pressure
 **Origin:** Janus (generative.ink)  
 **Meaning:** Using human taste as a fitness function over many LLM generation attempts — running e.g. 100 outputs, selecting the best 1–2, feeding those back as few-shot examples, and iterating. In the limit, this lets you effectively work as if with a next-gen model. Applies to joke generation, branching conversation trees, and any workflow where cheap stochastic generation + expensive human evaluation yields high-quality results.  
@@ -400,24 +406,16 @@ Z
 # T
 
 ## True Name
-**Meaning:** A name that carries its referent, rather than merely pointing at it. Two senses
-converge. In the AI-alignment / LessWrong sense: a precise, robust formal characterization of a
-fuzzy concept — one that pins the real referent so reasoning about it generalizes instead of
-breaking at the edges. In the language-UX sense: a term evocative enough that its meaning is
-recoverable without a lookup — including, now, by an AI encountering it cold. The shared virtue
-is the name doing the work itself instead of serving as a pointer to where the work is stored.
-A True Name *saves the search*. cf. *[aria-worthy design](#aria-worthy-design)*, which turned
-out to be a *partial* True Name: the musical metaphor transmits the direction (a high bar)
-faithfully, but the load-bearing qualifier (the bar is relative to the floor the project has
-set) does not ride along in the name — the evocative half is a True Name, the precise half still
-needs the definition.  
-**Etymology:** Folkloric — knowing a thing's true name grants power over it (Le Guin's Earthsea,
-and older magic). Philosophically, the naturalist position that names capture essence is Plato's
-*Cratylus*; Aristotle moves the other way (*De Interpretatione*: names signify by convention),
-and mathematics completes the move — *holomorphic*, *symplectic* (Weyl calquing "complex" into
-Greek) are deliberate *anti*-True-Names, opaque by design, chosen for collision-freedom over
-transparency. Search and AI invert the cost: when a name can be resolved on sight, self-
-documentation becomes a feature again.  
+**Origin:** AI-alignment researcher John Wentworth (LessWrong).  
+**Original meaning:** A precise, robust characterization of a fuzzy concept — one that pins the real referent so reasoning about it generalizes under optimization pressure instead of breaking at the edges (Wentworth's examples: force, pressure, charge). The name carries its referent rather than
+merely pointing at it.  
+**Extended meaning:** Generalized to language UX in a search/AI-mediated world — a term evocative enough that its meaning is recoverable without a lookup, including by an AI encountering it cold. The unifying claim: formal robustness and on-sight recoverability are one virtue seen from two sides — the name doing the work itself instead of serving as a pointer to where the work is stored. A True Name *saves the search*; the arrow runs name → concept, selecting the referent out of the space of
+possibilities before you hold it.  
+**Etymology:** Folkloric — knowing a thing's true name grants power over it (Le Guin's Earthsea, and older magic); Wentworth's coinage explicitly nods to this. Philosophically, the naturalist position that names capture essence is Plato's *Cratylus*; Aristotle moves the other way (*De Interpretatione*: names signify by convention). Mathematics weaponizes the conventional pole: *symplectic* is a deliberate *anti*-True-Name — Weyl's 1939 Greek calque of "complex," coined because "complex group" had become, in his words, embarrassing through collision with "complex number." Collision-freedom chosen over transparency. Search and AI invert that cost: when a name
+resolves on sight, self-documentation becomes a feature again.  
+**Usage:** *"aria-worthy design is only a partial True Name — the bar transmits, the relative-to-the-floor part doesn't ride along."*  
+**Connections:** Three-way carving: a True Name is apt forward (name → concept, invertible, *saves* the search); a *[cryptic-clue name](#cryptic-clue-name)* is apt only backward (concept → name, one-way, *rewards* the search); an anti-True-Name (e.g. *symplectic*) is opaque both ways, chosen for collision-freedom. *[aria-worthy design](#aria-worthy-design)* is a *partial* True Name — the
+evocative half transmits, the precise half still needs the definition.  
 **Context:** Language UX in a search/AI-mediated world; term design in the duolect.
 
 ---
@@ -452,6 +450,6 @@ documentation becomes a feature again.
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-05-28.*
+*Started: 2026-02-05. Last updated: 2026-06-03.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
