@@ -229,6 +229,11 @@ Z
 **Etymology:** *hedge* + *hedgehog*; cf. *[latent space collision](#latent-space-collision)*.  
 **Context:** Planning under uncertainty; LLM hedging behavior; the failure mode of over-qualifying.
 
+## Hydra tax
+**Meaning:** The standing overhead, in a long-lived software project, that resolving a TODO item often surfaces more new items than it retires — so the backlog grows even as it is genuinely worked down. Not a discipline failure: like the *[inevitable snowball effect](#inevitable-snowball-effect)*, it's the project's real structure asserting itself, since closing an item does actual work that exposes the adjacent gaps it had been quietly bordering. The trap is reading backlog *length* as the score; by that measure genuine progress looks like regress. The myth supplies the corrective (see Etymology): a Hydra isn't defeated one head at a time — it takes a dedicated cleanup sprint whose whole purpose is to retire items faster than feature work spawns them, rather than folding cleanup into feature work where each fix regrows two more.  
+**Etymology:** The 🌐[Lernaean Hydra](https://en.wikipedia.org/wiki/Lernaean_Hydra) of Heracles' second labor: cut off one head and two grow back. *Tax* for the recurring, non-optional overhead.  
+**Context:** TODO backlogs, technical-debt tracking, project management under AI-assisted development — where fast feature work surfaces adjacent gaps faster than they close.
+
 ---
 
 # I
@@ -450,6 +455,6 @@ evocative half transmits, the precise half still needs the definition.
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-06-03.*
+*Started: 2026-02-05. Last updated: 2026-06-04.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
