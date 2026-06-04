@@ -32,10 +32,12 @@ Each metadata line ends with two trailing spaces so the next field renders on it
 
 External links use a globe-emoji prefix, *glossary-only*: `🌐[Link text](url)`. The globe signals "leaving the document." Other files in the repository use plain markdown links without the globe.
 
-Pre-commit check — every external link in the glossary carries the globe (the trailing `grep -v` whitelists the shared repo footer, whose link is plain boilerplate by cross-file convention):
+Rare exception — the deadpan-wink link. When a link *is* the joke (the word it sits on is the punchline, and a visible globe would tip the reader off before they discover it), the globe is deliberately omitted. Mark such a link with an inline `<!-- intentional: no globe -->` comment immediately after the link, on the same line — the comment renders as nothing, sits with the thing it marks, and lets the check whitelist it. See *Analytic continuation* (`chat[log]` → Complex logarithm). This is a last resort, not a style option: it costs the reader the leaving-the-document signal, so reserve it for links where signalling would break the effect.
+
+Pre-commit check — every external link in the glossary carries the globe (the first `grep -v` whitelists the shared repo footer, whose link is plain boilerplate by cross-file convention; the second whitelists deadpan-wink links carrying the `intentional: no globe` marker):
 
 ```
-grep -nP '\]\((?:https?:)' glossary.md | grep -v '🌐' | grep -v 'is part of the'
+grep -nP '\]\((?:https?:)' glossary.md | grep -v '🌐' | grep -v 'is part of the' | grep -v 'intentional: no globe'
 ```
 
 No output means clean; any line printed is an external link missing its `🌐`. The globe is easy to drop in any field — the misses cluster by neither entry nor field type, so eyeballing the Meaning line isn't enough.
