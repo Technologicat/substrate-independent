@@ -153,6 +153,11 @@ Z
 
 # D
 
+## Depleted uranium disclaimer
+**Meaning:** A stated non-goal, caveat, or safety disclaimer that fences off a risk nobody was going to run into — the design-doc equivalent of printing "contains no depleted uranium" on food packaging. The cost is asymmetric — writing one is free and it reads as responsible, so they accumulate, diluting the attention owed to load-bearing non-goals they sit beside.  
+**Nuance:** The test for whether a given non-goal is one of these is counterfactual: would the actor plausibly have done the thing absent the disclaimer? If yes, the non-goal is load-bearing — it steers a real tendency away from a real edge. If no, it is a depleted uranium disclaimer: pure signal of diligence, carrying no information because the risk was never live. The same counterfactual can flip depending on the actor: a non-goal that is depleted uranium for a human collaborator ("does not also implement caching") can be load-bearing against an LLM coding agent, which would have wandered there on its own.  
+**Context:** Corporate design docs (the Non-goals section, where the form is native); spec-writing for AI coding agents; any defensive caveat whose function is signalling rather than steering.
+
 ## Digital nature reserve (for prose basilisks)
 **Meaning:** A text (typically a press release or tech article) so dense with self-propagating LLM-ese phrases that it functions as a protected habitat for the species. *"Should put up a warning sign for venomous animals."*  
 **Context:** AI tech journalism.
@@ -461,6 +466,6 @@ evocative half transmits, the precise half still needs the definition.
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-06-07.*
+*Started: 2026-02-05. Last updated: 2026-06-10.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
