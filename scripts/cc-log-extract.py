@@ -19,8 +19,8 @@ Each session header records the model that produced the assistant turns
 (extracted from `message.model` in the JSONL). Single-model sessions get a
 `Model: ...` line; sessions that span more than one model get a `Models: ...`
 line listing each model with its CC-turn range. A `Raw model strings: ...`
-line preserves the unparsed API identifiers for reproducibility — the date
-suffix in those strings is the deployment date, not the model identity.
+line preserves the unparsed API identifiers verbatim — the grouping below is a
+convenience, but the raw strings are the record.
 
 With `--per-turn`, every CC turn is also tagged inline with the API string
 minus the `claude-` prefix and any date suffix (e.g. `**[CC]** *(opus-4-7)*:`).
@@ -35,9 +35,20 @@ import argparse
 from pathlib import Path
 
 # Real model identifiers have shape `claude-{family}-{major}-{minor}[-{date}]`,
-# e.g. `claude-opus-4-7` or `claude-opus-4-7-20260416`. The date suffix is the
-# deployment date, not the model identity. Older or unfamiliar identifiers
-# that don't match this shape fall through to a verbatim fallback.
+# e.g. `claude-opus-4-7` or `claude-opus-4-7-20260416`. We group on
+# family-major-minor, folding a dated pin together with the bare identifier for the
+# same version.
+#
+# That is right under the *current* naming scheme, where the minor version carries the
+# model identity and the date merely pins a deployment of it. It is not a law. Under
+# older naming, two dated releases could share family-major-minor and still be
+# different models: `claude-3-5-sonnet-20240620` and `claude-3-5-sonnet-20241022` were
+# distinct, and there the date was the only thing telling them apart. If identifiers of
+# that shape ever appear in the logs, this regex will merge them and be wrong to do so
+# — which is why the raw strings are preserved verbatim in the header.
+#
+# Older or unfamiliar identifiers that don't match this shape fall through to a
+# verbatim fallback.
 _MODEL_RE = re.compile(r"^claude-(opus|sonnet|haiku)-(\d+)-(\d+)(?:-\d{8})?$")
 
 
