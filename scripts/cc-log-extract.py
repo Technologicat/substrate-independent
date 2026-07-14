@@ -43,9 +43,11 @@ from pathlib import Path
 # model identity and the date merely pins a deployment of it. It is not a law. Under
 # older naming, two dated releases could share family-major-minor and still be
 # different models: `claude-3-5-sonnet-20240620` and `claude-3-5-sonnet-20241022` were
-# distinct, and there the date was the only thing telling them apart. If identifiers of
-# that shape ever appear in the logs, this regex will merge them and be wrong to do so
-# — which is why the raw strings are preserved verbatim in the header.
+# distinct, and there the date was the only thing telling them apart (both are listed at
+# https://platform.claude.com/docs/en/about-claude/model-deprecations, which is where to
+# check identifiers of this kind). If identifiers of that shape ever appear in the logs,
+# this regex will merge them and be wrong to do so — which is why the raw strings are
+# preserved verbatim in the header.
 #
 # Older or unfamiliar identifiers that don't match this shape fall through to a
 # verbatim fallback.
