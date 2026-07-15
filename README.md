@@ -11,3 +11,5 @@ More documents may appear over time.
 ## Tools
 
 - [Scripts](scripts/) — tools for working with AI pair programming session data
+
+See also [Dotclaude](https://github.com/Technologicat/dotclaude) (separate repo), the Claude Code configuration for my dev machines.
