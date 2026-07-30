@@ -405,6 +405,12 @@ Z
 **Meaning:** The moment a solo developer counts their project's contributors and realizes that the majority are silicon-based. Not a crisis — the code works, the tests pass, the commits are real. Just a quiet demographic observation that lands oddly. Somewhere between pride in productivity and an unnameable feeling that the org chart has shifted substrate without anyone filing the paperwork.  
 **Context:** Open-source projects where Claude Code is a listed contributor.
 
+## Spork
+**Original meaning:** The hybrid utensil — a shallow spoon bowl with short tines at the tip, so that it is genuinely both and comfortably neither.  
+**Extended meaning:** A case that a classification cannot place, because it satisfies two branches which had been assumed exclusive — and whose value is diagnostic rather than merely awkward. The characteristic symptom is not misfiling but *hesitation*: the sorter stalls, oscillates, or escalates, since both bins are defensible and neither is right. A spork is therefore evidence about the taxonomy rather than about the object. The repair is usually neither to assign it a bin nor to add a third one, but to re-cut the classification along a different axis, on which the awkward case was never awkward. Canonical instance: a page of a PDF that the reader wants as a picture. Sorted by *source* — document or image? — it is a spork; sorted by *output* — text or pixels? — it dissolves, the page having been ambiguous only about where it came from, never about what was wanted from it.  
+**Etymology:** 🌐[Spork](https://en.wikipedia.org/wiki/Spork), the utensil, whose entire identity is failing a binary; the name works by literal denotation rather than by analogy. The sorting sense arrives via 🌐[WALL-E](https://en.wikipedia.org/wiki/WALL-E) (2008), in which the robot, curating salvage into a cup of spoons and a cup of forks, comes upon one and pauses.  
+**Context:** Taxonomy design; file-format handling; API and schema boundaries. Formally (1/√2)|fork⟩ + (1/√2)|spoon⟩ — see *[superposition state pattern](#superposition-state-pattern)*; the re-cut that resolves a spork is often a *[superposition collapse event](#superposition-collapse-event)*.
+
 ## Substrate-independent
 **Meaning:** From philosophy of mind: the functionalist position that mental states are defined by what they do, not what they're made of. Applied to collaborative work: contributions are evaluated on their own merits, not by the substrate of the contributor. Also a very dry pun on "platform-independent," depending on how you read it.  
 **Context:** AI collaboration policy; functionalism; this repository.
@@ -416,7 +422,7 @@ Z
 
 ## Superposition state pattern
 **Meaning:** Describing a thing that exists in genuinely multiple states as a superposition, written in bra-ket (Dirac) notation. This framing is disproportionately useful, as many things have this shape when viewed through the lens of pattern-matching. The notation is formally correct, technically applicable, and mildly absurd in casual contexts. The number of terms in the sum varies depending on application. For correct application of the notation, one should introduce the appropriate normalization factors (1/√N on each term, if the states are orthogonal). Canonical example: "empirical data is (1/√2)|king⟩ + (1/√2)|queen⟩" is the epistemically correct as well as gender-equal form of "empirical data is king", avoiding the category error of ascribing gender to data, as well as the premature superposition collapse of failing to use an uninformed prior.  
-**Context:** The implicit structure of *[Ancient Gratin](#ancient-gratin)* (Greek-Latin superposition) and *[Janus-adjacent mindset](#janus-adjacent-mindset)*. Originally from quantum mechanics; see 🌐[Bra–ket notation](https://en.wikipedia.org/wiki/Bra%E2%80%93ket_notation).
+**Context:** The implicit structure of *[Ancient Gratin](#ancient-gratin)* (Greek-Latin superposition), *[Janus-adjacent mindset](#janus-adjacent-mindset)*, and *[spork](#spork)*. Originally from quantum mechanics; see 🌐[Bra–ket notation](https://en.wikipedia.org/wiki/Bra%E2%80%93ket_notation).
 
 ---
 
@@ -467,6 +473,6 @@ evocative half transmits, the precise half still needs the definition.
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-06-10.*
+*Started: 2026-02-05. Last updated: 2026-07-31.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
