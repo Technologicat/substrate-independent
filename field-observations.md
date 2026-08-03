@@ -1100,6 +1100,28 @@ Improvisational comedy works in claude.ai — the history accumulates into memor
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-05-12.*
+### Does the Review Ceiling Hold for AI-Native Code?
+
+*Aug 2026. Opus 5. Open question, parked rather than answered.*
+
+The *[cyberpunk engineering](glossary.md#cyberpunk-engineering)* entry closes by claiming that although both the
+build and the maintenance constraints have moved, review has not — the human stays the single point everything
+passes through, so the binding constraint relocates from *writing* to *deciding*.
+
+Juha's qualification, which the entry does not carry: **that holds for Graham-type artisan code, and may not
+generalize.** The whole fleet is artisan by disposition — code meant to be read, where review *is* the work
+rather than an inspection step bolted on after it. For code written to be regenerated rather than read, the
+economics could differ, and the dev process is still finding its shape. Some of the software-dev commentariat
+already argues that human review is what kills throughput, and concludes that AI-native development needs a
+different process entirely. The conclusion usually drawn from there — that artisan software has no place in the
+AI age — is the part we disagree with; the observation about throughput is not obviously wrong.
+
+Parked because it is a discussion rather than a finding, and because the session it came up in was nearly full.
+Recorded because it is the kind of thing that otherwise gets re-derived from scratch, differently, without
+anyone noticing it had been raised before.
+
+---
+
+*Started: 2026-02-05. Last updated: 2026-08-03.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
