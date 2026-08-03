@@ -483,6 +483,6 @@ evocative half transmits, the precise half still needs the definition.
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-07-31.*
+*Started: 2026-02-05. Last updated: 2026-08-03.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
