@@ -35,10 +35,15 @@ import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 
-# Real model identifiers have shape `claude-{family}-{major}-{minor}[-{date}]`,
-# e.g. `claude-opus-4-7` or `claude-opus-4-7-20260416`. We group on
-# family-major-minor, folding a dated pin together with the bare identifier for the
-# same version.
+# Real model identifiers have shape `claude-{family}-{major}[-{minor}][-{date}]`,
+# e.g. `claude-opus-4-7`, `claude-opus-4-7-20260416`, or `claude-opus-5`. The minor
+# version is optional because the 5 family does not carry one. We group on whatever
+# of family-major-minor is present, folding a dated pin together with the bare
+# identifier for the same version.
+#
+# The minor is capped at three digits so that a dated pin of a minor-less identifier
+# (`claude-opus-5-20260101`) reads its date as a date rather than as a very large
+# minor version.
 #
 # That is right under the *current* naming scheme, where the minor version carries the
 # model identity and the date merely pins a deployment of it. It is not a law. Under
@@ -52,7 +57,7 @@ from pathlib import Path
 #
 # Older or unfamiliar identifiers that don't match this shape fall through to a
 # verbatim fallback.
-_MODEL_RE = re.compile(r"^claude-(opus|sonnet|haiku)-(\d+)-(\d+)(?:-\d{8})?$")
+_MODEL_RE = re.compile(r"^claude-(opus|sonnet|haiku|fable)-(\d+)(?:-(\d{1,3}))?(?:-\d{8})?$")
 
 
 def format_tool_call(item, mode):
@@ -146,7 +151,8 @@ def _format_edits(name, inp):
 def _friendly_model_name(api_string):
     """Convert an API model string to a friendly form.
 
-    `claude-opus-4-7` and `claude-opus-4-7-20260416` both → `Opus 4.7`.
+    `claude-opus-4-7` and `claude-opus-4-7-20260416` both → `Opus 4.7`;
+    `claude-opus-5`, which carries no minor version, → `Opus 5`.
     Unrecognized strings are returned unchanged — better to surface an
     unfamiliar identifier than to mangle it.
     """
@@ -156,7 +162,8 @@ def _friendly_model_name(api_string):
     if not m:
         return api_string
     family, major, minor = m.groups()
-    return f"{family.capitalize()} {major}.{minor}"
+    version = f"{major}.{minor}" if minor else major
+    return f"{family.capitalize()} {version}"
 
 
 def _per_turn_label(api_string):

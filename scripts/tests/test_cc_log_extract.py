@@ -35,6 +35,15 @@ def test_friendly_model_name_with_date_suffix():
     assert cle._friendly_model_name("claude-sonnet-4-6-20260217") == "Sonnet 4.6"
 
 
+def test_friendly_model_name_without_minor_version():
+    # The 5 family carries no minor version; the identifier is family-major only.
+    assert cle._friendly_model_name("claude-opus-5") == "Opus 5"
+    assert cle._friendly_model_name("claude-sonnet-5") == "Sonnet 5"
+    assert cle._friendly_model_name("claude-fable-5") == "Fable 5"
+    # A dated pin of one must read its date as a date, not as a huge minor version.
+    assert cle._friendly_model_name("claude-opus-5-20260101") == "Opus 5"
+
+
 def test_friendly_model_name_unrecognized_returns_as_is():
     # Surface unfamiliar identifiers verbatim rather than mangle them.
     assert cle._friendly_model_name("weird-string") == "weird-string"
