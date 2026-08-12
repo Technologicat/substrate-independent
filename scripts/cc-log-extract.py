@@ -32,6 +32,7 @@ import json
 import re
 import sys
 import argparse
+from datetime import datetime, timezone
 from pathlib import Path
 
 # Real model identifiers have shape `claude-{family}-{major}-{minor}[-{date}]`,
@@ -364,17 +365,33 @@ def _format_model_header_lines(stats):
 
 
 def format_timestamp(ts):
-    """Format an ISO timestamp to a readable short form."""
+    """Format an ISO timestamp as local time with its UTC offset.
+
+    Input is the UTC instant recorded in the log (`2026-03-27T23:45:12.345Z`);
+    output is that instant in the machine's own zone, seconds resolution, with
+    the offset spelled out: `2026-03-28 01:45:12 +02:00`.
+
+    The offset is not decoration. Session logs are UTC while everything a reader
+    compares them against — file mtimes, their memory of the day — is local, and
+    near midnight the two disagree about the *date*. A digest read months later,
+    possibly on a machine in another zone, has to say which frame it is in.
+
+    An unparseable timestamp is returned verbatim rather than dropped or guessed
+    at; a timestamp carrying no zone is taken as UTC, which is what the log
+    format specifies.
+    """
     if not ts:
         return ""
-    # Typical format: 2026-03-27T23:45:12.345Z
     try:
-        # Just date + time, no fractional seconds
-        date_part = ts[:10]
-        time_part = ts[11:19] if len(ts) > 19 else ts[11:]
-        return f"{date_part} {time_part}"
-    except (IndexError, ValueError):
+        # `fromisoformat` only learned to accept the `Z` suffix in 3.11.
+        dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    except ValueError:
         return ts
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    local = dt.astimezone()
+    offset = local.strftime("%z")  # +0300 — `%:z` would give +03:00, but only from 3.12
+    return f"{local:%Y-%m-%d %H:%M:%S} {offset[:3]}:{offset[3:]}"
 
 
 def write_session(messages, label, outfile, timestamps=False, per_turn=False):
@@ -425,7 +442,7 @@ def main():
     parser.add_argument(
         "--timestamps",
         action="store_true",
-        help="Include timestamps on each turn",
+        help="Include timestamps on each turn, as local time with UTC offset",
     )
     parser.add_argument(
         "--per-turn",

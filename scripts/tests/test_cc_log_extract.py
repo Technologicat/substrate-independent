@@ -6,10 +6,14 @@ under pytest if it's available — both work; the file follows pytest's
 discovery conventions and falls back to a tiny built-in runner.
 """
 
+import contextlib
 import io
 import importlib.util
 import json
+import os
 import tempfile
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 _HERE = Path(__file__).resolve().parent
@@ -114,6 +118,60 @@ def test_format_model_header_multi_model_modal_first():
     assert lines[0].startswith("Models: Opus 4.6 (primary, 3 turns;")
     assert "Opus 4.7" in lines[0]
     assert lines[1] == "Raw model strings: claude-opus-4-6, claude-opus-4-7"
+
+
+@contextlib.contextmanager
+def pinned_tz(name):
+    """Run the block with the process timezone pinned to `name`.
+
+    `TZ` + `tzset` is process-global, so it is restored on the way out —
+    including the case where `TZ` was unset to begin with.
+    """
+    previous = os.environ.get("TZ")
+    os.environ["TZ"] = name
+    time.tzset()
+    try:
+        yield
+    finally:
+        if previous is None:
+            del os.environ["TZ"]
+        else:
+            os.environ["TZ"] = previous
+        time.tzset()
+
+
+def test_format_timestamp_preserves_the_instant():
+    # Whatever zone the machine running this is in, the rendered time has to denote
+    # the moment the log recorded. Parsing it back is the form of the check that
+    # survives being run anywhere.
+    rendered = cle.format_timestamp("2026-03-27T23:45:12.345Z")
+    parsed = datetime.strptime(rendered, "%Y-%m-%d %H:%M:%S %z")
+    assert parsed == datetime(2026, 3, 27, 23, 45, 12, tzinfo=timezone.utc)
+
+
+def test_format_timestamp_is_local_and_may_cross_the_date_line():
+    if not hasattr(time, "tzset"):  # Windows: no way to pin the zone
+        return
+    with pinned_tz("Europe/Helsinki"):
+        # 22:22 UTC is already the next day locally — the case that decides which
+        # month a boundary session belongs to.
+        assert cle.format_timestamp("2026-06-05T22:22:11.000Z") == "2026-06-06 01:22:11 +03:00"
+        # Same input clock time in winter: one hour less offset, so 00:22 not 01:22.
+        assert cle.format_timestamp("2026-01-05T22:22:11.000Z") == "2026-01-06 00:22:11 +02:00"
+    with pinned_tz("UTC"):
+        assert cle.format_timestamp("2026-06-05T22:22:11.000Z") == "2026-06-05 22:22:11 +00:00"
+
+
+def test_format_timestamp_degenerate_inputs():
+    assert cle.format_timestamp("") == ""
+    # Verbatim beats a guess: an unrecognized stamp is still evidence of something.
+    assert cle.format_timestamp("not a timestamp") == "not a timestamp"
+    if not hasattr(time, "tzset"):
+        return
+    with pinned_tz("Europe/Helsinki"):
+        # No zone in the input: the log format specifies UTC, so read it as UTC
+        # rather than as whatever the reading machine happens to be set to.
+        assert cle.format_timestamp("2026-06-05T22:22:11") == "2026-06-06 01:22:11 +03:00"
 
 
 def test_end_to_end_parse_and_write():
