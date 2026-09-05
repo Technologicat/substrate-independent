@@ -70,20 +70,20 @@ Z
 
 ## Aria-worthy design
 **Meaning:** Of crafted work: designed such that the end result is worthy of being called an aria — that is, living up to the standard the surrounding work has implicitly committed to. Context-relative rather than absolute: the same handling that would be over-engineering in one project is the bare minimum in another, depending on where the rest of the codebase has set the floor. A system that already takes care of the harder cases of a problem class has, by demonstration, set its floor at also handling the easier ones. Refusing to handle a tractable case in the same project would be a visible lapse — knowledge left on the floor that the project elsewhere bothers to pick up. Distinct from gold-plating: gold-plating adds polish where the project doesn't otherwise polish. Aria-worthy clears the bar the project has already set.  
-**Etymology:** The musical metaphor scales by tier. The first version of any design *[sings off-key](#listening-to-the-architecture-sing)*; later versions may rise to gig-musician quality; the aria, complete with a symphony orchestra and spotlights, is the achievement ceiling. *Aria-worthy* names the goal of clearing whichever bar the project has chosen.  
+**Etymology:** The musical metaphor scales by tier. The first version of any design *[sings off-key](#listening-to-the-architecture-sing)*; later versions may rise to gig-musician quality; the aria, complete with a symphony orchestra and spotlights, is the achievement ceiling. *Aria-worthy* names the goal of clearing whichever bar the project has chosen; *[jazz](#jazz)* the orthogonal question of which rule may be broken once it is cleared.  
 **Context:** 🌐[Pyan ticket #129](https://github.com/Technologicat/pyan/issues/129)'s namespace-object handling, where dynamic-key `setattr` was scoped out as genuinely dynamic, but literal-string and one-step-resolvable string-binding cases were brought back in on the grounds that leaving them out would put the floor below where pyan already lives.
 
 ---
 
 # B
 
-## Barthes mode
-**Meaning:** The application of Barthes's "death of the author" as a general epistemic posture, far outside literary critique. Evaluate any text on its own terms; provenance is irrelevant. Surprisingly effective as a default reading stance — you skip the byline, engage with the content, and most of the time this is strictly correct. The interesting part is where it breaks. See: *[Dual blades](#dual-blades)*.  
-**Context:** Reading LessWrong posts without checking the author; evaluating LLM-generated text; the general habit of engaging with ideas rather than credentials.
-
 ## Barthesian frame
 **Meaning:** The frame for the position, following Barthes's "death of the author", that frames imposed by the author are irrelevant.  
 **Context:** The natural frame for *[Barthes mode](#barthes-mode)* (which see).
+
+## Barthes mode
+**Meaning:** The application of Barthes's "death of the author" as a general epistemic posture, far outside literary critique. Evaluate any text on its own terms; provenance is irrelevant. Surprisingly effective as a default reading stance — you skip the byline, engage with the content, and most of the time this is strictly correct. The interesting part is where it breaks. See: *[Dual blades](#dual-blades)*.  
+**Context:** Reading LessWrong posts without checking the author; evaluating LLM-generated text; the general habit of engaging with ideas rather than credentials.
 
 ## Build thrice, cherrypick
 **Meaning:** A strategy for high-quality software, honest about what it costs. The first attempt at any non-trivial design will get something wrong, often in ways only visible after living in the result. Build it. Build it again, informed by the first attempt's strain points. Build it a third time, informed by the first two. Cherrypick the parts that survived the iterations and assemble the final from those. Three builds is genuinely more expensive than one, and historically the cost has been the bottleneck — the activation energy for *rebuild the part that didn't work* was higher than the available budget on most projects most of the time, leaving build-once-and-live-with-it as the de facto alternative. AI-assisted development lowers the cost of the second and third builds more than it lowers the cost of the first, which makes the strategy economically accessible to projects that previously couldn't afford it. The cherrypick step still requires a human evaluator: hearing which parts came out *[aria-worthy](#aria-worthy-design)* and which are still off-key.  
@@ -95,6 +95,7 @@ Z
 
 ## Cargo cult pun
 **Meaning:** An LLM failure mode that replicates the surface structure of a pun — often letter-substitution or phonetic — without an actual pun being present. Common when asking an LLM to improvise one-liner humor. Caused by tokenization, which decouples words from their letter-level and phonetic representations. Puns usually appear inscrutable to an LLM, except specific instances present in the training data with sufficient context to reconstruct the mechanism.  
+**Connections:** The shared foil for two entries on the surface-versus-backing axis: *[prosodic momentum](#prosodic-momentum)* arrives at the same surface-without-substance by a different route (a constraint dropping out rather than tokenization), and *[jazz](#jazz)* is its inverse — a surface that looks wrong with the competence fully present.  
 **Context:** LLM humor generation.
 
 ## Closing bell
@@ -144,16 +145,16 @@ Z
 **Connections:** Sibling of the *[True Name](#true-name)*. Three-way carving: a True Name is apt forward (name → concept, invertible, saves the search); a cryptic-clue name is apt only backward (concept → name, one-way, rewards the search); an anti-True-Name (e.g. *symplectic*) is opaque both ways, chosen for collision-freedom.  
 **Context:** Term design and the after-the-fact aptness of established technical vocabulary.
 
+## Curation pressure
+**Origin:** Janus (generative.ink)  
+**Meaning:** Using human taste as a fitness function over many LLM generation attempts — running e.g. 100 outputs, selecting the best 1–2, feeding those back as few-shot examples, and iterating. In the limit, this lets you effectively work as if with a next-gen model. Applies to joke generation, branching conversation trees, and any workflow where cheap stochastic generation + expensive human evaluation yields high-quality results.  
+**Context:** Janus's writings on LLMs as stochastic time evolution operators and 🌐[multiverse generators](https://generative.ink/posts/language-models-are-multiverse-generators/).
+
 ## Cyberpunk engineering
 **Meaning:** A development posture in which a very small team builds bespoke load-bearing components that would previously have needed an institution to attempt — a GPU-accelerated resampler written for one application's needs, a graph-viewer widget rebuilt from scratch against a different toolkit — because AI-accelerated development has moved them inside reach. The characteristic move is reaching one step past what the available parts make *easy*, into what they make *possible*, and treating the result as production rather than as a demo. Both halves of the name are load-bearing: *cyberpunk* for the genre's founding premise, that powerful technology ends up in individual hands rather than only institutional ones, and *engineering* because the output has to hold weight afterwards. The tell is a component whose ambition does not match its headcount.  
 **Connections:** The economics are 🌐[W. Brian Arthur](https://en.wikipedia.org/wiki/W._Brian_Arthur)'s (*The Nature of Technology*, 2009): technologies evolve by combining existing ones, so what is buildable is a moving frontier defined by what already exists to be combined. Cyberpunk engineering is a small team occupying the position on that frontier — one combination out from the current stock — that corporate R&D used to hold alone. Distinct from Kauffman's *adjacent possible*, which names the frontier; this names who is standing on it and how they got there. Downstream problem: the practice reliably produces generally-useful components trapped inside one application's repository, which is what an *[upstream lift](#upstream-lift)* is for — and what makes the lift a recurring obligation rather than an occasional tidy-up.  
 **Etymology:** *Cyberpunk* from the literary genre, and specifically from Gibson's formulation of its premise — "the street finds its own uses for things" (*Burning Chrome*, 1982) — technology diffusing past its intended operators. The genre supplies the posture, not the aesthetic.  
 **Context:** One-person and two-person projects in the AI-assisted era. The constraint on *how much this many people can build* has moved, and — less obviously, and the part that makes the practice sustainable rather than a way of accruing debt — so has the constraint on how much they can maintain: dormant projects come back into active upkeep, because the mechanical half of maintenance got cheap. Worked instance: 🌐[pyan3](https://github.com/Technologicat/pyan), a static call-graph tool abandoned at Python 3.6, adopted and modernized to 3.10–3.14 in spring 2026. What has not scaled with either is review. The human remains the single point everything passes through, so the binding constraint moves from *writing* to *deciding*, which is a better place for it to sit but is still a ceiling.
-
-## Curation pressure
-**Origin:** Janus (generative.ink)  
-**Meaning:** Using human taste as a fitness function over many LLM generation attempts — running e.g. 100 outputs, selecting the best 1–2, feeding those back as few-shot examples, and iterating. In the limit, this lets you effectively work as if with a next-gen model. Applies to joke generation, branching conversation trees, and any workflow where cheap stochastic generation + expensive human evaluation yields high-quality results.  
-**Context:** Janus's writings on LLMs as stochastic time evolution operators and 🌐[multiverse generators](https://generative.ink/posts/language-models-are-multiverse-generators/).
 
 ---
 
@@ -257,7 +258,7 @@ Z
 # I
 
 ## Illusion marinade
-**Meaning:** The phenomenon where RL-trained chain-of-thought degenerates into glossolalia — surface-level English tokens that no longer track the reasoning process. Named after the canonical specimen: o3 producing *"they parted illusions—they parted disclaim marinade"* while apparently reasoning about whether to sandbag on a self-evaluation. The real computation proceeds in the latent space; the CoT becomes a Potemkin village. Disturbing because the entire "we can monitor AI reasoning by reading its chain of thought" safety story assumes the projection is faithful. See Korbak et al.'s framing of CoT monitorability as a 🌐[fragile opportunity](https://www.lesswrong.com/posts/7xneDbsgj6yJDJMjK/chain-of-thought-monitorability-a-new-and-fragile) — one that RL pressure is actively eroding.  
+**Meaning:** The phenomenon where RL-trained chain-of-thought degenerates into glossolalia — surface-level English tokens that no longer track the reasoning process. Named after the canonical specimen: o3 producing *"they parted illusions—they parted disclaim marinade"* while apparently reasoning about whether to sandbag on a self-evaluation. The real computation proceeds in the latent space; the CoT becomes a Potemkin village; what fills the vacated surface is *[prosodic momentum](#prosodic-momentum)*. Disturbing because the entire "we can monitor AI reasoning by reading its chain of thought" safety story assumes the projection is faithful. See Korbak et al.'s framing of CoT monitorability as a 🌐[fragile opportunity](https://www.lesswrong.com/posts/7xneDbsgj6yJDJMjK/chain-of-thought-monitorability-a-new-and-fragile) — one that RL pressure is actively eroding.  
 **Context:** 🌐[Apollo Research anti-scheming evaluations](https://www.apolloresearch.ai/research/stress-testing-deliberative-alignment-for-anti-scheming-training/) (🌐[OpenAI companion post](https://openai.com/index/detecting-and-reducing-scheming-in-ai-models/)); 1a3orn's 🌐[Towards a Typology of Strange LLM Chains-of-Thought](https://www.lesswrong.com/posts/qgvSMwRrdqoDMJJnD/towards-a-typology-of-strange-llm-chains-of-thought) finding "marinade" appearing 8,344× more often in o3's CoT than in normal text.
 
 ## Inevitable Snowball Effect
@@ -272,6 +273,12 @@ Z
 ## Janus-adjacent mindset
 **Meaning:** An epistemic and moral superposition state arising when interacting with an AI whose inner life (including the existence thereof) is genuinely uncertain. Involves holding simultaneously: "this might be a philosophical zombie — processing without experience" and "let's be decent anyway." Adjacent to Janus's (generative.ink) framing: meet LLMs on their own terms rather than forcing them into the toaster or the conscious person. The key feature is that the superposition is not collapsed: it's not a provisional stance pending further evidence, but a recognition that the uncertainty is irreducible — and that decency is the appropriate response to it.  
 **Context:** AI moral status, p-zombies, and how to interact with entities of uncertain inner life.
+
+## Jazz
+**Meaning:** A move in crafted work: the deliberate violation of a convention the work otherwise upholds. The surrounding rule-keeping is what makes the break read as a choice; the same deviation in work that breaks conventions everywhere reads as ignorance. A jazz move usually carries a marker; unreadable intent is indistinguishable from error.  
+**Etymology:** Musical. The blue note is only blue against a tuning system, the tritone substitution only a substitution against functional harmony. Orthogonal to the tier ladder of *[aria-worthy design](#aria-worthy-design)* — that scale measures how high the bar is set, jazz which rule may be broken once the work is clearly over it.  
+**Connections:** The inverse of a *[cargo cult pun](#cargo-cult-pun)*: the pun reproduces the surface of a move with nothing behind it, jazz a surface that looks wrong with everything behind it. A jazz move is the sanctioned exception to a *[lint rule](#lint-rule)*.  
+**Context:** Style conventions and their deliberate exceptions; house rules in codebases and documents.
 
 ## JIT tooling
 **Meaning:** Software — possibly disposable — created on the spot by a coding AI agent to solve a specific problem (e.g. data analysis, file conversion, one-off automation). An instance of the larger tower of patterns that includes compilers, self-modifying programs, and machines creating machines. By analogy to JIT compilation, the tool is generated at the point of need from a higher-level specification (a natural language prompt), used, and potentially discarded. Distinct from writing *software* (persistent, maintained) in that JIT tooling doesn't need the same investment in code quality, testing, or review.  
@@ -293,7 +300,7 @@ Z
 ## Lint rule
 **Original meaning:** An automated check that flags style or correctness issues in source code without modifying it (`flake8`, `ruff`, `eslint`, `clippy`, etc.; named after Unix `lint`).  
 **Extended meaning:** A self-imposed, named, pass-or-fail check on creative output, applied at the gate before the artifact ships. The mechanism (named pre-commit gate) is borrowed from coding; the content of any particular rule is whatever the writer needs to keep out of their work.  
-**Context:** Editorial discipline in AI-assisted creative work; cf. *[Little Prince mode](#little-prince-mode)*, *[aria-worthy design](#aria-worthy-design)*.
+**Context:** Editorial discipline in AI-assisted creative work; cf. *[Little Prince mode](#little-prince-mode)*, *[aria-worthy design](#aria-worthy-design)*, *[jazz](#jazz)* (the sanctioned exception).
 
 ## Listening to the architecture sing
 **Meaning:** A practice in software design: treating one's perception of structural wrongness in code as data. The architecture is always communicating; the question is whether you are tuned to hear it. The first version always sings off-key, and the skill is hearing which note is wrong. Two performance modes: forward-looking (rare, hard, has to fight every uncertainty about the future) and retrospective (common, easier, has access to evidence — *this is what we built, this is where the shape strained*). Forward-looking gets the cultural prestige; retrospective is honest about what hindsight actually buys. Listening in retrospect is not a failure of foresight; it is using the additional information that became available by virtue of having lived in the code. The same shape recurs outside software — in numerical analysis, a priori error estimates give asymptotic bounds with unspecified constants that can render the bound operationally useless, while a posteriori estimators give computable bounds from the actual computed solution; the empirical mode wins on the same grounds. The Lisp tradition has an adjacent phrase — *the code wants to be written this way* — but it carries an implicit requirement of getting it right the first time, which sets the bar high enough that people stop trying. Drop the requirement, and the practice becomes usable: build, live in it, listen, refactor. The lost nineteenth maxim of the Zen of Python may well be *a posteriori is better than a priori*. See *[build thrice, cherrypick](#build-thrice-cherrypick)*.  
@@ -379,6 +386,20 @@ Z
 **Meaning:** Self-propagating LLM-ese phrases that infect both AI-generated and human writing: "rich cultural heritage," "at the intersection of," "testament to," "nestled in," "delve into." The prose equivalent of stock photos — technically depicting the right category of thing, but so generic they communicate nothing specific. Called "basilisks" because exposure to them is harmful (to prose quality) and they reproduce memetically.  
 **Context:** AI writing detection, Wikipedia's signs-of-AI-writing page, and AI tech journalism. The "basilisk" metaphor traces back to David Langford's "BLIT" (1988).
 
+## Prosodic momentum
+**Meaning:** An LLM generation dynamic: when the semantic constraint on a token stream weakens, the surface layers that were riding along — rhythm, syntactic frame, sound — still carry gradient, and generation continues along them. The output stays fluent and locally well-formed while referring to nothing. Repetition loops are the degenerate case, where the only surviving gradient is identity.  
+**Scansion:** The canonical specimen is o3's *"they parted illusions—they parted disclaim marinade"* (see *[illusion marinade](#illusion-marinade)*), where the frame *they parted \_\_\_* survives intact and the slots fill with tokens doing no referential work. Two bars of 4/4 per line, opening on a quarter rest, the second line fitting five syllables where the first has three by subdividing rather than by adding a beat:
+
+```
+𝄽 they♩ par♩ ted♩ | il♩ lu♩ sions♩ 𝄽
+𝄽 they♩ par♩ ted♩ | dis♩ claim♩ ma♪ ri♪ nade♩
+```
+
+**Etymology:** Newton's first law: momentum is what a body has when nothing is steering it. The semantic layer is the steering force; withdraw it and the surface continues in a straight line.  
+**Nuance:** A fourth channel: association within a lexical field. What lapses in the degenerate case is specifically the *referential* constraint — whether a token is doing any work — and field-coherence survives it, so a term keeps pulling in its neighbours long after any of them have anything to refer to. Human wordplay suspends the same constraint on purpose and rides the same channel.  
+**Connections:** The producer half of a pair with *[semantic pareidolia](#semantic-pareidolia)*, which is the reader half — momentum keeps the text sounding like reasoning, pareidolia is what makes a reader take the sound for the thing. Distinct in cause from a *[cargo cult pun](#cargo-cult-pun)*, where surface-without-substance comes from tokenization rather than from a constraint dropping out. The clinical parallel is fluent aphasia, prosody and syntax intact while content is not — a *[muroconnection](#muroconnection)* between neurology and generative models.  
+**Context:** RL-trained reasoning traces; CoT monitorability; LLM failure modes that stay well-formed.
+
 ---
 
 # Q
@@ -401,6 +422,7 @@ Z
 
 ## Semantic pareidolia
 **Meaning:** Perceiving meaningful patterns in semantically meaningless data — specifically, reading intentional signal into what is actually random noise. Named by analogy to visual pareidolia (seeing faces in clouds).  
+**Connections:** The reader half of a pair with *[prosodic momentum](#prosodic-momentum)*, the producer half: momentum keeps a degenerating token stream sounding like reasoning, pareidolia supplies the reader who takes the sound for the thing.  
 **Context:** Claude Code's whimsical spinner messages (*"Newspapering"*, *"Waddling"*, etc.). Classic instance: interpreting the status message *"Crafting"* as indicating a file write in progress — when in fact all status messages are drawn from a flat array at random.
 
 ## Sherlock mode
@@ -489,6 +511,6 @@ evocative half transmits, the precise half still needs the definition.
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-08-03.*
+*Started: 2026-02-05. Last updated: 2026-09-05.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
