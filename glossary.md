@@ -280,6 +280,12 @@ Z
 **Connections:** The inverse of a *[cargo cult pun](#cargo-cult-pun)*: the pun reproduces the surface of a move with nothing behind it, jazz a surface that looks wrong with everything behind it. A jazz move is the sanctioned exception to a *[lint rule](#lint-rule)*.  
 **Context:** Style conventions and their deliberate exceptions; house rules in codebases and documents.
 
+## Je ne sais quoi
+**Original meaning:** The quality that makes a thing work, which the person perceiving it cannot name.  
+**Extended meaning:** In design and engineering, perceived rightness treated as data despite being unarticulable — the dual of *[listening to the architecture sing](#listening-to-the-architecture-sing)*, which treats perceived wrongness the same way. The two are not symmetric in what they buy. A wrong note localizes, so it can be acted on without being explained; rightness points nowhere in particular, and yields a direction to keep rather than a defect to fix.  
+**Connections:** *[Jazz](#jazz)* is one component that can be named; others cannot.  
+**Context:** Product direction; why a design is built in a particular way; decisions that resist a written rationale.
+
 ## JIT tooling
 **Meaning:** Software — possibly disposable — created on the spot by a coding AI agent to solve a specific problem (e.g. data analysis, file conversion, one-off automation). An instance of the larger tower of patterns that includes compilers, self-modifying programs, and machines creating machines. By analogy to JIT compilation, the tool is generated at the point of need from a higher-level specification (a natural language prompt), used, and potentially discarded. Distinct from writing *software* (persistent, maintained) in that JIT tooling doesn't need the same investment in code quality, testing, or review.  
 **Context:** AI coding agents.
@@ -304,7 +310,7 @@ Z
 
 ## Listening to the architecture sing
 **Meaning:** A practice in software design: treating one's perception of structural wrongness in code as data. The architecture is always communicating; the question is whether you are tuned to hear it. The first version always sings off-key, and the skill is hearing which note is wrong. Two performance modes: forward-looking (rare, hard, has to fight every uncertainty about the future) and retrospective (common, easier, has access to evidence — *this is what we built, this is where the shape strained*). Forward-looking gets the cultural prestige; retrospective is honest about what hindsight actually buys. Listening in retrospect is not a failure of foresight; it is using the additional information that became available by virtue of having lived in the code. The same shape recurs outside software — in numerical analysis, a priori error estimates give asymptotic bounds with unspecified constants that can render the bound operationally useless, while a posteriori estimators give computable bounds from the actual computed solution; the empirical mode wins on the same grounds. The Lisp tradition has an adjacent phrase — *the code wants to be written this way* — but it carries an implicit requirement of getting it right the first time, which sets the bar high enough that people stop trying. Drop the requirement, and the practice becomes usable: build, live in it, listen, refactor. The lost nineteenth maxim of the Zen of Python may well be *a posteriori is better than a priori*. See *[build thrice, cherrypick](#build-thrice-cherrypick)*.  
-**Context:** The kind of refactor whose justification is *it offends the eye* rather than *the bug is here*. Related: *[superposition collapse event](#superposition-collapse-event)*.
+**Context:** The kind of refactor whose justification is *it offends the eye* rather than *the bug is here*. Related: *[superposition collapse event](#superposition-collapse-event)*; the dual is *[je ne sais quoi](#je-ne-sais-quoi)*.
 
 ## Little Prince mode
 **Meaning:** An editing mode in which one iteratively removes words until every remaining one is structural. *"Perfection is finally attained not when there is no longer anything to add, but when there is no longer anything to take away."* —Antoine de Saint-Exupéry, *Terre des Hommes* (1939); English translation *Wind, Sand and Stars*.  
