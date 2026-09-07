@@ -170,6 +170,12 @@ Z
 **Meaning:** A text (typically a press release or tech article) so dense with self-propagating LLM-ese phrases that it functions as a protected habitat for the species. *"Should put up a warning sign for venomous animals."*  
 **Context:** AI tech journalism.
 
+## Ding agent
+**Meaning:** An agent whose entire action space is the emission of a notification. Derived from "coding agent", by *co* + *ding*. Since *co-* marks joint action, a coding agent is one that dings with you. Removing the prefix leaves the ding agent, which dings alone. All of its capability is spent on *when*; it has no *what*. Real-world example: the smoke alarm.  
+**Extension:** *co-ding agent*: a thing that both codes and dings, the fixed point of the co-ding functor. Every coding agent as actually shipped, since they all chime when the turn ends — which is why the boundary went unnoticed. A second reading: *Ding* is German for thing, so a ding agent is a thing-agent, and the *Ding an sich* is the agent considered apart from any task anyone puts it to.  
+**Connections:** The inverse construction to *[co-pter](#co-pter)*.  
+**Context:** False morpheme boundaries; AI-accelerated software development.
+
 ## Discordian-deprecated
 **Part of speech:** adj. (also n.: *Discordian deprecation*).  
 **Meaning:** Of an API: marked deprecated, with no plan to remove. The threat of removal is the lever; the lever, once useful, never gets pulled. Users get nudged toward the modern spelling without facing churn; the project keeps the courtesy of letting old code keep working indefinitely. Distinct from ordinary deprecation (which carries an implicit removal commitment on some future schedule) and from "soft-deprecated" (which usually means "not yet scheduled, but will be"); Discordian deprecation is *never* scheduled, by design.  
