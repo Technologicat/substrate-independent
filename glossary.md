@@ -386,8 +386,8 @@ Z
 **Context:** AI writing detection, Wikipedia's signs-of-AI-writing page, and AI tech journalism. The "basilisk" metaphor traces back to David Langford's "BLIT" (1988).
 
 ## Prosodic momentum
-**Meaning:** An LLM generation dynamic: when the semantic constraint on a token stream weakens, the surface layers that were riding along — rhythm, syntactic frame, sound — still carry gradient, and generation continues along them. The output stays fluent and locally well-formed while referring to nothing. Repetition loops are the degenerate case, where the only surviving gradient is identity.  
-**Scansion:** The canonical specimen is o3's *"they parted illusions—they parted disclaim marinade"* (see *[illusion marinade](#illusion-marinade)*), where the frame *they parted \_\_\_* survives intact and the slots fill with tokens doing no referential work. Two bars of 4/4 per line, opening on a quarter rest, the second line fitting five syllables where the first has three by subdividing rather than by adding a beat:
+**Meaning:** An LLM generation dynamic: when the semantic constraint on a token stream weakens, two things still carry gradient — the frame (rhythm, meter, syntax) and whatever the representation space puts nearest the last token — and generation continues along both. The output stays fluent and locally well-formed while its surface stops tracking whatever computation is still running. Repetition loops are the degenerate case, where the only surviving gradient is identity.  
+**Scansion:** The canonical specimen is o3's *"they parted illusions—they parted disclaim marinade"* (see *[illusion marinade](#illusion-marinade)*), where the frame *they parted \_\_\_* survives intact and the slots fill from proximity rather than from reference. Two bars of 4/4 per line, opening on a quarter rest, the second line fitting five syllables where the first has three by subdividing rather than by adding a beat:
 
 ```
 𝄽 they♩ par♩ ted♩ | il♩ lu♩ sions♩ 𝄽
@@ -395,8 +395,9 @@ Z
 ```
 
 **Etymology:** Newton's first law: momentum is what a body has when nothing is steering it. The semantic layer is the steering force; withdraw it and the surface continues in a straight line.  
-**Nuance:** A fourth channel: association within a lexical field. What lapses in the degenerate case is specifically the *referential* constraint — whether a token is doing any work — and field-coherence survives it, so a term keeps pulling in its neighbours long after any of them have anything to refer to. Human wordplay suspends the same constraint on purpose and rides the same channel.  
-**Connections:** The producer half of a pair with *[semantic pareidolia](#semantic-pareidolia)*, which is the reader half — momentum keeps the text sounding like reasoning, pareidolia is what makes a reader take the sound for the thing. Distinct in cause from a *[cargo cult pun](#cargo-cult-pun)*, where surface-without-substance comes from tokenization rather than from a constraint dropping out. The clinical parallel is fluent aphasia, prosody and syntax intact while content is not — a *[muroconnection](#muroconnection)* between neurology and generative models.  
+**Nuance:** The second channel is one thing rather than several. A linguist would separate sound from morphology from lexical field; the model has no such partition — one representation space, in which proximity arises from all of them at once. A *[latent space collision](#latent-space-collision)* and a domain association are the same event. What lapses in the degenerate case is specifically the *referential* constraint — whether a token is doing any work — and proximity survives it, so a term keeps pulling in its neighbours long after any of them have anything to refer to. Human wordplay suspends the same constraint on purpose and rides the same channel.  
+**Connections:** The producer half of a pair with *[semantic pareidolia](#semantic-pareidolia)*, which is the reader half — momentum preserves the shape of a sentence, pareidolia supplies the reader who reads shape as substance. Distinct in cause from a *[cargo cult pun](#cargo-cult-pun)*, where surface-without-substance comes from tokenization rather than from a constraint dropping out. The clinical parallel is fluent aphasia, prosody and syntax intact while content is not — a *[muroconnection](#muroconnection)* between neurology and generative models.  
+**Usage:** *"Prosodic momentum — the semantic layer has left the chat."*  
 **Context:** RL-trained reasoning traces; CoT monitorability; LLM failure modes that stay well-formed.
 
 ---
@@ -421,7 +422,7 @@ Z
 
 ## Semantic pareidolia
 **Meaning:** Perceiving meaningful patterns in semantically meaningless data — specifically, reading intentional signal into what is actually random noise. Named by analogy to visual pareidolia (seeing faces in clouds).  
-**Connections:** The reader half of a pair with *[prosodic momentum](#prosodic-momentum)*, the producer half: momentum keeps a degenerating token stream sounding like reasoning, pareidolia supplies the reader who takes the sound for the thing.  
+**Connections:** The reader half of a pair with *[prosodic momentum](#prosodic-momentum)*, the producer half: momentum preserves the shape of a sentence in a degenerating token stream, pareidolia supplies the reader who reads shape as substance.  
 **Context:** Claude Code's whimsical spinner messages (*"Newspapering"*, *"Waddling"*, etc.). Classic instance: interpreting the status message *"Crafting"* as indicating a file write in progress — when in fact all status messages are drawn from a flat array at random.
 
 ## Sherlock mode
