@@ -295,9 +295,8 @@ Z
 **Context:** AI coding agents.
 
 ## Jukebox random
-**Origin:** Heard from a coworker in the software industry, early 2000s; assumed at the time to be in wide use, never looked up.  
-**Original meaning:** The industry's name for a class of features — filling a playlist automatically from user-set criteria.  
-**Extended meaning:** An arrangement engineered to look unstructured, because genuine uniformity does not. Uniform draws clump, and clumps read as evidence of design, so an arrangement that satisfies the eye has to be constructed rather than drawn. The perception is a mislabelling rather than an error: what the eye measures is coverage, which uniform sampling does not optimize, and what it reports is randomness. The constructions that satisfy it are ones sampling theory already knows — a Latin square sample beats independent draws on coverage, which is why Latin hypercube sampling exists.  
+**Origin:** Heard from a coworker in the software industry, early 2000s, in a discussion of automatic playlist filling; assumed at the time to be in wide use, never looked up. The name carries the implication that a properly built jukebox has always worked this way.  
+**Meaning:** An arrangement engineered to look unstructured, because genuine uniformity does not. Uniform draws clump, and clumps read as evidence of design, so an arrangement that satisfies the eye (or ear) has to be constructed rather than drawn. The perception is a mislabelling rather than an error: what a human instinctively measures is coverage, which uniform sampling does not optimize; what gets reported is randomness. The constructions that satisfy human intuition are ones sampling theory already knows — a Latin square sample beats independent draws on coverage, which is why 🌐[Latin hypercube sampling](https://en.wikipedia.org/wiki/Latin_hypercube_sampling) exists.  
 **Connections:** The complaint that a shuffle is not random is *[semantic pareidolia](#semantic-pareidolia)* aimed at a distribution — intent read into data that has none.  
 **Context:** Shuffle algorithms, procedural layout, anything arranged for a viewer. Spotify retired true random shuffle in 2014 after users complained it was not random enough, replacing it with one that spaces tracks by the same artist: less random, so that it reads as more so.
 
