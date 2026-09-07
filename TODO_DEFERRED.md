@@ -58,31 +58,26 @@ files at 0% are app entry points that cannot be imported under pytest at all.
 Concrete Raven facts live in that repo — `CLAUDE.md` beside the test markers, and `TODO_DEFERRED.md` under
 *"Modules worth testing that are not app entry points"*. What belongs here is the general shape.
 
-## "Jukebox random": deliberately less random, so it reads as more so
+## "Jukebox random": the perceptual observation, for `field-observations.md`
 
-*Cluster: glossary · Cost: S · Gate: none — deferred because the glossary is mid-write elsewhere · Filed: 2026-09-07*
+*Cluster: field-observations · Cost: S · Gate: none · Filed: 2026-09-07, revised 2026-09-08*
 
-Juha's coining, 2026-09-07: *"maximin-optimal is-an-instance-of jukebox-random-at-its-best."*
+The glossary entry is written. What remains is the wider observation, which the entry deliberately
+omits: the eye's criterion is coverage, and it reports coverage as randomness, so designing to the
+eye means designing against the distribution.
 
-The phenomenon is real and documented. Uniform random draws produce clumps, and people read clumps as
-evidence that a shuffle is *not* random — so Spotify rewrote its shuffle in 2014 to spread tracks by
-artist, making it less random in order to read as more so. The term names the whole class: an arrangement
-that is engineered to look unstructured, because genuine uniformity does not.
+Worked instance, kept here because the glossary wants compactness and the ethnography document is
+where this kind of reporting belongs. Raven's chat graph draws a message's attachments as a pile of
+overlapping cards; a regular stagger reads as machine-stacked however far apart the cards are. The
+two-, three- and four-card piles were laid out by hand, and each turned out to be a Latin square
+sample — one card per row and column, a permutation vector in the code. Adding maximin (of all such
+samples, the one whose closest pair is furthest apart) reproduces all three hand-laid shapes exactly,
+and rules out the identity, which is the staircase. So the "random-looking" arrangement is derived,
+deterministic, and optimal against a stated criterion — none of which is randomness.
 
-The worked example is what prompted it. Raven's chat graph draws a message's attachments as a pile of
-overlapping cards, and a regular stagger reads as machine-stacked however far apart the cards are. Juha
-laid out the two-, three- and four-card piles by hand, then noticed each was a permutation — one card per
-row, one per column, which is a Latin square. Adding the maximin criterion (of all the permutations, the
-one whose closest pair is furthest apart) reproduces all three hand-laid shapes exactly, and rules out the
-identity, which is the staircase. So the "random-looking" arrangement is derived, deterministic, and
-optimal against a stated criterion — none of which is randomness.
-
-Worth a glossary entry with that example, and possibly a note in `field-observations.md` on the wider
-pattern: the eye's model of randomness is anti-clumping, and designing to the eye means designing against
-the distribution.
-
-Deferred rather than written now because the glossary is being worked on elsewhere and this would add a
-concept mid-edit (Juha, 2026-09-07).
+Note on attribution: the term *jukebox random* is not a coinage here, and was encountered in the
+software industry in the early 2000s. What was coined on 2026-09-07 is the application:
+*maximin-optimal is-an-instance-of jukebox-random-at-its-best*.
 
 ## "Is this finished, or merely built?"
 

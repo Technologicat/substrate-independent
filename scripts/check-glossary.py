@@ -13,7 +13,9 @@ hard to see by reading:
     4. entries alphabetical within each section
     5. no duplicate headwords (they would collide as anchors)
     6. every internal [...](#anchor) resolves to an entry or section
-    7. every external link carries the globe, per CLAUDE.md
+    7. blank lines where Markdown needs them (a `---` with text directly above
+       it is a setext underline, not a rule)
+    8. every external link carries the globe, per CLAUDE.md
 
 Check 3 exists because 1 and 4 alone cannot see the failure mode that
 motivated this script: moving an entry with a regex that stops at the next
@@ -133,7 +135,22 @@ def check(path):
             if a.lower() not in known:
                 fail("line %d: anchor #%s does not resolve" % (n, a))
 
-    # 7. globe convention. Mirrors the CLAUDE.md grep: the first exemption is
+    # 7. blank-line structure. A `---` directly under a text line is not a
+    # horizontal rule at all: Markdown reads it as a setext underline and
+    # promotes the line above into a heading, so the last field of the last
+    # entry in a section renders as one. Invisible in the source, obvious in
+    # the render, and easy to introduce by splicing an entry in by index.
+    for n, line in enumerate(lines, start=1):
+        if line.strip() == "---" and n >= 2 and lines[n - 2].strip():
+            fail("line %d: --- needs a blank line above it, or the line above "
+                 "becomes a setext heading" % n)
+        if line.startswith("## ") and n >= 2 and lines[n - 2].strip():
+            fail("line %d: entry %r needs a blank line above it" % (n, line[3:]))
+        if line.startswith("## ") and n >= 3 and not lines[n - 3].strip() \
+                and not lines[n - 2].strip():
+            fail("line %d: entry %r has two blank lines above it" % (n, line[3:]))
+
+    # 8. globe convention. Mirrors the CLAUDE.md grep: the first exemption is
     # the shared repo footer, plain by cross-file convention; the second is the
     # fused link, which carries an explicit marker.
     for n, line in enumerate(lines, start=1):

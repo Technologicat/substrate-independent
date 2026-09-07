@@ -59,6 +59,6 @@ python3 check-glossary.py              # defaults to ../glossary.md
 python3 check-glossary.py path/to/glossary.md
 ```
 
-Checks section headers (unique, ordered, agreeing with the contents listing), entry placement (each entry sorts under the section it sits in) and ordering within a section, duplicate headwords, internal anchor resolution, and the globe convention on external links.
+Checks section headers (unique, ordered, agreeing with the contents listing), entry placement (each entry sorts under the section it sits in) and ordering within a section, duplicate headwords, internal anchor resolution, blank-line structure, and the globe convention on external links.
 
 The placement check is the one that pays for the script. Order and section-order checks alone cannot see a section header that has been carried into the wrong section by an entry move: the misplaced header resets the ordering comparison, so the very error being made silences the check that would catch it. Anchoring each entry to its section letter is independent of ordering, so it survives that.
