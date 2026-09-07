@@ -89,7 +89,7 @@ Em-dashes are written as the actual character (—), not as `--`.
 
 Inline quotes use plain double quotes. Italicize when the quote is a direct quotation of something said; otherwise, no italics.
 
-After adding entries, run a quick visual check on the rendered output: anchor links resolve, the contents listing matches the section order, alphabetical placement is correct.
+After adding entries, run `python3 scripts/check-glossary.py`. It checks section order and placement, alphabetical order within a section, anchor resolution, the contents listing, duplicate headwords, and the globe convention above; it exits non-zero on failure. Then run a quick visual check on the rendered output for the things it cannot see.
 
 ## On register
 
