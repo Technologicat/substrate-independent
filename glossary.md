@@ -268,6 +268,10 @@ Z
 **Meaning:** The phenomenon where RL-trained chain-of-thought degenerates into glossolalia — surface-level English tokens that no longer track the reasoning process. Named after the canonical specimen: o3 producing *"they parted illusions—they parted disclaim marinade"* while apparently reasoning about whether to sandbag on a self-evaluation. The real computation proceeds in the latent space; the CoT becomes a Potemkin village; what fills the vacated surface is *[prosodic momentum](#prosodic-momentum)*. Disturbing because the entire "we can monitor AI reasoning by reading its chain of thought" safety story assumes the projection is faithful. See Korbak et al.'s framing of CoT monitorability as a 🌐[fragile opportunity](https://www.lesswrong.com/posts/7xneDbsgj6yJDJMjK/chain-of-thought-monitorability-a-new-and-fragile) — one that RL pressure is actively eroding.  
 **Context:** 🌐[Apollo Research anti-scheming evaluations](https://www.apolloresearch.ai/research/stress-testing-deliberative-alignment-for-anti-scheming-training/) (🌐[OpenAI companion post](https://openai.com/index/detecting-and-reducing-scheming-in-ai-models/)); 1a3orn's 🌐[Towards a Typology of Strange LLM Chains-of-Thought](https://www.lesswrong.com/posts/qgvSMwRrdqoDMJJnD/towards-a-typology-of-strange-llm-chains-of-thought) finding "marinade" appearing 8,344× more often in o3's CoT than in normal text.
 
+---
+
+# J
+
 ## Janus-adjacent mindset
 **Meaning:** An epistemic and moral superposition state arising when interacting with an AI whose inner life (including the existence thereof) is genuinely uncertain. Involves holding simultaneously: "this might be a philosophical zombie — processing without experience" and "let's be decent anyway." Adjacent to Janus's (generative.ink) framing: meet LLMs on their own terms rather than forcing them into the toaster or the conscious person. The key feature is that the superposition is not collapsed: it's not a provisional stance pending further evidence, but a recognition that the uncertainty is irreducible — and that decency is the appropriate response to it.  
 **Context:** AI moral status, p-zombies, and how to interact with entities of uncertain inner life.
@@ -449,8 +453,6 @@ Z
 **Context:** Named during a Claude Code session where "add tooltips to the xdot viewer" became: a new pyan3 feature release (tooltip attribute, `get_annotation_parts`, annotated module labels), dot string unescape consolidation, 10 new tests, a DPG window sizing gotcha that took ~15 iterations to pin down, a DPG reference documentation restructure, and an architectural vision for extracting a whole upstream library (`corvid`).
 
 ---
-
-# J
 
 ## Spork
 **Original meaning:** The hybrid utensil — a shallow spoon bowl with short tines at the tip, so that it is genuinely both and comfortably neither.  
