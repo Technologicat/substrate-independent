@@ -46,6 +46,8 @@ Internal cross-references between glossary entries: `*[Other entry](#other-entry
 
 When the new entry should reference an existing entry, add the cross-reference. When an existing entry should now reference the new one, update it too — unless the target field is already at saturation, where another reference would crowd rather than navigate.
 
+Finding which entries those are needs a procedure, not just the intent. Recall surfaces topical neighbours — entries about the same subject matter — and the entries worth linking are often not among them. Instead, state the new entry's structural move in one clause, then scan the entry list for that clause. *Jazz*'s move is *the surface of an act misrepresents the competence behind it*; scanning for that finds *Cargo cult pun*, which shares no subject matter with it. Scanning by topic would not have: one entry is about style conventions, the other about LLM humor generation.
+
 #### Per-field guidelines
 
 - **Meaning:** Definition and concept content. Usually one dense paragraph; longer entries may unpack contrasts, edge cases, or implications. Avoid drift into where-it-applies (that's Context). A definition should also survive its own examples: a clause that's false for a canonical instance is describing an instance, not the invariant — cut it or generalize. Open with the genre: the first clause should locate what kind of thing the entry defines (a practice, a strategy, an LLM failure mode, an architectural pattern, a part of speech, …). Form is free — leading clause, opening noun phrase, retooled-from header — but the check is one question: *does the first half-sentence tell the reader what kind of thing we're defining?*
@@ -94,6 +96,14 @@ After adding entries, run `python3 scripts/check-glossary.py`. It checks section
 ## On register
 
 Read several existing entries in the relevant file before drafting a new one. Match the register of what's there rather than introducing a new voice. When in doubt whether a draft fits, ask the human collaborator before committing.
+
+## On summarizing tokens
+
+Make a token that summarizes, counts, or explains point backward at text already written, never forward at text not yet written. *Fork, knife, spoon — three implements* cannot be wrong about the count; *three implements: fork, knife, spoon* can. *X, so Y* derives from a cause in hand; *Y because X* opens a slot for an X that may not exist yet, and an open slot gets filled either way.
+
+The rule bites on arity and on causation, both of which carry a truth value the not-yet-written text then has to satisfy. It does not bite on topic: a topic sentence is also a forward commitment, but its filler is underdetermined, so it cannot come out false. Keep topic sentences. Watch counts, *first* binding a *second*, *not X but Y*, *the reason is*, *this is what makes*, and any colon promising a list.
+
+The fix is usually deletion rather than correction: cut the clause and see whether the sentence still works. If it does, the clause was filling a slot rather than carrying content.
 
 ## On naming
 
