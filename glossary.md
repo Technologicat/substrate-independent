@@ -274,7 +274,8 @@ Z
 ## Je ne sais quoi
 **Abbreviation:** *jnsq*.  
 **Original meaning:** The quality that makes a thing work, which the person perceiving it cannot name.  
-**Extended meaning:** In design and engineering, perceived rightness treated as data despite being unarticulable — the dual of *[listening to the architecture sing](#listening-to-the-architecture-sing)*, which treats perceived wrongness the same way. The two are not symmetric in what they buy. A wrong note localizes, so it can be acted on without being explained; rightness points nowhere in particular, and yields a direction to keep rather than a defect to fix.  
+**Extended meaning:** In design and engineering, perceived rightness treated as data despite being unarticulable — the dual of *[listening to the architecture sing](#listening-to-the-architecture-sing)*, which treats perceived wrongness the same way. The two differ on more than sign. A wrong note has to localize to be useful — hence that mode's retrospective bias. Rightness localizes nothing, and can run ahead of the thing it is about: building a particular way because that way obviously feels right, before there is anything to look at. What it yields is a direction to keep rather than a defect to fix — one that more often than not lands on a successful design.  
+**Nuance:** The forward-looking claim is about direction, not implementation — *[build thrice, cherrypick](#build-thrice-cherrypick)* still applies to the code. The Lisp maxim that the code *wants to be written this way* demands the implementation be right the first time; jnsq claims only the direction.  
 **Connections:** *[Jazz](#jazz)* is one component that can be named; others cannot.  
 **Context:** Product direction; why a design is built in a particular way; decisions that resist a written rationale.
 
