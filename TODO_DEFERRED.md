@@ -83,3 +83,24 @@ the distribution.
 
 Deferred rather than written now because the glossary is being worked on elsewhere and this would add a
 concept mid-edit (Juha, 2026-09-07).
+
+## "Is this finished, or merely built?"
+
+*Cluster: process · Cost: S · Gate: none · Filed: 2026-09-07*
+
+Split out of the *hammerspace* drafting session as belonging to a different question: not what
+hammerspace is, but why the gap it fills opens at all.
+
+A feature freeze presupposes that the features are done, and *done* is not a fact about the plan.
+Raven's webfetch feature was in the plan for 0.2.8 and had landed, so by the plan's ledger it was
+finished; by the project's quality bar it was half-built, and the freeze had already been declared.
+The freeze froze the ledger, not the software. A brief specifies what to build in far more detail
+than it can specify what *finished* looks like, and the missing part becomes writable only once
+there is something to look at.
+
+Proposed practical form: a question asked once per brief, at the moment it would otherwise close.
+*Is this finished, or merely built?* Cheap, answerable from inside momentum because the answer is
+usually already known, and narrow enough not to become a review.
+
+Kept out of the *hammerspace* entry to keep that entry short; may want a home in
+`field-observations.md` rather than the glossary.

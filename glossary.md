@@ -242,6 +242,13 @@ Z
 
 # H
 
+## Hammerspace
+**Meaning:** Where unplanned *while we're here* work materializes from. The item is real and doing it makes the product better; it was in no plan, so the schedule pays. Asking where it came from has no better answer than the name gives.  
+**Etymology:** 1990s comedy anime — the offscreen space a character reaches into to produce a mallet that could not have been stored anywhere. Hammers are also what one builds with.  
+**Extension:** *Hammerspace density* — how prone a piece of work is to producing such items. A brief touching a vendored renderer and a new GUI surface is high; self-contained work behind a fixed interface is low. Perfectionism raises it: the density of a task is read against the person doing it. A deadline can absorb a low-density tail and cannot absorb a high-density one.  
+**Connections:** *[Polish cascade](#polish-cascade)* and *[snowball effect](#snowball-effect)* are two of the shapes a sequence of hammerspace items takes; the relation is unit-to-aggregate. Density is highest by construction in *[cyberpunk engineering](#cyberpunk-engineering)*, whose second step is into territory nobody has surveyed.  
+**Context:** Release freezes, where an item arrives with an argument already attached and the freeze turns doing it from a default into a decision.
+
 ## Hedge-hog
 **Part of speech:** n.  
 **Meaning:** A person who hedges. The **strategic hedge-hog** reflexively constructs fallback positions, holding multiple bets to mitigate risk — failure mode is opportunity cost, building Plan B for situations Plan A would have handled fine. The **rhetorical hedge-hog** reflexively qualifies statements, softening every claim with epistemic markers — failure mode is epistemic mush, assertions that can't be falsified because they were never quite asserted. Not to be confused with the *edgehog*.  
@@ -368,6 +375,7 @@ Z
 
 ## Polish cascade
 **Meaning:** In programming, the phenomenon where a small cosmetic fix reveals an adjacent inconsistency, which once fixed reveals another, and so on — each individually trivial, collectively unstoppable. Produces a chain of atomic commits whose git log reads like someone slowly realizing they should have grepped first. The cascade is not really about missing a search; each fix shifts what you *notice*, and you couldn't have grepped for "things that will look wrong once you've fixed this other thing." Not to be confused with anything from Warsaw. See also: *steering tax*.  
+**Connections:** *[Hammerspace](#hammerspace)* names where any single item in the cascade comes from; the cascade is one of the shapes a sequence of them takes.  
 **Context:** Code review and polish passes in AI-assisted development; the gravitational pull of local consistency.
 
 ## Prequisite
@@ -437,6 +445,7 @@ Z
 ## Snowball effect
 
 **Meaning:** In AI-assisted development, the phenomenon where a seemingly small feature task expands — through revealed coupling — until it touches multiple projects, requires upstream releases, and consumes hours in debugging. Unlike scope creep (which implies poor discipline), the snowball is the codebase revealing its *actual* dependency structure under the pressure of implementation. Each expansion follows logically from the last; the snowball isn't the developer losing focus, it's the architecture asserting itself. Related to but distinct from *[polish cascade](#polish-cascade)*, which operates on cosmetic consistency within a single codebase; the snowball crosses project boundaries and changes *what you're building*, not just *what you're cleaning up*. Also related to Greenspun's tenth rule, which describes a similar gravitational inevitability at the language level — any sufficiently complicated program contains an ad-hoc, informally-specified implementation of half of Common Lisp. The snowball is the project-management equivalent: any sufficiently "quick" feature contains an ad-hoc, informally-specified implementation of at least one upstream library release. The *[hydra tax](#hydra-tax)* is that same gravitational pull one level up — at the scale of the whole backlog rather than a single task.  
+**Connections:** *[Hammerspace](#hammerspace)* names the origin of any single item; the snowball is one of the shapes a sequence of them takes.  
 **Context:** Named during a Claude Code session where "add tooltips to the xdot viewer" became: a new pyan3 feature release (tooltip attribute, `get_annotation_parts`, annotated module labels), dot string unescape consolidation, 10 new tests, a DPG window sizing gotcha that took ~15 iterations to pin down, a DPG reference documentation restructure, and an architectural vision for extracting a whole upstream library (`corvid`).
 
 ---
