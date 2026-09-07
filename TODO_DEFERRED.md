@@ -57,3 +57,29 @@ files at 0% are app entry points that cannot be imported under pytest at all.
 
 Concrete Raven facts live in that repo — `CLAUDE.md` beside the test markers, and `TODO_DEFERRED.md` under
 *"Modules worth testing that are not app entry points"*. What belongs here is the general shape.
+
+## "Jukebox random": deliberately less random, so it reads as more so
+
+*Cluster: glossary · Cost: S · Gate: none — deferred because the glossary is mid-write elsewhere · Filed: 2026-09-07*
+
+Juha's coining, 2026-09-07: *"maximin-optimal is-an-instance-of jukebox-random-at-its-best."*
+
+The phenomenon is real and documented. Uniform random draws produce clumps, and people read clumps as
+evidence that a shuffle is *not* random — so Spotify rewrote its shuffle in 2014 to spread tracks by
+artist, making it less random in order to read as more so. The term names the whole class: an arrangement
+that is engineered to look unstructured, because genuine uniformity does not.
+
+The worked example is what prompted it. Raven's chat graph draws a message's attachments as a pile of
+overlapping cards, and a regular stagger reads as machine-stacked however far apart the cards are. Juha
+laid out the two-, three- and four-card piles by hand, then noticed each was a permutation — one card per
+row, one per column, which is a Latin square. Adding the maximin criterion (of all the permutations, the
+one whose closest pair is furthest apart) reproduces all three hand-laid shapes exactly, and rules out the
+identity, which is the staircase. So the "random-looking" arrangement is derived, deterministic, and
+optimal against a stated criterion — none of which is randomness.
+
+Worth a glossary entry with that example, and possibly a note in `field-observations.md` on the wider
+pattern: the eye's model of randomness is anti-clumping, and designing to the eye means designing against
+the distribution.
+
+Deferred rather than written now because the glossary is being worked on elsewhere and this would add a
+concept mid-edit (Juha, 2026-09-07).
