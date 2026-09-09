@@ -12,7 +12,7 @@ A glossary of terms that emerge from a specific kind of mind-pairing — one hum
 [H](#H)
 [I](#I)
 [J](#J)
-K
+[K](#K)
 [L](#L)
 [M](#M)
 N
@@ -305,6 +305,17 @@ Z
 **Meaning:** An arrangement engineered to look unstructured, because genuine uniformity does not. Uniform draws clump, and clumps read as evidence of design, so an arrangement that satisfies the eye (or ear) has to be constructed rather than drawn. The perception is a mislabelling rather than an error: what a human instinctively measures is coverage, which uniform sampling does not optimize; what gets reported is randomness. The constructions that satisfy human intuition are ones sampling theory already knows — a Latin square sample beats independent draws on coverage, which is why 🌐[Latin hypercube sampling](https://en.wikipedia.org/wiki/Latin_hypercube_sampling) exists.  
 **Connections:** The complaint that a shuffle is not random is *[semantic pareidolia](#semantic-pareidolia)* aimed at a distribution — intent read into data that has none.  
 **Context:** Shuffle algorithms, procedural layout, anything arranged for a viewer. Spotify retired true random shuffle in 2014 after users complained it was not random enough, replacing it with one that spaces tracks by the same artist: less random, so that it reads as more so.
+
+---
+
+# K
+
+## Kolmogorov taming
+**Part of speech:** n.  
+**Meaning:** The way nontrivial UX and GUI work actually proceeds: one small defect at a time, each fix changing the state of the system enough to make the next one observable, with no pass that gets them all at once. The name is the claim — this kind of code has high 🌐[Kolmogorov complexity](https://en.wikipedia.org/wiki/Kolmogorov_complexity): many independent details, none derivable from the others, so there is nothing to compress and no abstraction that retires a class of them. Progress is therefore counted in details rather than in features, and the count is not knowable in advance, because most of the details are not yet observable. Hence the schedule: a week or two for anything nontrivial, reserved with a load-bearing sigh, by anyone who has done it before.  
+**Nuance:** Distinct from *[polish cascade](#polish-cascade)*, which it closely resembles and is often mistaken for, on two axes. The cascade turns on **attention** — each fix shifts what you *notice*, and the entry is explicit that you could not have grepped for it — where taming turns on **conditions**: nothing shifts in what you are looking at, the system changes state and a latent wrongness becomes reachable. And the cascade is about cosmetic consistency, where taming is about correctness details that were wrong all along and simply could not be seen. The cascade is a property of the process; taming is a property of the domain, which is why the estimate rather than the tidiness is what it predicts.  
+**Connections:** *[Hammerspace](#hammerspace)* names where any single item comes from, as it does for the cascade. The *[snowball effect](#snowball-effect)* is the sibling that crosses project boundaries and changes what you are building, where taming stays inside one view and changes only how much of it is finished. The *[hydra tax](#hydra-tax)* is the backlog-scale relative: both describe honest work that does not make the remaining pile look smaller.  
+**Context:** Coined by Juha (2026-09-09) during a Raven session that is the clearest specimen to hand. A prompt edit forked the chat datastore, which raised a "…N more cards" box nobody had seen, which put a three-node graph on screen, which made a 24-pixel discrepancy between the zoom-out floor and the fit key a large fraction of the view. That discrepancy had been wrong on every graph ever drawn. Of six defects found that day, one presented as a bug; the rest were arithmetic that had always been wrong and had never before been observable — including a rectangle standing in for a hit test in eight places across five apps, guarded everywhere by "is a modal up?", a question with nothing to do with occlusion.
 
 ---
 

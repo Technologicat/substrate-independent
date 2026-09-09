@@ -99,3 +99,30 @@ usually already known, and narrow enough not to become a review.
 
 Kept out of the *hammerspace* entry to keep that entry short; may want a home in
 `field-observations.md` rather than the glossary.
+
+
+## The interruption cadence, for `field-observations.md`
+
+*Cluster: ? · Cost: S · Gate: none · Filed: 2026-09-09*
+
+Observed by Juha, 2026-09-09, mid-session: **the natural way to comment on an agent's ongoing
+work is to interrupt it, and the speed difference is what makes that so.** A human reading
+along has thoughts about several threads at once — the code being written, an unrelated thing
+noticed in a screenshot, a naming question, a glossary candidate — and the agent is producing
+continuously, so there is no gap to wait for. Waiting for one means either losing the thought
+or holding it until the context that made it cheap has gone.
+
+Raven's session of that date is a specimen: something like twenty interruptions across an
+afternoon, most of them opening a *new* thread rather than correcting the current one, and
+several of them ("the tooltip is missing the calculator", "zoom out caps before F does") worth
+more than the task they interrupted.
+
+Worth writing up because the reflex reading is that interruption is a failure of turn-taking, and
+it is not — it is the correct adaptation to an asymmetry. Two things follow that are worth
+stating: the human's comments arrive *out of order* with respect to the agent's work, so an agent
+that insists on finishing its current thread before acknowledging one is fighting the medium; and
+the queue is invisible to the human, who cannot see how much the agent has already fanned out.
+
+Adjacent to the *steering tax* — both are about the cost of a human staying in the loop at
+machine speed — but the tax is about effort spent correcting, where this is about *when* the
+correction can physically be delivered.
