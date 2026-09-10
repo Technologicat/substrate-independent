@@ -1,33 +1,5 @@
 # Deferred TODOs
 
-## Extract the 2026-09-10 Raven session: where the custom Swank clone paid off
-
-*Cluster: ethnography · Cost: S · Gate: the session has to end first · Filed: 2026-09-10*
-
-Source log: project `-home-jje-Documents-koodit-raven`, session
-`516cfa1b-c4dc-428b-bafe-7f69ac54f036`. Extract with `cc-log-extract` into
-`00_stuff/2026-09-10-*.md` beside its `.jsonl`, as the 2026-09-09 bughunt is.
-
-What makes it worth keeping: a GUI bug that could not be reproduced on demand and left no
-trace in any log was diagnosed **in a live process**, without restarting it — which mattered
-because a restart destroys the specimen, and the fault took several minutes of hammering to
-provoke. `unpythonic.net.server` (2018, a Swank clone for Python) was the instrument: five
-successive probes were installed into the running app through it, each answering the previous
-one's question, until the mechanism was named. The chain ran orphan detection → thread and
-lock ownership → per-frame actions → object identity → the mutation caught in the act with a
-stack.
-
-Two things worth drawing out. **The instrument predates its user's reference class by seven
-years** — it was written for a human at a REPL, and an agent turned out to be able to drive it
-for the same reasons, which is the *[anime maid form factor](glossary.md#anime-maid-form-factor)*
-appearing where nobody designed for it. And the **first four hypotheses were wrong**, each
-killed by a measurement rather than by argument; one of the probes was itself measuring nothing
-(a lock-ownership check read after the lock had been released), which is the negative-control
-failure in miniature and was caught only because its answer was suspiciously uniform.
-
-The bug is *[concurrent ravioli](glossary.md#concurrent-ravioli)*, whose glossary entry came out
-of this session.
-
 ## No CI for `scripts/`
 
 *Cluster: ? · Cost: ? · Gate: a design call — see below · Filed: 2026-08-12*
