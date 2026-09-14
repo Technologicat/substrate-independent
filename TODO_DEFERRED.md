@@ -142,3 +142,49 @@ the round trip the lead-in just bought.
 Adjacent to the *steering tax* — both are about the cost of a human staying in the loop at
 machine speed — but the tax is about effort spent correcting, where this is about *when* the
 correction can physically be delivered.
+
+
+## Unintentional asymmetry, and the arc that documents it, for `field-observations.md`
+
+*Cluster: field-observations · Cost: S · Gate: none · Filed: 2026-09-14 · See also: the asymmetry
+bullet in `~/.claude/CLAUDE.md`, which is the operational half of this*
+
+Raised by Juha, 2026-09-14: **unintentional asymmetry is the thing his review attention actually
+goes on.** Algorithms come out correct; what needs watching is whether two things of the same kind
+ended up handled differently, because each instance is a permanent drag on maintainability and a
+place for untested paths to collect. Named as a standing attention tax rather than a bug class.
+
+The specimen is `raven/client/mayberemote.py`, `TTS.synthesize`, and the whole arc is in Raven's git
+— which is why it is worth writing up rather than re-deriving. In order:
+
+- `e8d684ff` (2026-04-18) — the original. Remote branch 19 lines (raw transport, MP3 decode, dtype
+  cast, hand-built `WordTiming`, a `get_metadata` branch, result assembly); local branch one call.
+- `6299d6b9` — routed the remote path through `api.tts_prepare`. A real improvement that left the
+  asymmetry standing at about 15 lines against one, and *added* a nil check. Improving the special
+  case instead of removing the need for it.
+- `e9f9b855` — symmetric, one line each. Two moves did it: a new `speech_tts.decode` in the common
+  layer, and `tts_prepare` returning an empty result rather than `None`. Its message also records a
+  latent crash found in the deleted branch — a nil check that logged "Cancelled" and did not
+  `return`, down a path nothing had exercised.
+- `40b5414d` (2026-04-21) — **broken again**, three days later, by adding a `format` parameter. The
+  feature was the goal; the shape was collateral.
+- `69d05499` — symmetric again, now 2×2.
+- `137809a6` (2026-04-22) — `self._local_model is None` → `self.is_local()`, which the nine sibling
+  services already used. Surfaced by the commit before it taking the service count from six to ten.
+- Later — the branch order flipped to `if not self.is_local():`, matching all fourteen dispatches.
+
+Three things worth drawing out. **Symmetry decays under extension**, so it is a property to be
+maintained rather than a state to be reached — which is what makes the tax standing rather than
+one-off. **The remedy was the same every time**: a one-call entry point in the layer underneath,
+never a restructured caller; Librarian's avatar controller, hacked around in the debug-metrics work
+until review asked why both panes could not simply work the same way, came out the same. And the
+two kinds have different detection latencies — the lopsided-branch shape was caught the same day
+every time, where the cross-module one survived four days and three rounds, being invisible in any
+single file.
+
+**The caught cases are the only countable ones** (Juha's point, and the reason he wants them not
+generated rather than found): a review that catches some says nothing about how many it missed, so
+the arc above is a lower bound on the rate and cannot be read as a measure of the filter.
+
+Discovered while extending `~/.claude/CLAUDE.md` with a write-time trigger for the same thing
+(2026-09-14).
