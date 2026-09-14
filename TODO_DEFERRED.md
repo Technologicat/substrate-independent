@@ -103,7 +103,7 @@ Kept out of the *hammerspace* entry to keep that entry short; may want a home in
 
 ## The interruption cadence, for `field-observations.md`
 
-*Cluster: ? · Cost: S · Gate: none · Filed: 2026-09-09*
+*Cluster: ? · Cost: S · Gate: none · Filed: 2026-09-09 · Updated: 2026-09-14*
 
 Observed by Juha, 2026-09-09, mid-session: **the natural way to comment on an agent's ongoing
 work is to interrupt it, and the speed difference is what makes that so.** A human reading
@@ -122,6 +122,22 @@ it is not — it is the correct adaptation to an asymmetry. Two things follow th
 stating: the human's comments arrive *out of order* with respect to the agent's work, so an agent
 that insists on finishing its current thread before acknowledging one is fighting the medium; and
 the queue is invisible to the human, who cannot see how much the agent has already fanned out.
+
+**The partial-message heads-up** (Juha, 2026-09-14) answers the same asymmetry from the other end.
+A long message takes minutes to type, and the agent works on through them — possibly starting the
+very thing the message is about to redirect. So the human sends a short lead-in first — *"Before we
+start on piece 2, a meta-question:"* — claiming the floor before having composed what goes in it,
+and the substance follows in a second message.
+
+It is a typing indicator, hand-rolled. Human text chat has one built in and it exists for exactly
+this; here the agent cannot see that the human is typing, so the signal has to be sent deliberately,
+and sending it costs a round trip. The agent's launch announcements are the same move in the other
+direction — *I am about to take the keyboard* — which suggests the general shape: whichever party is
+about to become expensive to interrupt says so before it starts.
+
+The agent's half of the protocol is to read a lead-in as a stop signal rather than as a prompt.
+Start nothing expensive, and say plainly that the question has not arrived — guessing at it spends
+the round trip the lead-in just bought.
 
 Adjacent to the *steering tax* — both are about the cost of a human staying in the loop at
 machine speed — but the tax is about effort spent correcting, where this is about *when* the
