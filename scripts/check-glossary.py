@@ -29,8 +29,10 @@ independent of ordering, so it survives that.
 Exits 1 if anything fails, so it can be wired into a hook or CI.
 """
 
+import datetime
 import os
 import re
+import subprocess
 import sys
 
 # CLAUDE.md: sort by case-insensitive plain-string ordering of the entry title
@@ -160,6 +162,45 @@ def check(path):
             if "is part of the" in line or "intentional: no globe" in line:
                 continue
             fail("line %d: external link without the globe" % n)
+
+    # 9. the footer's "Last updated". This is the one line here that goes stale
+    # without anybody editing it -- every other check is about something an edit
+    # put on the page, and this is about an edit that failed to happen.
+    #
+    # Which of two questions to ask depends on whether the file is dirty, and
+    # getting that backwards makes the check useless. Comparing against the last
+    # *commit* alone passes while the work is still in the tree and only fails
+    # afterwards -- by which point the stale footer has landed in history, which
+    # is the thing this exists to prevent. So: uncommitted changes mean the file
+    # is being edited now, and the footer has to say today. A clean tree is
+    # merely being read, possibly at an old checkout, so the footer only has to
+    # be no older than the commit it came from.
+    m = re.search(r"^\*Started: [\d-]+\. Last updated: (\d{4}-\d{2}-\d{2})\.\*$",
+                  text, re.MULTILINE)
+    if not m:
+        fail("no `*Started: ... Last updated: YYYY-MM-DD.*` footer found")
+    else:
+        stated = m.group(1)
+        name = os.path.basename(path)
+        where = os.path.dirname(os.path.abspath(path))
+
+        def git(*args):
+            try:
+                return subprocess.run(("git",) + args, cwd=where, capture_output=True,
+                                      text=True, timeout=10).stdout.strip()
+            except (OSError, subprocess.SubprocessError):
+                return ""  # no git, or no answer: nothing to compare against
+
+        if git("status", "--porcelain", "--", name):
+            today = datetime.date.today().isoformat()
+            if stated != today:
+                fail("footer says last updated %s, but the file has uncommitted "
+                     "changes; today is %s" % (stated, today))
+        else:
+            committed = git("log", "-1", "--format=%cs", "--", name)
+            if committed and stated < committed:
+                fail("footer says last updated %s, but the file was last committed %s"
+                     % (stated, committed))
 
     return fails
 
