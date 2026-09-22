@@ -14,8 +14,24 @@ hard to see by reading:
     5. no duplicate headwords (they would collide as anchors)
     6. every internal [...](#anchor) resolves to an entry or section
     7. blank lines where Markdown needs them (a `---` with text directly above
-       it is a setext underline, not a rule)
+       it is a setext underline, not a rule), and none between a headword and
+       its first field
     8. every external link carries the globe, per CLAUDE.md
+    9. the footer's "Last updated" date is current
+   10. *a*/*an* before a link agrees with how the link text begins
+   11. no sentence starts in lowercase, including at the start of a field or
+       inside an opening quote
+
+Checks 10 and 11 exist for the same reason as 3: each catches the residue of an
+edit made somewhere else. Renaming a headword changes the first word of every
+link to it, and nothing about the rename touches the article or the full stop
+that sat just outside the link text. Both are scoped to what a rename can break
+rather than to English at large -- a general article checker needs a
+pronunciation dictionary, and this one only needs to be right about link texts.
+
+Check 10 prints warnings for link texts it cannot judge (an acronym or a
+numeral: *an LLM* and *a SQL* depend on how the reader says them). Warnings
+are listed but do not fail the run.
 
 Check 3 exists because 1 and 4 alone cannot see the failure mode that
 motivated this script: moving an entry with a regex that stops at the next
@@ -35,6 +51,23 @@ import re
 import subprocess
 import sys
 
+# Check 10. The default is the written first letter; these are the exceptions
+# where the sound disagrees with the letter. Prefix match, lowercase.
+AN_BEFORE_CONSONANT_LETTER = ("hour", "honest", "honor", "honour", "heir")
+A_BEFORE_VOWEL_LETTER = ("uni", "use", "usu", "uti", "uto", "eu", "ewe",
+                         "one", "once", "ubiq")
+
+# Check 11. Abbreviations whose full stop does not end a sentence, and words
+# that begin a sentence in lowercase on purpose. Two cases need no entry here:
+# lowercase headwords (*co-pter*) are recognized from the file itself, and a
+# field opening with a short cited term (*ptericopter*: ...) keeps the term's
+# own case by lexicographic convention. A field opening with an italic
+# *quotation* is a sentence, and is checked.
+ABBREVIATIONS = ("e.g", "i.e", "cf", "vs", "etc", "al", "v", "n", "adj", "adv",
+                 "approx", "ca", "trans")
+LOWERCASE_OK = ()
+
+
 # CLAUDE.md: sort by case-insensitive plain-string ordering of the entry title
 # with non-alphanumerics stripped, so `co-` and `cognize` both sort under `co`.
 def sort_key(title):
@@ -45,6 +78,26 @@ def sort_key(title):
 # spaces and hyphens, then spaces to hyphens.
 def anchor_of(title):
     return re.sub(r"[^\w\s-]", "", title.strip().lower()).replace(" ", "-")
+
+
+# Markup a reader does not see, as it can stand between a sentence boundary and
+# the first letter of the next word: emphasis, quotes, the globe, link brackets.
+LEAD = r"[*_\"'\u201c\u2018(\[\N{GLOBE WITH MERIDIANS}\s]*"
+
+
+def expected_article(word):
+    """Return "a", "an", or None when the written form cannot decide it."""
+    w = word.lstrip("*_\"'\u201c\u2018(`")
+    if not w:
+        return None
+    if w[0].isdigit() or (len(w) >= 2 and w[0].isupper() and w[1].isupper()):
+        return None
+    low = w.lower()
+    if low.startswith(AN_BEFORE_CONSONANT_LETTER):
+        return "an"
+    if low.startswith(A_BEFORE_VOWEL_LETTER):
+        return "a"
+    return "an" if low[0] in "aeiou" else "a"
 
 
 def parse(text):
@@ -77,9 +130,13 @@ def check(path):
     lines = text.split("\n")
     sections, entries, toc = parse(text)
     fails = []
+    warnings = []
 
     def fail(msg):
         fails.append(msg)
+
+    def warn(msg):
+        warnings.append(msg)
 
     # 1. sections unique and ordered
     letters = [s for s, _ in sections]
@@ -151,6 +208,9 @@ def check(path):
         if line.startswith("## ") and n >= 3 and not lines[n - 3].strip() \
                 and not lines[n - 2].strip():
             fail("line %d: entry %r has two blank lines above it" % (n, line[3:]))
+        if line.startswith("## ") and n < len(lines) and not lines[n].strip():
+            fail("line %d: entry %r has a blank line between it and its first "
+                 "field" % (n, line[3:]))
 
     # 8. globe convention. Mirrors the CLAUDE.md grep: the first exemption is
     # the shared repo footer, plain by cross-file convention; the second is the
@@ -162,6 +222,55 @@ def check(path):
             if "is part of the" in line or "intentional: no globe" in line:
                 continue
             fail("line %d: external link without the globe" % n)
+
+    # 10. a/an before a link. The link may be italic, bold or globed.
+    article_link = re.compile(
+        r"(?<![\w-])(a|an|A|An)\s+[*_]*(?:\N{GLOBE WITH MERIDIANS})?\[([^\]]+)\]\(")
+    for n, line in enumerate(lines, start=1):
+        for m in article_link.finditer(line):
+            said, text_ = m.group(1).lower(), m.group(2)
+            first = text_.split()[0] if text_.split() else ""
+            want = expected_article(first)
+            if want is None:
+                warn("line %d: '%s %s' -- cannot judge the article from the "
+                     "spelling; check it by ear" % (n, m.group(1), text_))
+            elif said != want:
+                fail("line %d: '%s %s' should be '%s'"
+                     % (n, m.group(1), text_, want if m.group(1).islower()
+                        else want.capitalize()))
+
+    # 11. lowercase sentence starts. Inline code is removed first, since a
+    # full stop inside `foo.bar` ends nothing.
+    lowercase_heads = tuple(t.lower() for t, _, _ in entries if t[:1].islower())
+    allowed = LOWERCASE_OK + lowercase_heads
+
+    def starts_ok(rest):
+        word = re.match(r"[\w-]+", rest)
+        return bool(word) and word.group(0).lower().startswith(allowed)
+
+    sentence_start = re.compile(r"(?<!\.)([.?!])\s+" + LEAD + r"([a-z])")
+    field_start = re.compile(r"^\*\*([A-Za-z][A-Za-z ]*):\*\*\s+" + LEAD + r"([a-z])")
+    cited_term = re.compile(r"^\*\*[A-Za-z][A-Za-z ]*:\*\*\s+\*(?![\"\u201c*])"
+                            r"([^*]{1,60})\*")
+    for n, line in enumerate(lines, start=1):
+        if line.startswith("**Part of speech:**"):
+            continue  # grammatical notation, not prose
+        plain = re.sub(r"`[^`]*`", "``", line)
+        m = field_start.match(plain)
+        if m:
+            term = cited_term.match(plain)
+            if not (term and len(term.group(1).split()) <= 4) \
+                    and not starts_ok(plain[m.start(2):]):
+                fail("line %d: the %s field starts in lowercase" % (n, m.group(1)))
+        for m in sentence_start.finditer(plain):
+            before = plain[:m.start(1)]
+            prev_word = re.search(r"([\w.]+)$", before)
+            if prev_word and prev_word.group(1).lower().rstrip(".") in ABBREVIATIONS:
+                continue
+            if starts_ok(plain[m.start(2):]):
+                continue
+            snippet = plain[max(0, m.start(1) - 20):m.start(2) + 20]
+            fail("line %d: sentence starts in lowercase: ...%s..." % (n, snippet))
 
     # 9. the footer's "Last updated". This is the one line here that goes stale
     # without anybody editing it -- every other check is about something an edit
@@ -202,7 +311,7 @@ def check(path):
                 fail("footer says last updated %s, but the file was last committed %s"
                      % (stated, committed))
 
-    return fails
+    return fails, warnings
 
 
 def main():
@@ -211,7 +320,9 @@ def main():
     if not os.path.exists(path):
         print("no such file: %s" % path, file=sys.stderr)
         return 2
-    fails = check(path)
+    fails, warnings = check(path)
+    for w in warnings:
+        print("WARN: %s" % w)
     if fails:
         for f in fails:
             print("FAIL: %s" % f)

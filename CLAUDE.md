@@ -91,7 +91,7 @@ Em-dashes are written as the actual character (—), not as `--`.
 
 Inline quotes use plain double quotes. Italicize when the quote is a direct quotation of something said; otherwise, no italics.
 
-After adding entries, run `python3 scripts/check-glossary.py`. It checks section order and placement, alphabetical order within a section, anchor resolution, the contents listing, duplicate headwords, the globe convention above, and the footer's *Last updated* date against the file's own last commit; it exits non-zero on failure. Then run a quick visual check on the rendered output for the things it cannot see.
+After adding entries, run `python3 scripts/check-glossary.py`. It checks section order and placement, alphabetical order within a section, anchor resolution, the contents listing, duplicate headwords, blank-line structure, the globe convention above, the footer's *Last updated* date, *a*/*an* before links, and lowercase sentence starts; it exits non-zero on failure. Articles it cannot judge from the spelling — acronyms, numerals — are printed as warnings, which do not fail the run. Then run a quick visual check on the rendered output for the things it cannot see.
 
 **Running it is how a session that does not have this file loaded still gets these right.** A glossary entry arrives while working on something else, so the context that produced it and the context that knows these conventions are rarely loaded together — which is an argument for reaching for the checker rather than for this document. It catches everything here that can be caught mechanically.
 
