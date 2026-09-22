@@ -532,7 +532,7 @@ merely pointing at it.
 possibilities before you hold it.  
 **Etymology:** Folkloric — knowing a thing's true name grants power over it (Le Guin's Earthsea, and older magic); Wentworth's coinage explicitly nods to this. Philosophically, the naturalist position that names capture essence is Plato's *Cratylus*; Aristotle moves the other way (*De Interpretatione*: names signify by convention). Mathematics weaponizes the conventional pole: *symplectic* is a deliberate *anti*-True-Name — Weyl's 1939 Greek calque of "complex," coined because "complex group" had become, in his words, embarrassing through collision with "complex number." Collision-freedom chosen over transparency. Search and AI invert that cost: when a name
 resolves on sight, self-documentation becomes a feature again.  
-**Usage:** *"aria-worthy design is only a partial True Name — the bar transmits, the relative-to-the-floor part doesn't ride along."*  
+**Usage:** *"Aria-worthy design is only a partial True Name — the bar transmits, the relative-to-the-floor part doesn't ride along."*  
 **Connections:** Three-way carving: a True Name is apt forward (name → concept, invertible, *saves* the search); a *[cryptic-clue name](#cryptic-clue-name)* is apt only backward (concept → name, one-way, *rewards* the search); an anti-True-Name (e.g. *symplectic*) is opaque both ways, chosen for collision-freedom. *[Aria-worthy design](#aria-worthy-design)* is a *partial* True Name — the
 evocative half transmits, the precise half still needs the definition.  
 **Context:** Language UX in a search/AI-mediated world; term design in the duolect.
