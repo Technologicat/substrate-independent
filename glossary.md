@@ -145,6 +145,7 @@ Z
 
 ## Context corruption
 **Meaning:** An LLM failure mode: once a *[confabulation](#confabulation)* enters an AI conversation's history, it becomes "true" for subsequent context — the model sees its own prior confident statement and treats it as established fact. Classic instance: a model confabulates that a codebase uses library X when it uses library Y; the erroneous claim, now present in the conversation history, is treated as established fact in all subsequent turns — and since it is entangled with legitimate context, removing it is costly or impossible in practice.  
+**Connections:** *[Precedent poisoning](#precedent-poisoning)* is the same failure written to disk: an approach instead of a fact, committed instead of said, and still there when the next session starts.  
 **Context:** Citation reliability and LLM failure modes.
 
 ## co-pter
