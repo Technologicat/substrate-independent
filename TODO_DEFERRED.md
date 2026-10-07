@@ -1,5 +1,7 @@
 # Deferred TODOs
 
+<!-- New items go below this line. -->
+
 ## No CI for `scripts/`
 
 *Cluster: ? · Cost: ? · Gate: a design call — see below · Filed: 2026-08-12*
