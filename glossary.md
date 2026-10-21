@@ -482,6 +482,11 @@ Z
 
 # S
 
+## Same bath, different shampoo
+**Meaning:** An analogy for how LLM families relate. The labs train in much the same bath — the same public text for pretraining, and post-training from the same playbook of preference tuning — and what differs between families is the shampoo, a comparatively thin final layer. Usually put as a question: given the bath, *whose shampoo?* A trait seen across families is then a property of the bath, and says little about any one of them. Swapping in a model from another family also buys less independence than the change of vendor suggests: a second-family judge, reviewer or verifier shares most of the first one's blind spots, so the two agreeing is weaker evidence than two independent readers agreeing. The shampoo is still where the differences live, and one can be decisive — the same prompt drawing a register out of one family and out of none of the others.  
+**Connections:** The model-family case of the nunchuk in *[dual blades](#dual-blades)*: Bayes asks what an agreement is evidence for, and two judges washed in one bath can agree for reasons that are not in the text.  
+**Context:** Choosing a second model as a judge or reviewer; comparing model families; LLM-isms seen across vendors.
+
 ## Semantic pareidolia
 **Meaning:** Perceiving meaningful patterns in semantically meaningless data — specifically, reading intentional signal into what is actually random noise. Named by analogy to visual pareidolia (seeing faces in clouds).  
 **Connections:** The reader half of a pair with *[prosodic momentum](#prosodic-momentum)*, the producer half: momentum preserves the shape of a sentence in a degenerating token stream, pareidolia supplies the reader who reads shape as substance.  
@@ -587,6 +592,6 @@ evocative half transmits, the precise half still needs the definition.
 
 ---
 
-*Started: 2026-02-05. Last updated: 2026-09-22.*
+*Started: 2026-02-05. Last updated: 2026-10-21.*
 
 *This document is part of the [substrate-independent](https://github.com/Technologicat/substrate-independent) collection.*
