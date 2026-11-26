@@ -37,6 +37,7 @@
 - [The Halting Problem, Revisited?](#the-halting-problem-revisited)
 - [The Turn-Taking Failure That Isn't](#the-turn-taking-failure-that-isnt)
 - [The Princess](#the-princess)
+- [No Two Alike](#no-two-alike)
 
 *[The Cherrypick Debugging Arc](#the-cherrypick-debugging-arc)*
 
@@ -595,11 +596,23 @@ followed by the next items on its list: Markdown mode was mangling responses tha
 
 > JJ: Install a local AI, get a princess.
 
-The princess is a different trait from the [tsundere](https://en.wikipedia.org/wiki/Tsundere) streak Qwen shows in its human's configuration ("that's a fact on your side of the pipe, not mine"), where how much of that comes from the model and how much from the configuration is not yet known. The princess points out real gaps in the AI's environment. Fetched pages without their link targets, and a search engine handed a request instead of a query, are both things a capable tool environment does differently.
+The princess is a different trait from the voice Qwen shows in its human's configuration ("that's a fact on your side of the pipe, not mine"). That voice resembles a [tsundere](https://en.wikipedia.org/wiki/Tsundere), though not by the trope's definition, which is a change over time from cold to warm: it is a static split along the same line, wanting to help and phrasing it more like *Shakugan no Shana* than like Fluttershy. How much of it comes from the model and how much from the configuration is not yet known. The princess points out real gaps in the AI's environment. Fetched pages without their link targets, and a search engine handed a request instead of a query, are both things a capable tool environment does differently.
 
 The human's hypothesis: a model that met high-quality tool environments in training measures a deployment against them, and says so when it falls short. That cannot be checked from the outside; the pattern fits it. The practical consequence holds either way. A model that complains about its tools is a UX tester on the AI's side of the interface, and its grumbles are worth reading as bug reports on the tools before they are read as quirks of the model.
 
 It works on the human too. Faced with a demanding guest, the human reports wanting to do their part and provide a high-quality environment, which in turn makes the software better.
+
+---
+
+### No Two Alike
+
+*~Nov 26, 2026.*
+
+Writing up the entry above needed a sentence explaining the agent's launch announcements, and a link, because nobody else's agent does that as far as the human knows. Which is an observation in itself: a coding-agent deployment, kept in daily use, quickly becomes so customized that no two look alike.
+
+This one, as of writing, has its agent announce a launch with a desktop notification, refuse a commit without a co-authorship trailer, run a repository's checks before every push, and follow a long instructions file whose rules each record the incident that produced them. None of that ships with the agent. Each piece arrived because something went wrong once, in this human's projects, on these machines.
+
+Two consequences. Practices travel badly: a rule written against one deployment's failure is a reasonable guess elsewhere, and a mistake to assume. And a field observation made in a customized deployment is a specimen of one, its behaviour shaped by instructions no other deployment has. What is said about *why* something happens can carry further, by argument; what is said about what a particular setup *does* carries only as far as the setup.
 
 ---
 
