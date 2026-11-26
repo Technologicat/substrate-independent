@@ -2,6 +2,18 @@
 
 <!-- New items go below this line. -->
 
+## Glossary candidates from grimoire's Unicode test fixtures: tsundoku, ℵ₀ backlog, 𝔹𝔹ℚ
+
+*Cluster: glossary · Cost: S · Gate: whether each earns a full entry · Filed: 2026-11-26 · See also: Raven's `raven/librarian/tests/lorebook_conformance.json`, glossary `unicode`*
+
+Written as test fixtures for the lorebook's conformance cases beyond ASCII, and potentially useful as Field Guide entries, though not yet full ones: each has a meaning and nothing else. Drafts, as they stand in the fixture:
+
+- **積ん読 (tsundoku)**: Books bought and left to pile up unread; for a researcher, papers. Grows faster than it is read, as an *ℵ₀ backlog* does.
+- **ℵ₀ backlog**: A backlog that is countably infinite: every item can be numbered, and none of them will be reached. The limit of the *hydra tax*. A natural companion to *attention rent* and *yak parking lot*.
+- **𝔹𝔹ℚ**: The field of barbecues. Dense, as the rationals are: between any two barbecues there is another. Every grilling has an inverse, which is the washing-up. `\mathbb{BBQ}`; the joke is ℚ, "math BBQ" to the LaTeX-literate.
+
+Tsundoku is an existing Japanese word, so its entry would be about the sense it takes in research work rather than a coinage.
+
 ## No CI for `scripts/`
 
 *Cluster: ? · Cost: ? · Gate: a design call — see below · Filed: 2026-08-12*
