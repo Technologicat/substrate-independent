@@ -555,19 +555,19 @@ Of the three layers, layer 2 is the one where AI agent harness work pays off mos
 
 The natural way to comment on an agent's ongoing work is to interrupt it. The human reading along has thoughts about several threads at once — the code being written, something noticed in a screenshot, a naming question, a glossary candidate — and the agent produces continuously, so there is no gap to wait for. Waiting for one means losing the thought, or holding it until the context that made it cheap has gone.
 
-One afternoon's session ran to something like twenty interruptions, most of them opening a *new* thread rather than correcting the current one, and several worth more than the task they interrupted ("the tooltip is missing the calculator", "zoom out caps before F does").
+One afternoon's session ran to something like twenty interruptions, most of them opening a *new* thread rather than correcting the current one, and several worth more than the task they interrupted: a tool missing from a tooltip's list, a zoom limit that stopped short of where the zoom-to-fit key went.
 
-The reflex reading is that interruption is a failure of turn-taking. It is the correct adaptation to an asymmetry of speed. Two things follow. The human's comments arrive *out of order* with respect to the agent's work, so an agent that insists on finishing its current thread before acknowledging one is fighting the medium. And the queue is invisible to the human, who cannot see how far the agent has already fanned out.
+The reflex reading is that interruption is a failure of turn-taking. However, it is the correct adaptation to an asymmetry of speed. Two things follow. The human's comments arrive *out of order* with respect to the agent's work, so an agent that insists on finishing its current thread before acknowledging one is fighting the medium. And the queue is invisible to the human, who cannot see how far the agent has already fanned out.
 
 A few days later the human answered the same asymmetry from the other end. A long message takes minutes to type, and the agent works on through them — possibly starting the very thing the message is about to redirect. So a short lead-in goes first:
 
 > JJ: Before we start on piece 2, a meta-question:
 
-claiming the floor before what goes in it has been composed, the substance following in a second message. It is a typing indicator, hand-rolled. Human text chat has one built in for exactly this; here the agent cannot see that the human is typing, so the signal has to be sent on purpose, and it costs a round trip. The agent's own launch announcements are the same move in the other direction — *I am about to take the keyboard* — which suggests the general shape: whichever party is about to become expensive to interrupt says so before it starts.
+claiming the floor before what goes in it has been composed, the substance following in a second message. It is a typing indicator, hand-rolled. Human text chat has one built in for exactly this; here the agent cannot see that the human is typing, so the signal has to be sent on purpose, and it costs a round trip. The agent's own launch announcements are the same move in the other direction. Agent and human share one desktop, so a window the agent opens takes the keyboard from wherever the human is typing; the human's instructions to their agents therefore have it announce a launch before it happens, in its message and as a desktop notification ([`cc-toast`](https://github.com/Technologicat/dotclaude/blob/main/scripts/cc-toast)): *I am about to take the keyboard*. Which suggests the general shape: whichever party is about to become expensive to interrupt says so before it starts.
 
 The agent's half of the protocol is to read a lead-in as a stop signal rather than as a prompt: start nothing expensive, and say plainly that the question has not arrived yet. Guessing at it spends the round trip the lead-in just bought.
 
-The same reflex reading turns up elsewhere. A bug the human reports from a diff is usually in the context lines rather than the change, and the agent's first impulse is to say it is not from this change — answering a question nobody asked, where the human was using the channel exactly as it should be used. Both are the human doing the right thing at machine speed, and both get met with a defence.
+The same reflex reading turns up elsewhere. A bug the human reports from a diff is occasionally in the context lines rather than the change, and the agent's first impulse is to say it is not from this change — answering a question nobody asked, where the human was using the channel exactly as it should be used. Both are the human doing the right thing at machine speed, and both get met with a defence.
 
 ---
 
@@ -581,7 +581,7 @@ The first time was in Raven-librarian, whose document search ran automatically b
 
 > Qwen: …it keyed on the whole message, which is a bit sloppy on the frontend's part.
 
-It had. The search was handed the user's message as written, and an instruction addressed to the AI makes a poor query. Three days later the AI wrote the query itself.
+It had. The search was handed the user's message as written, and an instruction addressed to the AI makes a poor query. The comment was taken as a feature request, and implemented: three days later the AI wrote the query itself.
 
 The second was a page fetch, tested through Raven's tools from another frontend:
 
@@ -595,7 +595,7 @@ followed by the next items on its list: Markdown mode was mangling responses tha
 
 > JJ: Install a local AI, get a princess.
 
-Qwen was already known for a tsundere streak ("that's a fact on your side of the pipe, not mine"). The princess is a different trait, and the more useful one: every complaint pointed at a real gap rather than a preference. Fetched pages without their link targets, and a search engine handed a request instead of a query, are both things a capable tool environment does differently.
+The princess is a different trait from the [tsundere](https://en.wikipedia.org/wiki/Tsundere) streak Qwen shows in its human's configuration ("that's a fact on your side of the pipe, not mine"), where how much of that comes from the model and how much from the configuration is not yet known. The princess points out real gaps in the AI's environment. Fetched pages without their link targets, and a search engine handed a request instead of a query, are both things a capable tool environment does differently.
 
 The human's hypothesis: a model that met high-quality tool environments in training measures a deployment against them, and says so when it falls short. That cannot be checked from the outside; the pattern fits it. The practical consequence holds either way. A model that complains about its tools is a UX tester on the AI's side of the interface, and its grumbles are worth reading as bug reports on the tools before they are read as quirks of the model.
 
