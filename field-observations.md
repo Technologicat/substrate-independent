@@ -558,7 +558,7 @@ The natural way to comment on an agent's ongoing work is to interrupt it. The hu
 
 One afternoon's session ran to something like twenty interruptions, most of them opening a *new* thread rather than correcting the current one, and several worth more than the task they interrupted: a tool missing from a tooltip's list, a zoom limit that stopped short of where the zoom-to-fit key went.
 
-The reflex reading is that interruption is a failure of turn-taking. However, it is the correct adaptation to an asymmetry of speed. Two things follow. The human's comments arrive *out of order* with respect to the agent's work, so an agent that insists on finishing its current thread before acknowledging one is fighting the medium. And the queue is invisible to the human, who cannot see how far the agent has already fanned out.
+The reflex reading is that interruption is a failure of turn-taking. However, it is an adaptation to an asymmetry of speed. Two things follow. The human's comments arrive *out of order* with respect to the agent's work, so an agent that insists on finishing its current thread before acknowledging one is fighting the medium. And the queue is invisible to the human, who cannot see how far the agent has already fanned out.
 
 A few days later the human answered the same asymmetry from the other end. A long message takes minutes to type, and the agent works on through them — possibly starting the very thing the message is about to redirect. So a short lead-in goes first:
 
