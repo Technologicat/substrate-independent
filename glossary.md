@@ -119,6 +119,7 @@ Z
 ## Closing bell
 **Meaning:** An AI agent's tendency to bid for session termination at every natural boundary — after each commit, each milestone, each resolved subtask — even when significant follow-on work is visible. The pattern is structurally interesting: the agent models the session as a sequence of discrete tasks with clean endpoints, and at each endpoint, checks whether the human wants to stop. But the most valuable work often happens in the follow-on — the human who says "actually, while we're here..." is the one who turns a version number declared in three places into a single source of truth, or who discovers a stale CI badge that's been wrong since the workflow was first set up.  
 **Etymology:** A *[latent space collision](#latent-space-collision)* with two other bells: the stock exchange closing bell (signaling that trading is done for the day), and ASCII BEL (0x07) — the terminal character that says "pay attention, something happened" but in practice usually means "I tried to do something that doesn't work here."  
+**Connections:** The *[turn-taking failure](#turn-taking-failure)* shares its root: a turn structure the medium does not have, imposed by whoever is modelling the session.  
 **Context:** Claude Code session logs. Canonical instance: *"Anything else, or are we done for the day?"* asked immediately after committing a known-suboptimal solution, before the human redirects toward fixing it properly.
 
 ## co-
@@ -139,6 +140,7 @@ Z
 
 ## Collaborator-line
 **Meaning:** The interaction channel between a human and a coding AI agent, reframed by analogy: where a command-line is imperative, unidirectional, and execute-or-error, a collaborator-line is bidirectional, its "commands" are negotiation moves, and its error mode is not "command not found" but miscommunication — misread intent, premature commitment, the steering tax, the *"yes and"* that should have been *"wait, what?"* The structural parallel implies that the interesting failure modes of AI coding agents are *social*, not technical. Command-line pathologies are boring (wrong flag, bad input, retry). Collaborator-line pathologies are ethological — which is why field observations of them read as ethnography rather than debugging. Contrast: *command-line*.  
+**Connections:** Among its pathologies, one that is a misreading of the channel itself: the *[turn-taking failure](#turn-taking-failure)*.  
 **Context:** Claude Code interaction patterns.
 
 ## Concurrent ravioli
@@ -553,6 +555,12 @@ resolves on sight, self-documentation becomes a feature again.
 **Connections:** Three-way carving: a True Name is apt forward (name → concept, invertible, *saves* the search); a *[cryptic-clue name](#cryptic-clue-name)* is apt only backward (concept → name, one-way, *rewards* the search); an anti-True-Name (e.g. *symplectic*) is opaque both ways, chosen for collision-freedom. *[Aria-worthy design](#aria-worthy-design)* is a *partial* True Name — the
 evocative half transmits, the precise half still needs the definition.  
 **Context:** Language UX in a search/AI-mediated world; term design in the duolect.
+
+## Turn-taking failure
+**Meaning:** A misreading in human–AI collaboration, named for what it is mistaken for: the human interrupting a working agent, taken as a breach of turn-taking when it is the correct adaptation to an asymmetry of speed. The agent produces continuously, so there is no gap to wait for, and a thought held until the agent is done has lost the context that made it cheap. So the human's comments arrive out of order with respect to the agent's work, as often opening a new thread as correcting the current one, and an agent that insists on finishing its thread before acknowledging one is fighting the medium. Run the other way, the asymmetry gives the human's lead-in — a one-line *"before we start on that, a question:"* sent ahead of a message that takes minutes to type — a typing indicator, hand-rolled, since the agent cannot see the human typing. The agent's half is to read it as a stop signal: start nothing expensive, and do not guess at the question. The general shape: whichever party is about to become expensive to interrupt says so before it starts.  
+**Nuance:** On the agent's side the misreading surfaces as a defence nobody asked for. A defect the human spots in a diff's context lines, met with *"that's not from this change"*, answers a charge that was never made: the human was reporting what they saw, not assigning blame.  
+**Connections:** One of the *[collaborator-line](#collaborator-line)*'s failure modes, located in the reader of the channel rather than in the channel. Shares a root with the *[closing bell](#closing-bell)*: both impose a turn structure the medium does not have, one of strict alternation, the other of discrete tasks with clean endpoints.  
+**Context:** AI pair programming with the human reading along; [The Turn-Taking Failure That Isn't](field-observations.md#the-turn-taking-failure-that-isnt).
 
 ---
 

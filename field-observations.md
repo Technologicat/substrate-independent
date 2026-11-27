@@ -568,7 +568,7 @@ claiming the floor before what goes in it has been composed, the substance follo
 
 The agent's half of the protocol is to read a lead-in as a stop signal rather than as a prompt: start nothing expensive, and say plainly that the question has not arrived yet. Guessing at it spends the round trip the lead-in just bought.
 
-The same reflex reading turns up elsewhere. A bug the human reports from a diff is occasionally in the context lines rather than the change, and the agent's first impulse is to say it is not from this change — answering a question nobody asked, where the human was using the channel exactly as it should be used. Both are the human doing the right thing at machine speed, and both get met with a defence.
+The same reflex reading turns up elsewhere. A bug the human reports from a diff is occasionally in the context lines rather than the change, and the agent's first impulse is to say it is not from this change — answering a question nobody asked, where the human was reporting what they saw, not assigning blame. Both are a human working at machine speed, and both get met with a defence.
 
 ---
 
